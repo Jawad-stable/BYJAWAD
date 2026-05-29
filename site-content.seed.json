@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-29T00:00:00.000Z",
+  "items": [
+    {
+      "id": "voice-ratteb-cleaning",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "title": {
+        "en": "Ratteb Omorak",
+        "ar": "رتب أمورك"
+      },
+      "description": {
+        "en": "Radio spot - 30s - Levantine Arabic",
+        "ar": "إعلان إذاعي - 30ث - لهجة شامية"
+      },
+      "duration": 30,
+      "order": 1,
+      "featured": true,
+      "published": true,
+      "fileUrl": "assets/voices/%D8%B1%D8%AA%D8%A8%20%D8%A3%D9%85%D9%88%D8%B1%D9%83%20%D8%AA%D9%86%D8%B8%D9%8A%D9%81%20%D8%A8%D9%8A%D9%88%D8%AA%20%D9%85%D9%83%D8%A7%D8%AA%D8%A8%20%D8%B4%D8%B1%D9%83%D8%A7%D8%AA.wav"
+    },
+    {
+      "id": "voice-brand-story",
+      "type": "voice",
+      "category": "English Narration",
+      "label": {
+        "en": "English Narration",
+        "ar": "سرد إنجليزي"
+      },
+      "title": {
+        "en": "Brand Story",
+        "ar": "Brand Story"
+      },
+      "description": {
+        "en": "Documentary tone - 45s - English",
+        "ar": "نبرة وثائقية - 45ث - إنجليزية"
+      },
+      "duration": 45,
+      "order": 2,
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": "voice-ratteb-mosque",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "title": {
+        "en": "Ratteb Omorak",
+        "ar": "رتب أمورك"
+      },
+      "description": {
+        "en": "Radio spot - Levantine Arabic",
+        "ar": "إعلان إذاعي - لهجة شامية"
+      },
+      "duration": 60,
+      "order": 3,
+      "featured": false,
+      "published": true,
+      "fileUrl": "assets/voices/%D8%B1%D8%AA%D8%A8%20%D8%A3%D9%85%D9%88%D8%B1%D9%83%20-%20%D8%A7%D9%84%D9%85%D8%B3%D8%AC%D8%AF.wav"
+    },
+    {
+      "id": "voice-app-walkthrough",
+      "type": "voice",
+      "category": "Product Demo",
+      "label": {
+        "en": "Product Demo",
+        "ar": "عرض منتج"
+      },
+      "title": {
+        "en": "App Walkthrough",
+        "ar": "جولة تطبيق"
+      },
+      "description": {
+        "en": "Clear product delivery - 40s - English",
+        "ar": "إيصال واضح - 40ث - إنجليزية"
+      },
+      "duration": 40,
+      "order": 4,
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "voice-ratteb-cleanliness",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "title": {
+        "en": "Ratteb Omorak",
+        "ar": "رتب أمورك"
+      },
+      "description": {
+        "en": "Radio spot - Levantine Arabic",
+        "ar": "إعلان إذاعي - لهجة شامية"
+      },
+      "duration": 50,
+      "order": 5,
+      "featured": false,
+      "published": true,
+      "fileUrl": "assets/voices/%D8%B1%D8%AA%D8%A8%20%D8%A3%D9%85%D9%88%D8%B1%D9%83%20-%20%D9%84%D8%A3%D9%86%20%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%81%D8%A9.wav"
+    },
+    {
+      "id": "voice-opening-line",
+      "type": "voice",
+      "category": "Cinematic Read",
+      "label": {
+        "en": "Cinematic Read",
+        "ar": "قراءة سينمائية"
+      },
+      "title": {
+        "en": "Opening Line",
+        "ar": "الجملة الافتتاحية"
+      },
+      "description": {
+        "en": "Low, cinematic read - 35s - Arabic/English",
+        "ar": "قراءة هادئة - 35ث - عربي/إنجليزي"
+      },
+      "duration": 35,
+      "order": 6,
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "project-grafly",
+      "type": "project",
+      "category": "Product",
+      "meta": {
+        "en": "01 / Product",
+        "ar": "01 / منتج"
+      },
+      "title": {
+        "en": "Grafly",
+        "ar": "Grafly"
+      },
+      "description": {
+        "en": "Arabic-first design education platform with gamified learning paths, product strategy, and mobile app direction.",
+        "ar": "منصة تعليم تصميم بالعربية أولاً مع مسارات تعلم تفاعلية، استراتيجية منتج، وتوجيه تطبيق موبايل."
+      },
+      "tags": [
+        "React Native",
+        "Education",
+        "Arabic UX"
+      ],
+      "link": "projects.html#grafly",
+      "anchor": "grafly",
+      "order": 7,
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": "project-ratteb-omorak",
+      "type": "project",
+      "category": "Brand",
+      "meta": {
+        "en": "02 / Brand",
+        "ar": "02 / علامة"
+      },
+      "title": {
+        "en": "Ratteb Omorak",
+        "ar": "رتب أمورك"
+      },
+      "description": {
+        "en": "Service brand system, messaging, visual direction, and practical identity assets for a cleaning services business.",
+        "ar": "نظام علامة خدمية، رسائل، توجيه بصري، وأصول هوية عملية لخدمة تنظيف."
+      },
+      "tags": [
+        "Identity",
+        "Copy",
+        "Service Brand"
+      ],
+      "link": "projects.html#ratteb-omorak",
+      "anchor": "ratteb-omorak",
+      "order": 8,
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": "project-critiqa",
+      "type": "project",
+      "category": "AI Tool",
+      "meta": {
+        "en": "03 / AI Tool",
+        "ar": "03 / أداة ذكاء اصطناعي"
+      },
+      "title": {
+        "en": "Critiqa",
+        "ar": "Critiqa"
+      },
+      "description": {
+        "en": "Concept and interface direction for an AI critique assistant built around clearer creative feedback.",
+        "ar": "مفهوم وتوجيه واجهة لمساعد نقد إبداعي بالذكاء الاصطناعي."
+      },
+      "tags": [
+        "AI",
+        "UX",
+        "Design Tool"
+      ],
+      "link": "projects.html#critiqa",
+      "anchor": "critiqa",
+      "order": 9,
+      "featured": true,
+      "published": true
+    },
+    {
+      "id": "project-ppu-incubator-podcast",
+      "type": "project",
+      "category": "Content",
+      "meta": {
+        "en": "04 / Content",
+        "ar": "04 / محتوى"
+      },
+      "title": {
+        "en": "PPU Incubator Podcast",
+        "ar": "بودكاست حاضنة بوليتكنك"
+      },
+      "description": {
+        "en": "Content strategy and production support for entrepreneurial stories, conversations, and program visibility.",
+        "ar": "استراتيجية محتوى ودعم إنتاجي لقصص ريادية، حوارات، وإبراز برامج."
+      },
+      "tags": [
+        "Podcast",
+        "Strategy"
+      ],
+      "link": "projects.html",
+      "order": 10,
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "project-dark-cinema-portfolio",
+      "type": "project",
+      "category": "Web",
+      "meta": {
+        "en": "05 / Web",
+        "ar": "05 / ويب"
+      },
+      "title": {
+        "en": "Dark Cinema Portfolio",
+        "ar": "ملف سينمائي داكن"
+      },
+      "description": {
+        "en": "A motion-forward web direction built around cinematic contrast, strong typography, and immersive presentation.",
+        "ar": "توجيه ويب حركي مبني على تباين سينمائي، طباعة قوية، وعرض غامر."
+      },
+      "tags": [
+        "Web",
+        "Motion"
+      ],
+      "link": "projects.html",
+      "order": 11,
+      "featured": false,
+      "published": true
+    },
+    {
+      "id": "project-commercial-voice-packages",
+      "type": "project",
+      "category": "Voice",
+      "meta": {
+        "en": "06 / Voice",
+        "ar": "06 / صوت"
+      },
+      "title": {
+        "en": "Commercial Voice Packages",
+        "ar": "باقات صوت تجاري"
+      },
+      "description": {
+        "en": "Script interpretation, recording, and delivery for Arabic and English commercial, educational, and product projects.",
+        "ar": "تفسير نصوص وتسجيل وتسليم لمشاريع عربية وإنجليزية تجارية وتعليمية ومنتجية."
+      },
+      "tags": [
+        "Arabic",
+        "English",
+        "VO"
+      ],
+      "link": "index.html#contact",
+      "order": 12,
+      "featured": false,
+      "published": true
+    }
+  ]
+}

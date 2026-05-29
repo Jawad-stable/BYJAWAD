@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script>
+(function(){
+  var saved=localStorage.getItem('siteLocale');
+  var locale=saved||((navigator.language||'').slice(0,2).toLowerCase()==='ar'?'ar':'en');
+  document.documentElement.lang=locale;
+  document.documentElement.dir=locale==='ar'?'rtl':'ltr';
+})();
+</script>
+<title>Voice Samples — Jawad Khmaysa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/23.12.2/i18next.min.js"></script>
+<script src="site-config.js" defer></script>
+<script src="content-loader.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body data-page="samples">
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<nav id="nav">
+  <div class="np">
+    <a class="nl" href="index.html" aria-label="Jawad Khmaysa">
+      <img class="nav-logo" src="assets/My%20LOGO/PNG/maroon%20single.png" alt="Jawad Khmaysa logo" width="120" height="120"/>
+    </a>
+    <ul class="nlinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="samples.html">Samples</a></li>
+      <li><a href="index.html#socials">Socials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">AR</button>
+    <a href="index.html#contact" class="ncta">Book a Session</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="pg">
+    <div class="page-eyebrow">Voice Sample Library</div>
+    <h1 class="page-title">More range for serious clients.</h1>
+    <p class="page-sub">A dedicated listening page for clients who need more than two homepage highlights before booking a session.</p>
+    <div class="page-actions">
+      <a href="index.html#contact" class="btn-gold">Request Custom Demo</a>
+      <a href="projects.html" class="btn-ghost">View Projects</a>
+    </div>
+  </div>
+</section>
+
+<main class="page-main">
+  <section>
+    <div class="pg">
+      <div class="sample-library">
+        <div class="pc pc-light r d1">
+          <div class="pc-decor"></div>
+          <div class="pc-label">Arabic Commercial</div>
+          <div class="pc-title">Ratteb Omorak</div>
+          <div class="pc-sub">Radio spot · 30s · Levantine Arabic</div>
+          <div class="wf" id="wf0"></div>
+          <div class="prow">
+            <span class="ptime" id="pt0">0:00</span>
+            <button class="pbtn" data-idx="0" data-dur="30" aria-label="Play sample"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="pdur">0:30</span>
+          </div>
+          <audio id="audio0" preload="none"></audio>
+        </div>
+
+        <div class="pc pc-mid r d2">
+          <div class="pc-decor"></div>
+          <div class="pc-label">English Narration</div>
+          <div class="pc-title">Brand Story</div>
+          <div class="pc-sub">Documentary tone · 45s · English</div>
+          <div class="wf" id="wf1"></div>
+          <div class="prow">
+            <span class="ptime" id="pt1">0:00</span>
+            <button class="pbtn" data-idx="1" data-dur="45" aria-label="Play sample"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="pdur">0:45</span>
+          </div>
+          <audio id="audio1" src="" preload="none"></audio>
+        </div>
+
+        <div class="pc pc-dark r d3">
+          <div class="pc-decor"></div>
+          <div class="pc-label">Arabic Commercial</div>
+          <div class="pc-title">Ratteb Omorak</div>
+          <div class="pc-sub">Radio spot · Levantine Arabic</div>
+          <div class="wf" id="wf2"></div>
+          <div class="prow">
+            <span class="ptime" id="pt2">0:00</span>
+            <button class="pbtn" data-idx="2" data-dur="60" aria-label="Play sample"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="pdur">1:00</span>
+          </div>
+          <audio id="audio2" preload="none"></audio>
+        </div>
+
+        <div class="pc pc-light r d1">
+          <div class="pc-decor"></div>
+          <div class="pc-label">Product Demo</div>
+          <div class="pc-title">App Walkthrough</div>
+          <div class="pc-sub">Clear product delivery · 40s · English</div>
+          <div class="wf" id="wf3"></div>
+          <div class="prow">
+            <span class="ptime" id="pt3">0:00</span>
+            <button class="pbtn" data-idx="3" data-dur="40" aria-label="Play sample"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="pdur">0:40</span>
+          </div>
+          <audio id="audio3" src="" preload="none"></audio>
+        </div>
+
+        <div class="pc pc-mid r d2">
+          <div class="pc-decor"></div>
+          <div class="pc-label">Arabic Commercial</div>
+          <div class="pc-title">Ratteb Omorak</div>
+          <div class="pc-sub">Radio spot · Levantine Arabic</div>
+          <div class="wf" id="wf4"></div>
+          <div class="prow">
+            <span class="ptime" id="pt4">0:00</span>
+            <button class="pbtn" data-idx="4" data-dur="50" aria-label="Play sample"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="pdur">0:50</span>
+          </div>
+          <audio id="audio4" preload="none"></audio>
+        </div>
+
+        <div class="pc pc-dark r d3">
+          <div class="pc-decor"></div>
+          <div class="pc-label">Cinematic Read</div>
+          <div class="pc-title">Opening Line</div>
+          <div class="pc-sub">Low, cinematic read · 35s · Arabic/English</div>
+          <div class="wf" id="wf5"></div>
+          <div class="prow">
+            <span class="ptime" id="pt5">0:00</span>
+            <button class="pbtn" data-idx="5" data-dur="35" aria-label="Play sample"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="pdur">0:35</span>
+          </div>
+          <audio id="audio5" src="" preload="none"></audio>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="r">
+  <a href="index.html" class="footer-brand" aria-label="Jawad Khmaysa — back to home">
+    <img class="footer-logo" src="assets/My%20LOGO/PNG/white.png" alt="Jawad Khmaysa" width="140" height="125"/>
+  </a>
+  <span class="fc">© 2026 · Voice Samples</span>
+</footer>
+</body>
+</html>

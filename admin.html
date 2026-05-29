@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Jawad Khmaysa Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="admin.css" />
+  <script src="site-config.js" defer></script>
+  <script src="admin.js" defer></script>
+</head>
+<body data-page="admin">
+  <main class="admin-shell">
+    <section class="admin-top">
+      <div>
+        <a class="admin-back" href="index.html">Back to site</a>
+        <h1>Content Admin</h1>
+        <p>Upload files to Cloudflare R2, edit metadata, set categories, and sort what appears on the portfolio.</p>
+      </div>
+      <div class="admin-status" id="status">Not connected</div>
+    </section>
+
+    <section class="admin-panel">
+      <div class="admin-panel-head">
+        <h2>Connection</h2>
+        <button class="admin-btn" type="button" id="loadContent">Load content</button>
+      </div>
+      <div class="admin-grid two">
+        <label>
+          API base URL
+          <input id="apiBaseUrl" type="url" placeholder="https://your-worker.workers.dev" autocomplete="off" />
+        </label>
+        <label>
+          Admin token
+          <input id="adminToken" type="password" placeholder="Stored in this browser only" autocomplete="current-password" />
+        </label>
+      </div>
+    </section>
+
+    <section class="admin-layout">
+      <form class="admin-panel" id="itemForm">
+        <div class="admin-panel-head">
+          <h2 id="formTitle">Add item</h2>
+          <button class="admin-btn secondary" type="button" id="resetForm">Clear</button>
+        </div>
+
+        <input type="hidden" id="itemId" />
+
+        <div class="admin-grid two">
+          <label>
+            Type
+            <select id="type">
+              <option value="voice">Voice sample</option>
+              <option value="project">Design project</option>
+              <option value="asset">General asset</option>
+            </select>
+          </label>
+          <label>
+            Category
+            <input id="category" type="text" placeholder="Commercial, Product, Brand..." />
+          </label>
+        </div>
+
+        <div class="admin-grid two">
+          <label>
+            Title EN
+            <input id="titleEn" type="text" required />
+          </label>
+          <label>
+            Title AR
+            <input id="titleAr" type="text" dir="rtl" />
+          </label>
+        </div>
+
+        <div class="admin-grid two">
+          <label>
+            Label or meta EN
+            <input id="labelEn" type="text" placeholder="Arabic Commercial or 01 / Product" />
+          </label>
+          <label>
+            Label or meta AR
+            <input id="labelAr" type="text" dir="rtl" />
+          </label>
+        </div>
+
+        <div class="admin-grid two">
+          <label>
+            Description EN
+            <textarea id="descriptionEn" rows="4"></textarea>
+          </label>
+          <label>
+            Description AR
+            <textarea id="descriptionAr" rows="4" dir="rtl"></textarea>
+          </label>
+        </div>
+
+        <div class="admin-grid two">
+          <label>
+            Tags
+            <input id="tags" type="text" placeholder="Brand, Identity, Arabic UX" />
+          </label>
+          <label>
+            Link
+            <input id="link" type="text" placeholder="projects.html#grafly or external URL" />
+          </label>
+        </div>
+
+        <div class="admin-grid three">
+          <label>
+            Duration seconds
+            <input id="duration" type="number" min="0" step="1" placeholder="30" />
+          </label>
+          <label>
+            Order
+            <input id="order" type="number" min="0" step="1" />
+          </label>
+          <label>
+            Anchor
+            <input id="anchor" type="text" placeholder="grafly" />
+          </label>
+        </div>
+
+        <div class="admin-grid two">
+          <label>
+            Card color
+            <select id="color">
+              <option value="">Auto</option>
+              <option value="light">Pearl Off-White</option>
+              <option value="maroon">Deep Navy</option>
+              <option value="steel">Steel Light Blue</option>
+              <option value="gold">Champagne Gold</option>
+              <option value="copper">Warm Copper</option>
+              <option value="dark">Charcoal</option>
+            </select>
+          </label>
+          <label>
+            Tag color
+            <select id="tagColor">
+              <option value="">Auto</option>
+              <option value="maroon">Deep Navy</option>
+              <option value="steel">Steel Light Blue</option>
+              <option value="gold">Champagne Gold</option>
+              <option value="copper">Warm Copper</option>
+              <option value="light">Pearl Off-White</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="admin-checks">
+          <label><input id="featured" type="checkbox" /> Featured</label>
+          <label><input id="published" type="checkbox" checked /> Published</label>
+        </div>
+
+        <div class="upload-box">
+          <label>
+            File upload
+            <input id="file" type="file" accept="audio/*,image/*,video/*,.pdf,.zip" />
+          </label>
+          <button class="admin-btn secondary" type="button" id="uploadFile">Upload file</button>
+        </div>
+
+        <div class="admin-grid two">
+          <label>
+            File URL
+            <input id="fileUrl" type="url" placeholder="Filled after upload or pasted manually" />
+          </label>
+          <label>
+            Object key
+            <input id="objectKey" type="text" placeholder="R2 key returned after upload" />
+          </label>
+        </div>
+
+        <div class="admin-actions">
+          <button class="admin-btn" type="submit">Add or update item</button>
+          <button class="admin-btn save" type="button" id="saveContent">Save all changes</button>
+        </div>
+      </form>
+
+      <section class="admin-panel">
+        <div class="admin-panel-head">
+          <h2>Items</h2>
+          <div class="admin-filter">
+            <select id="filterType">
+              <option value="all">All</option>
+              <option value="voice">Voice</option>
+              <option value="project">Projects</option>
+              <option value="asset">Assets</option>
+            </select>
+          </div>
+        </div>
+        <div id="itemList" class="item-list"></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

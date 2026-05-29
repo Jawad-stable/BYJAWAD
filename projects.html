@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script>
+(function(){
+  var saved=localStorage.getItem('siteLocale');
+  var locale=saved||((navigator.language||'').slice(0,2).toLowerCase()==='ar'?'ar':'en');
+  document.documentElement.lang=locale;
+  document.documentElement.dir=locale==='ar'?'rtl':'ltr';
+})();
+</script>
+<title>All Projects — Jawad Khmaysa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/23.12.2/i18next.min.js"></script>
+<script src="site-config.js" defer></script>
+<script src="content-loader.js" defer></script>
+<script src="main.js" defer></script>
+</head>
+<body data-page="projects">
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<nav id="nav">
+  <div class="np">
+    <a class="nl" href="index.html" aria-label="Jawad Khmaysa">
+      <img class="nav-logo" src="assets/My%20LOGO/PNG/maroon%20single.png" alt="Jawad Khmaysa logo" width="120" height="120"/>
+    </a>
+    <ul class="nlinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="samples.html">Samples</a></li>
+      <li><a href="index.html#socials">Socials</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">AR</button>
+    <a href="index.html#contact" class="ncta">Book a Session</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="pg">
+    <div class="page-eyebrow">All Projects</div>
+    <h1 class="page-title">Design, voice, product, and brand work.</h1>
+    <p class="page-sub">A broader view of selected projects across product design, identity, content, web, and voice-led creative systems.</p>
+    <div class="page-actions">
+      <a href="samples.html" class="btn-gold">Listen to Samples</a>
+      <a href="index.html#contact" class="btn-ghost">Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<main class="page-main">
+  <section>
+    <div class="pg">
+      <div class="project-grid">
+        <div id="grafly" class="card cm project-card r d1">
+          <div>
+            <div class="project-meta">01 / Product</div>
+            <div class="wt"><span class="hw">Grafly</span></div>
+            <p class="project-desc">Arabic-first design education platform with gamified learning paths, product strategy, and mobile app direction.</p>
+          </div>
+          <div class="wtags"><span class="wtag wtag-w">React Native</span><span class="wtag wtag-w">Education</span><span class="wtag wtag-w">Arabic UX</span></div>
+          <a href="index.html#contact" class="btn-outline">Inquire</a>
+        </div>
+
+        <div id="ratteb-omorak" class="card project-card r d2">
+          <div>
+            <div class="project-meta">02 / Brand</div>
+            <div class="wt">Ratteb Omorak</div>
+            <p class="project-desc">Service brand system, messaging, visual direction, and practical identity assets for a cleaning services business.</p>
+          </div>
+          <div class="wtags"><span class="wtag wtag-m">Identity</span><span class="wtag wtag-m">Copy</span><span class="wtag wtag-m">Service Brand</span></div>
+          <a href="index.html#contact" class="btn-outline">Inquire</a>
+        </div>
+
+        <div id="critiqa" class="card cg project-card r d3">
+          <div>
+            <div class="project-meta">03 / AI Tool</div>
+            <div class="wt">Critiqa</div>
+            <p class="project-desc">Concept and interface direction for an AI critique assistant built around clearer creative feedback.</p>
+          </div>
+          <div class="wtags"><span class="wtag wtag-g">AI</span><span class="wtag wtag-g">UX</span><span class="wtag wtag-g">Design Tool</span></div>
+          <a href="index.html#contact" class="btn-outline">Inquire</a>
+        </div>
+
+        <div class="card project-card r d1">
+          <div>
+            <div class="project-meta">04 / Content</div>
+            <div class="wt">PPU Incubator Podcast</div>
+            <p class="project-desc">Content strategy and production support for entrepreneurial stories, conversations, and program visibility.</p>
+          </div>
+          <div class="wtags"><span class="wtag wtag-m">Podcast</span><span class="wtag wtag-m">Strategy</span></div>
+          <a href="index.html#contact" class="btn-outline">Inquire</a>
+        </div>
+
+        <div class="card cm project-card r d2">
+          <div>
+            <div class="project-meta">05 / Web</div>
+            <div class="wt">Dark Cinema Portfolio</div>
+            <p class="project-desc">A motion-forward web direction built around cinematic contrast, strong typography, and immersive presentation.</p>
+          </div>
+          <div class="wtags"><span class="wtag wtag-w">Web</span><span class="wtag wtag-w">Motion</span></div>
+          <a href="index.html#contact" class="btn-outline">Inquire</a>
+        </div>
+
+        <div class="card cd project-card r d3">
+          <div>
+            <div class="project-meta">06 / Voice</div>
+            <div class="wt">Commercial Voice Packages</div>
+            <p class="project-desc">Script interpretation, recording, and delivery for Arabic and English commercial, educational, and product projects.</p>
+          </div>
+          <div class="wtags"><span class="wtag wtag-w">Arabic</span><span class="wtag wtag-w">English</span><span class="wtag wtag-w">VO</span></div>
+          <a href="index.html#contact" class="btn-outline">Inquire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="r">
+  <a href="index.html" class="footer-brand" aria-label="Jawad Khmaysa — back to home">
+    <img class="footer-logo" src="assets/My%20LOGO/PNG/white.png" alt="Jawad Khmaysa" width="140" height="125"/>
+  </a>
+  <span class="fc">© 2026 · Projects</span>
+</footer>
+</body>
+</html>
