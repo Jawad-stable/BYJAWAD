@@ -59,7 +59,7 @@
             </select>
           </label>
           <label>
-            Category
+            Main tag / category
             <input id="category" type="text" placeholder="Commercial, Product, Brand..." />
           </label>
         </div>
@@ -102,13 +102,11 @@
             Tags
             <input id="tags" type="text" placeholder="Brand, Identity, Arabic UX" />
           </label>
-          <label>
-            Link
-            <input id="link" type="text" placeholder="projects.html#grafly or external URL" />
-          </label>
         </div>
 
-        <div class="admin-grid three">
+        <input id="link" type="hidden" />
+
+        <div class="admin-grid three advanced-field">
           <label>
             Duration seconds
             <input id="duration" type="number" min="0" step="1" placeholder="30" />
@@ -123,7 +121,7 @@
           </label>
         </div>
 
-        <div class="admin-grid two">
+        <div class="admin-grid two advanced-field">
           <label>
             Card color
             <select id="color">
@@ -159,10 +157,11 @@
             File upload
             <input id="file" type="file" accept="audio/*,image/*,video/*,.pdf,.zip" />
           </label>
-          <button class="admin-btn secondary" type="button" id="uploadFile">Upload file</button>
+          <button class="admin-btn save" type="button" id="quickPublish">Upload + publish</button>
+          <button class="admin-btn secondary advanced-field" type="button" id="uploadFile">Upload file only</button>
         </div>
 
-        <div class="admin-grid two">
+        <div class="admin-grid two advanced-field">
           <label>
             File URL
             <input id="fileUrl" type="url" placeholder="Filled after upload or pasted manually" />

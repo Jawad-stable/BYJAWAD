@@ -29,6 +29,7 @@
     if (!content || !Array.isArray(content.items)) return [];
     return content.items
       .filter(item => item.type === type && item.published !== false)
+      .filter(item => type !== 'voice' || item.fileUrl)
       .sort((a, b) => Number(a.order || 0) - Number(b.order || 0));
   }
 

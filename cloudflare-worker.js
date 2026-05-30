@@ -78,6 +78,9 @@ function validateContent(content) {
   for (const item of content.items) {
     if (!item.id || !item.type) throw httpError(400, 'Every item needs id and type');
     if (!['voice', 'project', 'asset'].includes(item.type)) throw httpError(400, `Invalid item type: ${item.type}`);
+    if (item.type === 'voice' && item.published !== false && !item.fileUrl) {
+      throw httpError(400, `Published voice item is missing fileUrl: ${item.id}`);
+    }
   }
 }
 

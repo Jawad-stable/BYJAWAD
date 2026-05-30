@@ -152,6 +152,14 @@ body[data-page='admin'] #cur2 {
   flex: 1 1 260px;
 }
 
+.advanced-field {
+  display: none;
+}
+
+body.show-advanced-admin .advanced-field {
+  display: grid;
+}
+
 .admin-btn {
   border: 0;
   border-radius: 999px;

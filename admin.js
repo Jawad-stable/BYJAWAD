@@ -22,6 +22,7 @@
     els.loadContent = document.getElementById('loadContent');
     els.saveContent = document.getElementById('saveContent');
     els.uploadFile = document.getElementById('uploadFile');
+    els.quickPublish = document.getElementById('quickPublish');
     els.resetForm = document.getElementById('resetForm');
   }
 
@@ -60,6 +61,41 @@
     return type === 'project' ? 'meta' : 'label';
   }
 
+  function cleanTitleFromFilename(name) {
+    return String(name || '')
+      .replace(/\.[^.]+$/, '')
+      .replace(/[-_]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function inferTypeFromFile(file) {
+    if (!file) return els.type.value;
+    if (file.type.startsWith('audio/')) return 'voice';
+    return 'project';
+  }
+
+  function detectAudioDuration(file) {
+    return new Promise(resolve => {
+      if (!file || !file.type.startsWith('audio/')) {
+        resolve(0);
+        return;
+      }
+      const audio = document.createElement('audio');
+      const url = URL.createObjectURL(file);
+      audio.preload = 'metadata';
+      audio.onloadedmetadata = () => {
+        URL.revokeObjectURL(url);
+        resolve(Math.round(audio.duration || 0));
+      };
+      audio.onerror = () => {
+        URL.revokeObjectURL(url);
+        resolve(0);
+      };
+      audio.src = url;
+    });
+  }
+
   function readForm() {
     const type = els.type.value;
     const id = els.itemId.value || `${type}-${Date.now()}`;
@@ -87,6 +123,15 @@
       if (item[key] === '' || item[key] === 0 && key === 'duration') delete item[key];
     });
     return item;
+  }
+
+  function validateItem(item) {
+    if (!item.title?.en && !item.title?.ar) {
+      throw new Error('Add a title first.');
+    }
+    if (item.type === 'voice' && !item.fileUrl) {
+      throw new Error('Voice samples need an uploaded audio file.');
+    }
   }
 
   function fillForm(item) {
@@ -197,7 +242,9 @@
   async function uploadFile() {
     if (!els.file.files.length) throw new Error('Choose a file first.');
     const form = new FormData();
-    form.append('file', els.file.files[0]);
+    const file = els.file.files[0];
+    els.type.value = inferTypeFromFile(file);
+    form.append('file', file);
     form.append('type', els.type.value);
     form.append('category', els.category.value || 'uncategorized');
     setStatus('Uploading...');
@@ -208,12 +255,52 @@
     });
     els.fileUrl.value = result.fileUrl || '';
     els.objectKey.value = result.objectKey || '';
+    if (state.editingId) els.itemId.value = state.editingId;
     setStatus('Uploaded');
+    return result;
+  }
+
+  async function handleFileSelected() {
+    const file = els.file.files[0];
+    if (!file) return;
+    els.type.value = inferTypeFromFile(file);
+    if (!els.titleEn.value.trim()) els.titleEn.value = cleanTitleFromFilename(file.name);
+    if (!els.category.value.trim()) els.category.value = file.type.startsWith('audio/') ? 'Voice Sample' : 'Project';
+    const duration = await detectAudioDuration(file);
+    if (duration) els.duration.value = duration;
+  }
+
+  async function quickPublish() {
+    const file = els.file.files[0];
+    if (!file) throw new Error('Choose a file first.');
+    await handleFileSelected();
+    if (!els.titleEn.value.trim() && !els.titleAr.value.trim()) {
+      els.titleEn.value = cleanTitleFromFilename(file.name);
+    }
+    const upload = await uploadFile();
+    const item = readForm();
+    item.fileUrl = upload.fileUrl || item.fileUrl;
+    item.objectKey = upload.objectKey || item.objectKey;
+    item.link = item.type === 'project' ? item.fileUrl : '';
+    item.published = true;
+    validateItem(item);
+    const index = state.content.items.findIndex(existing => existing.id === item.id);
+    if (index >= 0) state.content.items[index] = item;
+    else state.content.items.push(item);
+    normalizeOrders();
+    await saveContent('Uploaded and published');
+    resetForm();
   }
 
   function upsertItem(event) {
     event.preventDefault();
     const item = readForm();
+    try {
+      validateItem(item);
+    } catch (error) {
+      setStatus(error.message);
+      return;
+    }
     const index = state.content.items.findIndex(existing => existing.id === item.id);
     if (index >= 0) state.content.items[index] = item;
     else state.content.items.push(item);
@@ -277,6 +364,8 @@
     els.loadContent.addEventListener('click', () => loadContent().catch(error => setStatus(error.message)));
     els.saveContent.addEventListener('click', () => saveContent().catch(error => setStatus(error.message)));
     els.uploadFile.addEventListener('click', () => uploadFile().catch(error => setStatus(error.message)));
+    els.quickPublish.addEventListener('click', () => quickPublish().catch(error => setStatus(error.message)));
+    els.file.addEventListener('change', () => handleFileSelected().catch(error => setStatus(error.message)));
     els.resetForm.addEventListener('click', resetForm);
     els.form.addEventListener('submit', upsertItem);
     els.itemList.addEventListener('click', handleListClick);
