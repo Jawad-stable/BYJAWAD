@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin - Jawad Khmaysa Portfolio</title>
-  <link rel="icon" type="image/png" href="assets/My%20LOGO/PNG/Yellow%20single.png" />
-  <link rel="apple-touch-icon" href="assets/My%20LOGO/PNG/Yellow%20single.png" />
+  <link rel="icon" type="image/png" href="assets/logo/Yellow%20single.png" />
+  <link rel="apple-touch-icon" href="assets/logo/Yellow%20single.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="admin.css" />
-  <script src="site-config.js" defer></script>
-  <script src="admin.js" defer></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <script src="js/site-config.js" defer></script>
+  <script src="js/admin.js" defer></script>
 </head>
 <body data-page="admin">
   <main class="admin-shell">
@@ -42,6 +42,17 @@
       </div>
     </section>
 
+    <section class="admin-panel">
+      <div class="admin-panel-head">
+        <h2>Site mode</h2>
+        <span class="admin-status" id="comingSoonStatus">Load content first</span>
+      </div>
+      <p class="item-meta">Switch the public Projects page between the "Coming Soon" placeholder and the full grids of visual IDs, social posts, and videos.</p>
+      <div class="admin-actions">
+        <button class="admin-btn" type="button" id="toggleComingSoon" disabled>Toggle Projects page mode</button>
+      </div>
+    </section>
+
     <section class="admin-layout">
       <form class="admin-panel" id="itemForm">
         <div class="admin-panel-head">
@@ -56,7 +67,10 @@
             Type
             <select id="type">
               <option value="voice">Voice sample</option>
-              <option value="project">Design project</option>
+              <option value="visual-id">Visual ID (brand identity)</option>
+              <option value="social-post">Social media post</option>
+              <option value="video">Video</option>
+              <option value="project">Project (homepage featured)</option>
               <option value="asset">General asset</option>
             </select>
           </label>
@@ -103,6 +117,10 @@
           <label>
             Tags
             <input id="tags" type="text" placeholder="Brand, Identity, Arabic UX" />
+          </label>
+          <label>
+            Video embed URL <small style="font-weight:400;color:#888">(YouTube / Vimeo)</small>
+            <input id="embedUrl" type="url" placeholder="https://youtube.com/watch?v=..." />
           </label>
         </div>
 
@@ -186,6 +204,9 @@
           <div class="admin-filter">
             <select id="filterType">
               <option value="all">All</option>
+              <option value="visual-id">Visual IDs</option>
+              <option value="social-post">Social posts</option>
+              <option value="video">Video</option>
               <option value="voice">Voice</option>
               <option value="project">Projects</option>
               <option value="asset">Assets</option>

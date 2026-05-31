@@ -11,48 +11,70 @@
   document.documentElement.dir=locale==='ar'?'rtl':'ltr';
 })();
 </script>
-<title>All Projects — Jawad Khmaysa</title>
-<link rel="icon" type="image/png" href="assets/My%20LOGO/PNG/Yellow%20single.png"/>
-<link rel="apple-touch-icon" href="assets/My%20LOGO/PNG/Yellow%20single.png"/>
+<title>Work — Jawad Khmaysa</title>
+<link rel="icon" type="image/png" href="assets/logo/Yellow%20single.png"/>
+<link rel="apple-touch-icon" href="assets/logo/Yellow%20single.png"/>
+<meta name="description" content="Brand identities, social media campaigns, and videography by Jawad Khmaysa."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="css/style.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/23.12.2/i18next.min.js"></script>
-<script src="site-config.js" defer></script>
-<script src="content-loader.js" defer></script>
-<script src="main.js" defer></script>
+<script src="js/site-config.js" defer></script>
+<script src="js/content-loader.js" defer></script>
+<script src="js/main.js" defer></script>
 </head>
 <body data-page="projects">
-<div id="cur"></div>
-<div id="cur2"></div>
 
-<nav id="nav">
+<!-- WCAG 2.4.1: skip navigation -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<div id="cur" aria-hidden="true"></div>
+<div id="cur2" aria-hidden="true"></div>
+
+<!-- ── WORK POPUP / LIGHTBOX ── -->
+<div id="work-popup" class="work-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" hidden>
+  <div class="popup-backdrop" id="popup-backdrop"></div>
+  <div class="popup-box">
+    <div class="popup-head">
+      <div>
+        <p class="popup-eyebrow" id="popup-eyebrow"></p>
+        <h2 class="popup-title" id="popup-title"></h2>
+      </div>
+      <button class="popup-close" id="popup-close" type="button" aria-label="Close preview">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="popup-body" id="popup-body"></div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="nav" aria-label="Main navigation">
   <div class="np">
-    <a class="nl" href="index.html" aria-label="Jawad Khmaysa">
-      <img class="nav-logo" src="assets/My%20LOGO/PNG/Yellow%20single.png" alt="Jawad Khmaysa logo" width="120" height="120"/>
+    <a class="nl" href="index.html" aria-label="Jawad Khmaysa — home">
+      <img class="nav-logo" src="assets/logo/Yellow%20single.png" alt="Jawad Khmaysa logo" width="120" height="120"/>
     </a>
     <ul class="nlinks">
       <li><a href="index.html#about">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
+      <li><a href="projects.html" aria-current="page">Projects</a></li>
       <li><a href="samples.html">Samples</a></li>
       <li><a href="index.html#socials">Socials</a></li>
     </ul>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
     <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">AR</button>
     <a href="index.html#contact" class="ncta">Book a Session</a>
   </div>
 </nav>
 
-<section class="page-hero">
+<!-- ── HERO ── -->
+<section class="page-hero" aria-labelledby="hero-title">
   <div class="pg">
-    <div class="page-eyebrow">All Projects</div>
-    <h1 class="page-title">Design, voice, product, and brand work.</h1>
-    <p class="page-sub">A broader view of selected projects across product design, identity, content, web, and voice-led creative systems.</p>
+    <div class="page-eyebrow">Portfolio</div>
+    <h1 id="hero-title" class="page-title">Brand, social<br>&amp; motion work.</h1>
+    <p class="page-sub">Visual identities, social media campaigns, and videography — crafted for clarity and lasting impact.</p>
     <div class="page-actions">
       <a href="samples.html" class="btn-gold">Listen to Samples</a>
       <a href="index.html#contact" class="btn-ghost">Start a Project</a>
@@ -60,81 +82,116 @@
   </div>
 </section>
 
-<main class="page-main">
-  <section>
-    <div class="pg">
-      <div class="project-grid">
+<!-- ── COMING SOON (default) ── -->
+<section id="projects-coming-soon" class="coming-soon-wrap" aria-labelledby="cs-h">
+  <div class="pg">
+    <div class="coming-soon-card r d1">
+      <div class="coming-soon-badge">Working on it</div>
+      <h2 id="cs-h" class="coming-soon-title">Coming Soon</h2>
+      <p class="coming-soon-sub">New brand, social, and motion work is being prepared. In the meantime, listen to voice samples or start a conversation.</p>
+      <div class="page-actions">
+        <a href="samples.html" class="btn-gold">Listen to Samples</a>
+        <a href="index.html#contact" class="btn-ghost">Start a Project</a>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ── CATEGORY NAV ── -->
+<nav id="projects-cat-nav" class="cat-nav" aria-label="Portfolio categories" hidden>
+  <div class="pg">
+    <ul class="cat-tabs" role="list">
+      <li><a href="#visual-ids" class="cat-tab">Visual IDs</a></li>
+      <li><a href="#social-media" class="cat-tab">Social Media</a></li>
+      <li><a href="#video" class="cat-tab">Video</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── MAIN ── -->
+<main id="main-content" class="page-main" tabindex="-1" hidden>
+
+  <!-- 01 VISUAL IDs -->
+  <section id="visual-ids" class="work-section" aria-labelledby="vid-h">
+    <div class="pg">
+      <div class="section-spine r">
+        <div>
+          <div class="section-eyebrow">01 / Identity</div>
+          <h2 id="vid-h" class="section-h">Visual IDs</h2>
+        </div>
+        <p class="section-sub">Complete brand identity systems — logo marks, type scales, colour systems, and usage guides. Click any card to open the full document.</p>
+      </div>
+      <div class="vid-grid" id="visual-id-grid">
+        <!-- Static fallback — replaced by JS when API is connected -->
         <div id="grafly" class="card cm project-card r d1">
           <div>
-            <div class="project-meta">01 / Product</div>
+            <div class="project-meta">Brand / Education</div>
             <div class="wt"><span class="hw">Grafly</span></div>
-            <p class="project-desc">Arabic-first design education platform with gamified learning paths, product strategy, and mobile app direction.</p>
+            <p class="project-desc">Arabic-first design education platform — logo system, type scale, and motion language.</p>
           </div>
-          <div class="wtags"><span class="wtag wtag-w">React Native</span><span class="wtag wtag-w">Education</span><span class="wtag wtag-w">Arabic UX</span></div>
-          <a href="index.html#contact" class="btn-outline">Inquire</a>
+          <div class="wtags"><span class="wtag wtag-w">Logo</span><span class="wtag wtag-w">Type</span><span class="wtag wtag-w">Arabic</span></div>
         </div>
-
         <div id="ratteb-omorak" class="card project-card r d2">
           <div>
-            <div class="project-meta">02 / Brand</div>
+            <div class="project-meta">Brand / Service</div>
             <div class="wt">Ratteb Omorak</div>
-            <p class="project-desc">Service brand system, messaging, visual direction, and practical identity assets for a cleaning services business.</p>
+            <p class="project-desc">Service brand identity, messaging, and asset library for a cleaning services business.</p>
           </div>
-          <div class="wtags"><span class="wtag wtag-m">Identity</span><span class="wtag wtag-m">Copy</span><span class="wtag wtag-m">Service Brand</span></div>
-          <a href="index.html#contact" class="btn-outline">Inquire</a>
+          <div class="wtags"><span class="wtag wtag-m">Identity</span><span class="wtag wtag-m">Copy</span><span class="wtag wtag-m">Service</span></div>
         </div>
-
         <div id="critiqa" class="card cg project-card r d3">
           <div>
-            <div class="project-meta">03 / AI Tool</div>
+            <div class="project-meta">Tool / AI</div>
             <div class="wt">Critiqa</div>
-            <p class="project-desc">Concept and interface direction for an AI critique assistant built around clearer creative feedback.</p>
+            <p class="project-desc">Interface direction and identity for an AI-powered creative critique assistant.</p>
           </div>
           <div class="wtags"><span class="wtag wtag-g">AI</span><span class="wtag wtag-g">UX</span><span class="wtag wtag-g">Design Tool</span></div>
-          <a href="index.html#contact" class="btn-outline">Inquire</a>
         </div>
-
-        <div class="card project-card r d1">
-          <div>
-            <div class="project-meta">04 / Content</div>
-            <div class="wt">PPU Incubator Podcast</div>
-            <p class="project-desc">Content strategy and production support for entrepreneurial stories, conversations, and program visibility.</p>
-          </div>
-          <div class="wtags"><span class="wtag wtag-m">Podcast</span><span class="wtag wtag-m">Strategy</span></div>
-          <a href="index.html#contact" class="btn-outline">Inquire</a>
-        </div>
-
-        <div class="card cm project-card r d2">
-          <div>
-            <div class="project-meta">05 / Web</div>
-            <div class="wt">Dark Cinema Portfolio</div>
-            <p class="project-desc">A motion-forward web direction built around cinematic contrast, strong typography, and immersive presentation.</p>
-          </div>
-          <div class="wtags"><span class="wtag wtag-w">Web</span><span class="wtag wtag-w">Motion</span></div>
-          <a href="index.html#contact" class="btn-outline">Inquire</a>
-        </div>
-
-        <div class="card cd project-card r d3">
-          <div>
-            <div class="project-meta">06 / Voice</div>
-            <div class="wt">Commercial Voice Packages</div>
-            <p class="project-desc">Script interpretation, recording, and delivery for Arabic and English commercial, educational, and product projects.</p>
-          </div>
-          <div class="wtags"><span class="wtag wtag-w">Arabic</span><span class="wtag wtag-w">English</span><span class="wtag wtag-w">VO</span></div>
-          <a href="index.html#contact" class="btn-outline">Inquire</a>
-        </div>
-
       </div>
     </div>
   </section>
+
+  <!-- 02 SOCIAL MEDIA -->
+  <section id="social-media" class="work-section" aria-labelledby="sm-h">
+    <div class="pg">
+      <div class="section-spine r">
+        <div>
+          <div class="section-eyebrow">02 / Social</div>
+          <h2 id="sm-h" class="section-h">Social Media</h2>
+        </div>
+        <p class="section-sub">Campaign visuals, branded post series, and content-system design for social platforms. Click any post to view it full size.</p>
+      </div>
+      <div class="posts-grid" id="social-posts-grid" aria-label="Social media posts">
+        <div class="posts-empty r d1">New social campaigns coming soon.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 VIDEO -->
+  <section id="video" class="work-section" aria-labelledby="video-h">
+    <div class="pg">
+      <div class="section-spine r">
+        <div>
+          <div class="section-eyebrow">03 / Motion</div>
+          <h2 id="video-h" class="section-h">Video</h2>
+        </div>
+        <p class="section-sub">Cinematography, motion content, and branded video production for commercial and social use.</p>
+      </div>
+      <div class="video-grid" id="video-grid" aria-label="Video work">
+        <div class="posts-empty r d1">New motion work coming soon.</div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+<!-- ── FOOTER ── -->
 <footer class="r">
   <a href="index.html" class="footer-brand" aria-label="Jawad Khmaysa — back to home">
-    <img class="footer-logo" src="assets/My%20LOGO/PNG/white.png" alt="Jawad Khmaysa" width="140" height="125"/>
+    <img class="footer-logo" src="assets/logo/white.png" alt="Jawad Khmaysa" width="140" height="125"/>
   </a>
-  <span class="fc">© 2026 · Projects</span>
+  <span class="fc">© 2026 · Work</span>
 </footer>
+
 </body>
 </html>

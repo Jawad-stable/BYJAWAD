@@ -77,7 +77,7 @@ function validateContent(content) {
   if (!Array.isArray(content.items)) throw httpError(400, 'Content must include an items array');
   for (const item of content.items) {
     if (!item.id || !item.type) throw httpError(400, 'Every item needs id and type');
-    if (!['voice', 'project', 'asset'].includes(item.type)) throw httpError(400, `Invalid item type: ${item.type}`);
+    if (!['voice', 'project', 'visual-id', 'social-post', 'video', 'asset'].includes(item.type)) throw httpError(400, `Invalid item type: ${item.type}`);
     if (item.type === 'voice' && item.published !== false && !item.fileUrl) {
       throw httpError(400, `Published voice item is missing fileUrl: ${item.id}`);
     }
@@ -129,14 +129,19 @@ function requireAdmin(request, env) {
 function corsHeaders(request, env) {
   const origin = request.headers.get('Origin') || '';
   const allowed = (env.ALLOWED_ORIGIN || '*').split(',').map(item => item.trim()).filter(Boolean);
-  const allowOrigin = allowed.includes('*') || allowed.includes(origin) ? origin || '*' : allowed[0] || '*';
-  return {
-    'Access-Control-Allow-Origin': allowOrigin,
+  const wildcard = allowed.includes('*');
+  const headers = {
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
     'Access-Control-Allow-Headers': 'Authorization,Content-Type',
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin'
   };
+  if (wildcard) {
+    headers['Access-Control-Allow-Origin'] = origin || '*';
+  } else if (origin && origin !== 'null' && allowed.includes(origin)) {
+    headers['Access-Control-Allow-Origin'] = origin;
+  }
+  return headers;
 }
 
 function safeSegment(value) {

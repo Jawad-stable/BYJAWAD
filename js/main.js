@@ -15,16 +15,16 @@ const resources = {
       home: {
         hero: {
           availability: 'Available for Selected Projects · From Palestine <svg class="chip-pin" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 13-8 13S4 17 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3" fill="currentColor" stroke="none"/></svg>',
-          name: 'Jawad Khmaysa', role: 'Voice & Visual Direction',
+          name: 'Jawad Khmaysa', role: 'Voice Artist & Graphic Designer',
           headline: 'Hi, I\'m',
           samples: 'Hear Samples ↓', book: 'Book a Session'
         },
         about: {
           chip: 'About',
-          title: 'Where <span class="hg">design</span><br/>meets craft<br/>and touches voice.',
-          p1: 'I move between voice, branding, and product storytelling. The common thread is clarity.',
-          p2: 'My work stretches from identity systems and motion to app concepts and narration, with one rule: the idea has to arrive clean.',
-          skills: ['Voice Performance', 'Graphic Design', 'Brand Direction', 'Motion Design', 'Product Development', 'Videography'],
+          title: 'Designer & voice artist. </br> I build clear <span class="hg">experiences</span> with voice.',
+          p1: 'I work between voice acting, visual identity, and digital product design. My goal: the idea arrives quickly and professionally.',
+          p2: 'I treat every project as a story that needs the right voice, a strong image, and tidy execution that serves the goal without complication.',
+          skills: ['Voice Performance', 'Graphic Design', 'Brand Direction', 'Videography'],
           products: [
             { status: 'Active', title: 'Grafly', desc: 'Arabic-first design education app' },
             { status: 'Brand', title: 'Ratteb Omorak', desc: 'Cleaning services brand' }
@@ -58,7 +58,7 @@ const resources = {
           title: 'Beyond the <span class="hm">mic.</span>',
           all: 'All Projects',
           featured: [
-            { meta: '01 — Featured Product', title: '<span class="hw">Grafly</span>', desc: 'A gamified Arabic-first design education platform. Duolingo-style learning for designers, built in React Native with Supabase.', tags: ['Product', 'React Native', 'Arabic-First', 'Education'] },
+            { meta: '01 — Featured Product', title: '<span class="hw">Grafly</span>', desc: 'An Arabic-first design learning platform, built as a path that is practical and engaging at the same time.', tags: ['Product', 'React Native', 'Arabic-First', 'Education'] },
             { meta: '02', title: 'Ratteb Omorak', tags: ['Brand', 'Copy'] },
             { meta: '03', title: 'Critiqa', tags: ['AI Tool', 'Design'] }
           ],
@@ -96,9 +96,15 @@ const resources = {
       },
       projects: {
         hero: {
-          eyebrow: 'All Projects',
-          title: 'Design, voice, product, and brand work.',
-          sub: 'A broader view of selected projects across product design, identity, content, web, and voice-led creative systems.',
+          eyebrow: 'Portfolio',
+          title: 'Brand, social<br>&amp; motion work.',
+          sub: 'Visual identities, social media campaigns, and videography — crafted for clarity and lasting impact.',
+          primary: 'Listen to Samples', secondary: 'Start a Project'
+        },
+        comingSoon: {
+          badge: 'Working on it',
+          title: 'Coming Soon',
+          sub: 'New brand, social, and motion work is being prepared. In the meantime, listen to voice samples or start a conversation.',
           primary: 'Listen to Samples', secondary: 'Start a Project'
         },
         cards: [
@@ -147,10 +153,10 @@ const resources = {
         },
         about: {
           chip: 'نبذة',
-          title: 'مصمم ومعلّق صوتي<br/>أبني تجارب واضحة<br/>بصوت وشكل متقن.',
-          p1: 'أعمل بين التعليق الصوتي، الهوية البصرية، وتصميم المنتجات الرقمية. هدفي أن تصل الفكرة بسرعة وبأسلوب مهني.',
+          title: 'مصمم ومعلّق صوتي <br/>أبني <span class="hg">تــجــارب</span> واضــحة<br/>بصوت وشكــل متقن.',
+          p1: 'أعمل بين التعليق الصوتي، الهوية البصرية، وتصميم المنتجات الرقمية. هدفي: أن تصل الفكرة بسرعة وبأسلوب مهني.',
           p2: 'أتعامل مع كل مشروع كحكاية تحتاج صوتاً مناسباً، صورة قوية، وتنفيذاً مرتباً يخدم الهدف بدون تعقيد.',
-          skills: ['الأداء الصوتي', 'التصميم الجرافيكي', 'توجيه الهوية', 'الحركة البصرية', 'تطوير المفهوم', 'التصوير'],
+          skills: ['الأداء الصوتي', 'التصميم الجرافيكي', 'توجيه الهوية', 'التصوير'],
           products: [
             { status: 'نشط', title: 'Grafly', desc: 'منصة تعليم تصميم بالعربية أولاً' },
             { status: 'علامة', title: 'رتّب أمورك', desc: 'هوية لخدمة تنظيف عملية وواضحة' }
@@ -222,9 +228,15 @@ const resources = {
       },
       projects: {
         hero: {
-          eyebrow: 'كل المشاريع',
-          title: 'تصميم وصوت ومنتج وهوية بصرية.',
-          sub: 'نظرة أشمل على مشاريع مختارة في تصميم المنتج والهوية والمحتوى والويب والأنظمة الإبداعية الصوتية.',
+          eyebrow: 'الأعمال',
+          title: 'هويات وسوشال<br>وأعمال الفيديو.',
+          sub: 'هويات بصرية، حملات سوشال ميديا، وإنتاج فيديو — مصمَّمة بوضوح وأثر يدوم.',
+          primary: 'استمع للنماذج', secondary: 'ابدأ مشروعًا'
+        },
+        comingSoon: {
+          badge: 'جارٍ العمل عليه',
+          title: 'قريبًا',
+          sub: 'يجري حاليًا إعداد أعمال جديدة في الهوية البصرية والسوشال ميديا والفيديو. في هذه الأثناء، استمع إلى النماذج الصوتية أو ابدأ محادثة.',
           primary: 'استمع للنماذج', secondary: 'ابدأ مشروعًا'
         },
         cards: [
@@ -367,15 +379,18 @@ function updateHome() {
 function updateProjects() {
   const p = i18next.t('projects', { returnObjects: true });
   setText('.page-eyebrow', p.hero.eyebrow);
-  setText('.page-title', p.hero.title);
-  setText('.page-sub', p.hero.sub);
+  if (p.hero.title) setHTML('.page-title', p.hero.title);
+  if (p.hero.sub) setText('.page-sub', p.hero.sub);
   setText('.page-actions .btn-gold', p.hero.primary);
   setText('.page-actions .btn-ghost', p.hero.secondary);
-  setList('.project-meta', p.cards.map(c => c.meta));
-  setList('.project-card .wt', p.cards.map(c => c.title), true);
-  setList('.project-desc', p.cards.map(c => c.desc));
-  setList('.project-card .wtag', p.cards.flatMap(c => c.tags));
-  setText('footer .fc', i18next.language === 'ar' ? '© 2026 · المشاريع' : '© 2026 · Projects');
+  if (p.comingSoon) {
+    setText('.coming-soon-badge', p.comingSoon.badge);
+    setText('.coming-soon-title', p.comingSoon.title);
+    setText('.coming-soon-sub', p.comingSoon.sub);
+    setText('.coming-soon-card .btn-gold', p.comingSoon.primary);
+    setText('.coming-soon-card .btn-ghost', p.comingSoon.secondary);
+  }
+  setText('footer .fc', i18next.language === 'ar' ? '© 2026 · الأعمال' : '© 2026 · Work');
 }
 
 function updateSamples() {
@@ -553,6 +568,7 @@ function updateTime(id, secs) {
 
 function startSimulation(id, dur, btn) {
   const total = dur * (1000 / TICK);
+  if (state.interval[id]) clearInterval(state.interval[id]);
   state.interval[id] = setInterval(() => {
     if (!state.playing[id]) { clearInterval(state.interval[id]); return; }
     state.progress[id]++;
@@ -604,53 +620,50 @@ document.querySelectorAll('audio[id^="audio"]').forEach(audio => {
   });
 });
 
-const playerButtons = [...document.querySelectorAll('.pbtn')];
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.pbtn');
+  if (!btn) return;
+  const id = parseInt(btn.dataset.idx, 10);
+  const dur = parseInt(btn.dataset.dur, 10) || 30;
+  if (!Number.isFinite(id)) return;
+  state.playing[id] = state.playing[id] || false;
+  state.progress[id] = state.progress[id] || 0;
 
-playerButtons.forEach(btn => {
-  btn.addEventListener('click', function () {
-    const id = parseInt(this.dataset.idx);
-    const dur = parseInt(this.dataset.dur);
-    state.playing[id] = state.playing[id] || false;
-    state.progress[id] = state.progress[id] || 0;
-
-    /* stop all other players */
-    playerButtons.forEach(other => {
-      const j = parseInt(other.dataset.idx);
-      if (j === id) return;
-      if (!state.playing[j]) return;
-      state.playing[j] = false;
-      state.progress[j] = 0;
-      clearInterval(state.interval[j]);
-      const oa = document.getElementById('audio' + j);
-      if (oa) oa.pause();
-      other.innerHTML = playIcon;
-      syncWaveform(j, 0);
-      updateTime(j, 0);
-    });
-
-    state.playing[id] = !state.playing[id];
-    this.innerHTML = state.playing[id] ? pauseIcon : playIcon;
-
-    if (state.playing[id]) {
-      const audio = document.getElementById('audio' + id);
-      if (audio && audio.getAttribute('src')) {
-        audio.play().catch(() => startSimulation(id, dur, this));
-      } else {
-        startSimulation(id, dur, this);
-      }
-    } else {
-      clearInterval(state.interval[id]);
-      const audio = document.getElementById('audio' + id);
-      if (audio) audio.pause();
-    }
+  document.querySelectorAll('.pbtn').forEach(other => {
+    const j = parseInt(other.dataset.idx, 10);
+    if (j === id || !state.playing[j]) return;
+    state.playing[j] = false;
+    state.progress[j] = 0;
+    if (state.interval[j]) clearInterval(state.interval[j]);
+    const oa = document.getElementById('audio' + j);
+    if (oa) oa.pause();
+    other.innerHTML = playIcon;
+    syncWaveform(j, 0);
+    updateTime(j, 0);
   });
+
+  state.playing[id] = !state.playing[id];
+  btn.innerHTML = state.playing[id] ? pauseIcon : playIcon;
+
+  if (state.playing[id]) {
+    const audio = document.getElementById('audio' + id);
+    if (audio && audio.getAttribute('src')) {
+      audio.play().catch(() => startSimulation(id, dur, btn));
+    } else {
+      startSimulation(id, dur, btn);
+    }
+  } else {
+    if (state.interval[id]) clearInterval(state.interval[id]);
+    const audio = document.getElementById('audio' + id);
+    if (audio) audio.pause();
+  }
 });
 
 function bindDynamicAudio(root = document) {
   root.querySelectorAll('audio[id^="audio"]').forEach(audio => {
     if (audio.dataset.dynamicAudioBound === 'true') return;
     audio.dataset.dynamicAudioBound = 'true';
-    const id = parseInt(audio.id.replace('audio', ''));
+    const id = parseInt(audio.id.replace('audio', ''), 10);
 
     audio.addEventListener('timeupdate', () => {
       if (!state.playing[id] || !audio.duration) return;
@@ -667,47 +680,18 @@ function bindDynamicAudio(root = document) {
       if (btn) btn.innerHTML = playIcon;
     });
   });
+}
 
-  root.querySelectorAll('.pbtn').forEach(btn => {
-    if (btn.dataset.dynamicPlayerBound === 'true') return;
-    btn.dataset.dynamicPlayerBound = 'true';
-    btn.addEventListener('click', function () {
-      const id = parseInt(this.dataset.idx);
-      const dur = parseInt(this.dataset.dur);
-      state.playing[id] = state.playing[id] || false;
-      state.progress[id] = state.progress[id] || 0;
-
-      document.querySelectorAll('.pbtn').forEach(other => {
-        const j = parseInt(other.dataset.idx);
-        if (j === id || !state.playing[j]) return;
-        state.playing[j] = false;
-        state.progress[j] = 0;
-        clearInterval(state.interval[j]);
-        const oa = document.getElementById('audio' + j);
-        if (oa) oa.pause();
-        other.innerHTML = playIcon;
-        syncWaveform(j, 0);
-        updateTime(j, 0);
-      });
-
-      state.playing[id] = !state.playing[id];
-      this.innerHTML = state.playing[id] ? pauseIcon : playIcon;
-
-      if (state.playing[id]) {
-        const audio = document.getElementById('audio' + id);
-        if (audio && audio.getAttribute('src')) {
-          audio.play().catch(() => startSimulation(id, dur, this));
-        } else {
-          startSimulation(id, dur, this);
-        }
-      } else {
-        clearInterval(state.interval[id]);
-        const audio = document.getElementById('audio' + id);
-        if (audio) audio.pause();
-      }
-    });
+function resetAllAudioState() {
+  Object.keys(state.interval).forEach(id => {
+    if (state.interval[id]) clearInterval(state.interval[id]);
+    state.interval[id] = null;
+    state.playing[id] = false;
+    state.progress[id] = 0;
   });
 }
+
+window.resetAudioPlayers = resetAllAudioState;
 
 window.refreshInteractiveElements = function refreshInteractiveElements(root = document) {
   bindHoverTargets(root);

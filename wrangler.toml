@@ -1,5 +1,5 @@
 name = "portfolio-content-api"
-main = "cloudflare-worker.js"
+main = "worker/cloudflare-worker.js"
 compatibility_date = "2026-05-29"
 
 [[r2_buckets]]

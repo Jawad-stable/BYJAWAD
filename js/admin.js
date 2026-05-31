@@ -10,7 +10,7 @@
     'apiBaseUrl', 'adminToken', 'itemId', 'type', 'category', 'titleEn', 'titleAr',
     'labelEn', 'labelAr', 'descriptionEn', 'descriptionAr', 'tags', 'link',
     'duration', 'order', 'anchor', 'color', 'tagColor', 'featured', 'published', 'file', 'fileUrl',
-    'objectKey', 'filterType'
+    'objectKey', 'filterType', 'embedUrl'
   ];
 
   function initEls() {
@@ -24,6 +24,38 @@
     els.uploadFile = document.getElementById('uploadFile');
     els.quickPublish = document.getElementById('quickPublish');
     els.resetForm = document.getElementById('resetForm');
+    els.toggleComingSoon = document.getElementById('toggleComingSoon');
+    els.comingSoonStatus = document.getElementById('comingSoonStatus');
+  }
+
+  function isComingSoon() {
+    return state.content.projectsComingSoon !== false;
+  }
+
+  function refreshComingSoonUi() {
+    if (!els.toggleComingSoon || !els.comingSoonStatus) return;
+    const loaded = state.content && Array.isArray(state.content.items);
+    els.toggleComingSoon.disabled = !loaded;
+    if (!loaded) {
+      els.comingSoonStatus.textContent = 'Load content first';
+      els.toggleComingSoon.textContent = 'Toggle Projects page mode';
+      return;
+    }
+    const coming = isComingSoon();
+    els.comingSoonStatus.textContent = coming ? 'Currently: Coming Soon' : 'Currently: Full projects page';
+    els.toggleComingSoon.textContent = coming ? 'Show full projects page' : 'Switch to Coming Soon';
+  }
+
+  async function toggleComingSoon() {
+    if (!state.content || !Array.isArray(state.content.items)) {
+      setStatus('Load content first.');
+      return;
+    }
+    const next = !isComingSoon();
+    state.content.projectsComingSoon = next;
+    setStatus(next ? 'Switching to Coming Soon...' : 'Switching to full projects page...');
+    await saveContent(next ? 'Coming Soon mode is live' : 'Full projects page is live');
+    refreshComingSoonUi();
   }
 
   function apiBase() {
@@ -72,6 +104,9 @@
   function inferTypeFromFile(file) {
     if (!file) return els.type.value;
     if (file.type.startsWith('audio/')) return 'voice';
+    if (file.type.startsWith('video/')) return 'video';
+    if (file.type.startsWith('image/')) return 'social-post';
+    if (file.type === 'application/pdf') return 'visual-id';
     return 'project';
   }
 
@@ -116,7 +151,8 @@
       featured: els.featured.checked,
       published: els.published.checked,
       fileUrl: els.fileUrl.value.trim(),
-      objectKey: els.objectKey.value.trim()
+      objectKey: els.objectKey.value.trim(),
+      embedUrl: els.embedUrl.value.trim()
     };
     item[labelKey] = localValue(els.labelEn.value, els.labelAr.value);
     Object.keys(item).forEach(key => {
@@ -131,6 +167,14 @@
     }
     if (item.type === 'voice' && !item.fileUrl) {
       throw new Error('Voice samples need an uploaded audio file.');
+    }
+    if (item.published !== false) {
+      if (item.type === 'video' && !item.fileUrl && !item.embedUrl) {
+        throw new Error('Published videos need a file upload or an embed URL.');
+      }
+      if ((item.type === 'social-post' || item.type === 'visual-id') && !item.fileUrl) {
+        throw new Error(`Published ${item.type} items need an uploaded file.`);
+      }
     }
   }
 
@@ -156,6 +200,7 @@
     els.published.checked = item.published !== false;
     els.fileUrl.value = item.fileUrl || '';
     els.objectKey.value = item.objectKey || '';
+    els.embedUrl.value = item.embedUrl || '';
     els.formTitle.textContent = 'Edit item';
     state.editingId = item.id;
   }
@@ -165,6 +210,7 @@
     els.type.value = 'voice';
     els.published.checked = true;
     els.itemId.value = '';
+    els.embedUrl.value = '';
     els.order.value = state.content.items.length + 1;
     els.formTitle.textContent = 'Add item';
     state.editingId = null;
@@ -224,6 +270,7 @@
     normalizeOrders();
     renderList();
     resetForm();
+    refreshComingSoonUi();
     setStatus('Connected');
   }
 
@@ -243,9 +290,8 @@
     if (!els.file.files.length) throw new Error('Choose a file first.');
     const form = new FormData();
     const file = els.file.files[0];
-    els.type.value = inferTypeFromFile(file);
     form.append('file', file);
-    form.append('type', els.type.value);
+    form.append('type', els.type.value || inferTypeFromFile(file));
     form.append('category', els.category.value || 'uncategorized');
     setStatus('Uploading...');
     const result = await api('/api/admin/upload', {
@@ -253,7 +299,10 @@
       headers: authHeaders(),
       body: form
     });
-    els.fileUrl.value = result.fileUrl || '';
+    if (!result || !result.fileUrl) {
+      throw new Error('Upload completed but the server returned no file URL. Check the worker PUBLIC_ASSET_BASE_URL env var.');
+    }
+    els.fileUrl.value = result.fileUrl;
     els.objectKey.value = result.objectKey || '';
     if (state.editingId) els.itemId.value = state.editingId;
     setStatus('Uploaded');
@@ -263,7 +312,7 @@
   async function handleFileSelected() {
     const file = els.file.files[0];
     if (!file) return;
-    els.type.value = inferTypeFromFile(file);
+    if (!els.type.value || els.type.value === 'voice') els.type.value = inferTypeFromFile(file);
     if (!els.titleEn.value.trim()) els.titleEn.value = cleanTitleFromFilename(file.name);
     if (!els.category.value.trim()) els.category.value = file.type.startsWith('audio/') ? 'Voice Sample' : 'Project';
     const duration = await detectAudioDuration(file);
@@ -281,7 +330,7 @@
     const item = readForm();
     item.fileUrl = upload.fileUrl || item.fileUrl;
     item.objectKey = upload.objectKey || item.objectKey;
-    item.link = item.type === 'project' ? item.fileUrl : '';
+    if (item.type === 'project' || item.type === 'visual-id') item.link = item.fileUrl;
     item.published = true;
     validateItem(item);
     const index = state.content.items.findIndex(existing => existing.id === item.id);
@@ -370,6 +419,8 @@
     els.form.addEventListener('submit', upsertItem);
     els.itemList.addEventListener('click', handleListClick);
     els.filterType.addEventListener('change', renderList);
+    els.toggleComingSoon?.addEventListener('click', () => toggleComingSoon().catch(error => setStatus(error.message)));
+    refreshComingSoonUi();
   }
 
   document.addEventListener('DOMContentLoaded', wire);
