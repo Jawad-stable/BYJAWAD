@@ -311,24 +311,56 @@
     return `<div class="post-item r d${(index % 4) + 1}" aria-label="${escapeHtml(titleText)}">${inner}</div>`;
   }
 
+  const videoIcons = {
+    play: '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>',
+    pause: '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>',
+    volume: '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.06A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06c2.89 1.02 5 3.76 5 6.71s-2.11 5.69-5 6.71v2.06c4.01-1.06 7-4.71 7-8.77s-2.99-7.71-7-8.77z"/></svg>',
+    muted: '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.42.05-.63zM19 12c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.06-2.99-7.71-7-8.77v2.06c2.89 1.02 5 3.76 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.19v2.06a8.99 8.99 0 0 0 3.69-1.81L18.73 21 20 19.73l-9-9L4.27 3zM12 4 9.91 6.09 12 8.18V4z"/></svg>',
+    fullscreen: '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>'
+  };
+
   function videoCard(item, index, locale) {
-    const thumbUrl = item.thumbnailUrl || (item.fileUrl && /\.(jpe?g|png|gif|webp)([?#]|$)/i.test(item.fileUrl) ? item.fileUrl : '');
+    const rawThumbUrl = item.thumbnailUrl || (item.fileUrl && /\.(jpe?g|png|gif|webp)([?#]|$)/i.test(item.fileUrl) ? item.fileUrl : '');
+    const thumbUrl = isSafeUrl(rawThumbUrl) ? rawThumbUrl : '';
     const catText = localize(item.meta || item.category, locale) || 'Video';
     const titleText = localize(item.title, locale) || '';
     const embedUrl = toEmbedUrl(item.embedUrl || '');
-    const hasMedia = !!(embedUrl || item.fileUrl);
-    const playIcon = `<svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>`;
-    const thumbInner = thumbUrl
-      ? `<img src="${escapeHtml(thumbUrl)}" alt="" aria-hidden="true" loading="lazy">
-         <div class="video-play-overlay"><div class="video-play-icon">${playIcon}</div></div>`
-      : `<div class="video-thumb-bg"><div class="video-play-icon">${playIcon}</div></div>`;
-    const inner = `
-        <div class="video-thumb">${thumbInner}</div>
+    const rawFileUrl = item.fileUrl || '';
+    const fileUrl = isSafeUrl(rawFileUrl) ? rawFileUrl : '';
+    const isPlayableFile = fileUrl && /\.(mp4|webm|ogv|mov)([?#]|$)/i.test(fileUrl);
+    const info = `
         <div class="video-info">
           <div class="video-cat">${escapeHtml(catText)}</div>
           <div class="video-title">${escapeHtml(titleText)}</div>
         </div>`;
-    if (hasMedia) {
+
+    if (isPlayableFile) {
+      const posterAttr = thumbUrl ? ` poster="${escapeHtml(thumbUrl)}"` : '';
+      const w = Number(item.width) || 0;
+      const h = Number(item.height) || 0;
+      const ratioStyle = w > 0 && h > 0 ? ` style="aspect-ratio:${w}/${h}"` : '';
+      return `
+      <div class="video-card r d${(index % 3) + 1}">
+        <div class="video-thumb"${ratioStyle}>
+          <video class="video-el" preload="metadata" playsinline${posterAttr}>
+            <source src="${escapeHtml(fileUrl)}" type="${escapeHtml(videoMimeFor(fileUrl))}">
+          </video>
+          <div class="video-controls">
+            <button type="button" class="video-ctrl" data-video-action="play" aria-label="Play video: ${escapeHtml(titleText)}">${videoIcons.play}</button>
+            <button type="button" class="video-ctrl" data-video-action="mute" aria-label="Mute">${videoIcons.volume}</button>
+            <button type="button" class="video-ctrl" data-video-action="fullscreen" aria-label="Full screen">${videoIcons.fullscreen}</button>
+          </div>
+        </div>${info}
+      </div>`;
+    }
+
+    const playOverlay = `<div class="video-play-overlay"><div class="video-play-icon">${videoIcons.play}</div></div>`;
+    const thumbInner = thumbUrl
+      ? `<img src="${escapeHtml(thumbUrl)}" alt="" aria-hidden="true" loading="lazy">${playOverlay}`
+      : `<div class="video-thumb-bg">${playOverlay}</div>`;
+    const inner = `<div class="video-thumb">${thumbInner}</div>${info}`;
+
+    if (embedUrl) {
       return `
       <button type="button" class="video-card r d${(index % 3) + 1} popup-trigger"
               data-item-id="${escapeHtml(item.id)}"
@@ -336,6 +368,46 @@
       </button>`;
     }
     return `<div class="video-card r d${(index % 3) + 1}" aria-label="${escapeHtml(titleText)}">${inner}</div>`;
+  }
+
+  function bindVideoControls(root = document) {
+    root.querySelectorAll('.video-card .video-el').forEach(video => {
+      if (video.dataset.videoBound === 'true') return;
+      video.dataset.videoBound = 'true';
+      const card = video.closest('.video-card');
+      const playBtn = card.querySelector('[data-video-action="play"]');
+      const muteBtn = card.querySelector('[data-video-action="mute"]');
+      const fsBtn = card.querySelector('[data-video-action="fullscreen"]');
+
+      const syncPlayIcon = () => { playBtn.innerHTML = video.paused ? videoIcons.play : videoIcons.pause; playBtn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video'); };
+      const syncMuteIcon = () => { muteBtn.innerHTML = video.muted ? videoIcons.muted : videoIcons.volume; muteBtn.setAttribute('aria-label', video.muted ? 'Unmute' : 'Mute'); };
+
+      playBtn.addEventListener('click', () => {
+        if (video.paused) {
+          document.querySelectorAll('.video-card .video-el').forEach(other => { if (other !== video && !other.paused) other.pause(); });
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+      muteBtn.addEventListener('click', () => { video.muted = !video.muted; syncMuteIcon(); });
+      fsBtn.addEventListener('click', () => {
+        if (video.requestFullscreen) video.requestFullscreen().catch(() => {});
+        else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+      });
+
+      video.addEventListener('play', syncPlayIcon);
+      video.addEventListener('pause', syncPlayIcon);
+      video.addEventListener('ended', syncPlayIcon);
+      video.addEventListener('loadedmetadata', () => {
+        if (card.querySelector('.video-thumb').style.aspectRatio) return;
+        if (video.videoWidth && video.videoHeight) {
+          card.querySelector('.video-thumb').style.aspectRatio = `${video.videoWidth} / ${video.videoHeight}`;
+        }
+      });
+      syncPlayIcon();
+      syncMuteIcon();
+    });
   }
 
   // ── PAGE RENDERERS ────────────────────────────────────
@@ -432,6 +504,7 @@
     if (!items.length) return;
     grid.innerHTML = items.map((item, index) => videoCard(item, index, locale)).join('');
     window.refreshInteractiveElements?.(grid);
+    bindVideoControls(grid);
   }
 
   // ── LOAD & RENDER ────────────────────────────────────

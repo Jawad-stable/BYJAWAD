@@ -6,16 +6,16 @@ const resources = {
   en: {
     translation: {
       meta: {
-        home: { title: 'Jawad Khmaysa — Voice Artist & Graphic Designer' },
-        projects: { title: 'All Projects — Jawad Khmaysa' },
-        samples: { title: 'Voice Samples — Jawad Khmaysa' }
+        home: { title: 'Jawad Khamaysa — Voice-Over Artist & Graphic Designer' },
+        projects: { title: 'All Projects — Jawad Khamaysa' },
+        samples: { title: 'Voice Samples — Jawad Khamaysa' }
       },
       nav: ['About', 'Projects', 'Samples', 'Socials', 'Contact'],
       toggle: 'AR', book: 'Book a Session',
       home: {
         hero: {
           availability: 'Available for Selected Projects · From Palestine <svg class="chip-pin" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 13-8 13S4 17 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3" fill="currentColor" stroke="none"/></svg>',
-          name: 'Jawad Khmaysa', role: 'Voice Artist & Graphic Designer',
+          name: 'Jawad Khamaysa', role: 'Voice-Over Artist & Graphic Designer',
           headline: 'Hi, I\'m',
           samples: 'Hear Samples ↓', book: 'Book a Session'
         },
@@ -35,11 +35,11 @@ const resources = {
           title: 'Listen. Then <span class="hw">decide.</span>',
           sub: 'Two strong samples are enough for the first impression. The full library is on the samples page.',
           langs: ['Levantine', 'MSA', 'Arabic Dialects'],
-          levels: ['Arabic Dialect', 'Formal Arabic', 'Gulf, Egyptian, Iraqi...'],
+          levels: ['Arabic Dialect', 'Formal Arabic', 'Regional Variations'],
           formats: [['Commercial', 'Radio · TV'], ['Documentary', 'Film'], ['E-Learning', 'Education'], ['Product', 'App · SaaS']],
           samples: [
-            { label: 'Sample 01 · Arabic Commercial', title: 'Ratteb Omorak', sub: 'Radio Spot · 30s · Levantine Arabic' },
-            { label: 'Sample 02 · English Narration', title: 'Brand Story', sub: 'Documentary Tone · 45s · English' }
+            { label: 'Sample 01 · Arabic Commercial', title: 'Ratteb Omorak', sub: 'Radio Spot · Levantine Arabic' },
+            { label: 'Sample 02 · Arabic Narration', title: 'Companion to the Top', sub: 'Motivational Narration · Levantine Arabic' }
           ],
           cta: {
             title: 'Need a <span class="hw">voice</span><br/>for your project?',
@@ -58,14 +58,8 @@ const resources = {
           title: 'Beyond the <span class="hm">mic.</span>',
           all: 'All Projects',
           featured: [
-            { meta: '01 — Featured Product', title: '<span class="hw">Grafly</span>', desc: 'An Arabic-first design learning platform, built as a path that is practical and engaging at the same time.', tags: ['Product', 'React Native', 'Arabic-First', 'Education'] },
-            { meta: '02', title: 'Ratteb Omorak', tags: ['Brand', 'Copy'] },
-            { meta: '03', title: 'Critiqa', tags: ['AI Tool', 'Design'] }
-          ],
-          rows: [
-            { meta: '04', title: 'PPU Incubator Podcast', tags: ['Content', 'Strategy'] },
-            { meta: '05', title: 'Dark Cinema Portfolio', tags: ['Web', 'Motion'] },
-            { meta: '06', title: 'Request Portfolio ↗', tags: ['+12 Projects'] }
+            { meta: '01 — Featured Product', title: '<span class="hw">Grafly</span>', desc: 'An Arabic-first design learning platform, built as a path that is practical and engaging at the same time.', tags: ['Product', 'Arabic-First', 'Education'] },
+            { meta: '02 — Brand Identity', title: 'Ratteb Omorak', desc: '"We care about what you can\'t see." Full brand system for a cleaning-services company — logo, color, and guidelines.', tags: ['Identity', 'Guidelines'] }
           ]
         },
         socials: {
@@ -73,7 +67,7 @@ const resources = {
           title: 'Watch the work.<br/><span class="hm">And follow the process.</span>',
           sub: 'Voice clips, work notes, and short updates from the studio and daily life.',
           cards: [
-            { kicker: 'YouTube', name: 'Jawad Khmaysa', desc: 'Longer samples, project breakdowns, and behind-the-scenes moments.', arr: 'Open' },
+            { kicker: 'YouTube', name: 'Jawad Khamaysa', desc: 'Longer samples, project breakdowns, and behind-the-scenes moments.', arr: 'Open' },
             { kicker: 'Instagram', name: '@jawad.khamaysa', desc: 'Short samples, visual work, studio moments, and quick updates.', arr: 'Open' }
           ]
         },
@@ -106,15 +100,7 @@ const resources = {
           title: 'Coming Soon',
           sub: 'New brand, social, and motion work is being prepared. In the meantime, listen to voice samples or start a conversation.',
           primary: 'Listen to Samples', secondary: 'Start a Project'
-        },
-        cards: [
-          { meta: '01 / Product', title: '<span class="hw">Grafly</span>', desc: 'Arabic-first design education platform with gamified learning paths, product strategy, and mobile app direction.', tags: ['React Native', 'Education', 'Arabic UX'] },
-          { meta: '02 / Brand', title: 'Ratteb Omorak', desc: 'Service brand system, messaging, visual direction, and practical identity assets for a cleaning services business.', tags: ['Identity', 'Copy', 'Service Brand'] },
-          { meta: '03 / AI Tool', title: 'Critiqa', desc: 'Concept and interface direction for an AI critique assistant built around clearer creative feedback.', tags: ['AI', 'UX', 'Design Tool'] },
-          { meta: '04 / Content', title: 'PPU Incubator Podcast', desc: 'Content strategy and production support for entrepreneurial stories, conversations, and program visibility.', tags: ['Podcast', 'Strategy'] },
-          { meta: '05 / Web', title: 'Dark Cinema Portfolio', desc: 'A motion-forward web direction built around cinematic contrast, strong typography, and immersive presentation.', tags: ['Web', 'Motion'] },
-          { meta: '06 / Voice', title: 'Commercial Voice Packages', desc: 'Script interpretation, recording, and delivery for Arabic and English commercial, educational, and product projects.', tags: ['Arabic', 'English', 'VO'] }
-        ]
+        }
       },
       samples: {
         hero: {
@@ -124,12 +110,11 @@ const resources = {
           primary: 'Request Custom Demo', secondary: 'View Projects'
         },
         cards: [
-          { label: 'Arabic Commercial', title: 'Ratteb Omorak', sub: 'Radio spot · 30s · Levantine Arabic' },
-          { label: 'English Narration', title: 'Brand Story', sub: 'Documentary tone · 45s · English' },
-          { label: 'Arabic Commercial', title: 'Ratteb Omorak', sub: 'Radio spot · Levantine Arabic' },
-          { label: 'Product Demo', title: 'App Walkthrough', sub: 'Clear product delivery · 40s · English' },
-          { label: 'Arabic Commercial', title: 'Ratteb Omorak', sub: 'Radio spot · Levantine Arabic' },
-          { label: 'Cinematic Read', title: 'Opening Line', sub: 'Low, cinematic read · 35s · Arabic/English' }
+          { label: 'Arabic Commercial', title: 'Ratteb Omorak — Offices & Homes', sub: 'Radio spot · Levantine Arabic' },
+          { label: 'Arabic Commercial', title: 'Ratteb Omorak — Mosque', sub: 'Radio spot · Levantine Arabic' },
+          { label: 'Arabic Commercial', title: 'Ratteb Omorak — Faith & Cleanliness', sub: 'Radio spot · Levantine Arabic' },
+          { label: 'Arabic Narration', title: 'The Family', sub: 'Narration · Levantine Arabic' },
+          { label: 'Arabic Narration', title: 'Companion to the Top', sub: 'Motivational narration · Levantine Arabic' }
         ]
       }
     }
@@ -167,11 +152,11 @@ const resources = {
           title: 'اسمع، ثم <span class="hw">قرّر.</span>',
           sub: 'نماذجان قويان يكفيان للانطباع الأول. أما المكتبة الكاملة فموجودة في صفحة النماذج.',
           langs: ['لهجة شامية', 'فصحى', 'لهجات عربية'],
-          levels: ['لهجة عربية', 'فصحى رسمية', "خليجي، مصري، عراقي ..."],
+          levels: ['لهجة عربية', 'فصحى رسمية', 'لهجات متعددة'],
           formats: [['إعلانات', 'إذاعة · تلفاز'], ['وثائقيات', 'أفلام'], ['تعليم إلكتروني', 'تعليمي'], ['منتجات', 'تطبيقات · SaaS']],
           samples: [
-            { label: 'النموذج 01 · إعلان عربي', title: 'رتّب أمورك', sub: 'إعلان إذاعي · 30 ثانية · لهجة شامية' },
-            { label: 'النموذج 02 · سرد إنجليزي', title: 'Brand Story', sub: 'نبرة وثائقية · 45 ثانية · إنجليزية' }
+            { label: 'النموذج 01 · إعلان عربي', title: 'رتّب أمورك', sub: 'إعلان إذاعي · لهجة شامية' },
+            { label: 'النموذج 02 · سرد عربي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · لهجة شامية' }
           ],
           cta: {
             title: 'تحتاج <span class="hw">صوتًا</span><br/>لمشروعك؟',
@@ -190,14 +175,8 @@ const resources = {
           title: 'أبعد من <span class="hm">المايك.</span>',
           all: 'كل المشاريع',
           featured: [
-            { meta: '01 — منتج رئيسي', title: '<span class="hw">Grafly</span>', desc: 'منصة لتعلّم التصميم بالعربية أولاً، مبنية كمسار عملي وممتع في الوقت نفسه.', tags: ['منتج', 'React Native', 'عربي أولاً', 'تعليم'] },
-            { meta: '02', title: 'رتّب أمورك', tags: ['علامة', 'نصوص'] },
-            { meta: '03', title: 'Critiqa', tags: ['ذكاء اصطناعي', 'تصميم'] }
-          ],
-          rows: [
-            { meta: '04', title: 'بودكاست حاضنة جامعة بوليتكنك', tags: ['محتوى', 'استراتيجية'] },
-            { meta: '05', title: 'ملف سينمائي داكن', tags: ['ويب', 'حركة'] },
-            { meta: '06', title: 'طلب الملف الكامل ↗', tags: ['+12 مشروعًا'] }
+            { meta: '01 — منتج رئيسي', title: '<span class="hw">Grafly</span>', desc: 'منصة لتعلّم التصميم بالعربية أولاً، مبنية كمسار عملي وممتع في الوقت نفسه.', tags: ['منتج', 'عربي أولاً', 'تعليم'] },
+            { meta: '02 — هوية بصرية', title: 'رتّب أمورك', desc: '"نهتم بما لا تراه." هوية بصرية كاملة لشركة خدمات تنظيف — شعار، ألوان، ودليل استخدام.', tags: ['هوية', 'دليل استخدام'] }
           ]
         },
         socials: {
@@ -205,7 +184,7 @@ const resources = {
           title: 'شاهد العمل.<br/><span class="hm">وتابع الطريقة.</span>',
           sub: 'مقاطع صوتية، ملاحظات عمل، وتحديثات قصيرة من الاستوديو والحياة اليومية.',
           cards: [
-            { kicker: 'YouTube', name: 'Jawad Khmaysa', desc: 'نماذج أطول، تفكيك للمشاريع، ولحظات من خلف الكواليس.', arr: 'افتح' },
+            { kicker: 'YouTube', name: 'Jawad Khamaysa', desc: 'نماذج أطول، تفكيك للمشاريع، ولحظات من خلف الكواليس.', arr: 'افتح' },
             { kicker: 'Instagram', name: '@jawad.khamaysa', desc: 'نماذج قصيرة، أعمال بصرية، ومشاهد من الاستوديو وتحديثات سريعة.', arr: 'افتح' }
           ]
         },
@@ -238,15 +217,7 @@ const resources = {
           title: 'قريبًا',
           sub: 'يجري حاليًا إعداد أعمال جديدة في الهوية البصرية والسوشال ميديا والفيديو. في هذه الأثناء، استمع إلى النماذج الصوتية أو ابدأ محادثة.',
           primary: 'استمع للنماذج', secondary: 'ابدأ مشروعًا'
-        },
-        cards: [
-          { meta: '01 / منتج', title: '<span class="hw">Grafly</span>', desc: 'منصة لتعلّم التصميم بالعربية أولاً مع مسارات ممتعة واستراتيجية منتج وتوجيه تطبيق جوال.', tags: ['React Native', 'تعليم', 'واجهة عربية'] },
-          { meta: '02 / هوية', title: 'رتّب أمورك', desc: 'نظام هوية خدمة مع رسائل واضحة وتوجيه بصري وأصول هوية عملية لخدمة تنظيف.', tags: ['هوية', 'نصوص', 'علامة خدمة'] },
-          { meta: '03 / أداة ذكاء', title: 'Critiqa', desc: 'مفهوم وتوجيه واجهة لمساعد نقد ذكي مبني حول تغذية راجعة إبداعية أوضح.', tags: ['ذكاء اصطناعي', 'UX', 'أداة تصميم'] },
-          { meta: '04 / محتوى', title: 'بودكاست حاضنة بوليتكنك', desc: 'استراتيجية محتوى ودعم إنتاجي لقصص ريادية ومحادثات وإبراز برامج.', tags: ['بودكاست', 'استراتيجية'] },
-          { meta: '05 / ويب', title: 'ملف سينمائي داكن', desc: 'توجيه ويب متقدم مبني على التباين السينمائي والطباعة القوية والعرض الغامر.', tags: ['ويب', 'حركة'] },
-          { meta: '06 / صوت', title: 'باقات صوت تجاري', desc: 'تفسير نصوص وتسجيل وتسليم لمشاريع عربية وإنجليزية تجارية وتعليمية ومنتجية.', tags: ['عربي', 'إنجليزي', 'صوت'] }
-        ]
+        }
       },
       samples: {
         hero: {
@@ -256,12 +227,11 @@ const resources = {
           primary: 'طلب ديمو مخصص', secondary: 'عرض المشاريع'
         },
         cards: [
-          { label: 'إعلان عربي', title: 'رتّب أمورك', sub: 'إعلان إذاعي · 30ث · لهجة شامية' },
-          { label: 'سرد إنجليزي', title: 'Brand Story', sub: 'نبرة وثائقية · 45ث · إنجليزية' },
-          { label: 'إعلان عربي', title: 'رتّب أمورك', sub: 'إعلان إذاعي · لهجة شامية' },
-          { label: 'عرض منتج', title: 'جولة تطبيق', sub: 'إيصال واضح · 40ث · إنجليزية' },
-          { label: 'إعلان عربي', title: 'رتّب أمورك', sub: 'إعلان إذاعي · لهجة شامية' },
-          { label: 'قراءة سينمائية', title: 'الجملة الافتتاحية', sub: 'قراءة هادئة · 35ث · عربي/إنجليزي' }
+          { label: 'إعلان عربي', title: 'رتّب أمورك — بيوت ومكاتب', sub: 'إعلان إذاعي · لهجة شامية' },
+          { label: 'إعلان عربي', title: 'رتّب أمورك — المسجد', sub: 'إعلان إذاعي · لهجة شامية' },
+          { label: 'إعلان عربي', title: 'رتّب أمورك — لأن النظافة', sub: 'إعلان إذاعي · لهجة شامية' },
+          { label: 'سرد عربي', title: 'العيلة', sub: 'سرد صوتي · لهجة شامية' },
+          { label: 'سرد عربي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · لهجة شامية' }
         ]
       }
     }
@@ -345,12 +315,10 @@ function updateHome() {
   setHTML('#work .wf-big .wt', work.featured[0].title);
   setText('#work .wf-big .wd', work.featured[0].desc);
   setList('#work .wf-big .wtag', work.featured[0].tags);
-  setList('#work .wcard-sm .wn', [work.featured[1].meta, work.featured[2].meta]);
-  setList('#work .wcard-sm .wt', [work.featured[1].title, work.featured[2].title]);
-  setList('#work .wcard-sm .wtag', [...work.featured[1].tags, ...work.featured[2].tags]);
-  setList('#work .wcard-list .wn', work.rows.map(r => r.meta));
-  setList('#work .wcard-list .wt', work.rows.map(r => r.title));
-  setList('#work .wcard-list .wtag', work.rows.flatMap(r => r.tags));
+  setList('#work .wcard-sm .wn', [work.featured[1].meta]);
+  setList('#work .wcard-sm .wt', [work.featured[1].title]);
+  setList('#work .wcard-sm .wd', [work.featured[1].desc]);
+  setList('#work .wcard-sm .wtag', work.featured[1].tags);
 
   const socials = i18next.t('home.socials', { returnObjects: true });
   setChip('#socials .chip', socials.chip);
@@ -422,15 +390,21 @@ function applyLocale(locale) {
   }
 }
 
-i18next.init({ lng: initialLocale, fallbackLng: 'en', interpolation: { escapeValue: false }, resources }, () => {
-  applyLocale(i18next.language || initialLocale);
-  document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      closeNavMenu();
-      applyLocale(i18next.language === 'ar' ? 'en' : 'ar');
+if (window.i18next) {
+  i18next.init({ lng: initialLocale, fallbackLng: 'en', interpolation: { escapeValue: false }, resources }, () => {
+    applyLocale(i18next.language || initialLocale);
+    document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        closeNavMenu();
+        applyLocale(i18next.language === 'ar' ? 'en' : 'ar');
+      });
     });
   });
-});
+} else {
+  // i18next CDN failed to load — fall back to the static page content instead of
+  // leaving every .r-tagged section permanently invisible (see .r { opacity: 0 } below).
+  console.warn('i18next failed to load; showing static page content without translation.');
+}
 
 /* Mobile navigation */
 const navEl = document.getElementById('nav');
@@ -446,6 +420,11 @@ if (navEl && menuToggle) {
   menuToggle.addEventListener('click', () => {
     const isOpen = navEl.classList.toggle('open');
     menuToggle.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) {
+      navEl.querySelector('.nlinks a')?.focus();
+    } else {
+      menuToggle.focus();
+    }
   });
 
   navEl.querySelectorAll('.nlinks a').forEach(link => {
@@ -459,13 +438,24 @@ if (navEl && menuToggle) {
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeNavMenu();
+    if (e.key === 'Tab' && navEl.classList.contains('open')) {
+      const focusable = Array.from(navEl.querySelectorAll('a,button:not([disabled])'));
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
   });
 }
 
 /* ── CURSOR ── */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const cur = document.getElementById('cur');
 const cur2 = document.getElementById('cur2');
-if (cur && cur2) {
+if (cur && cur2 && !prefersReducedMotion) {
   let mx = 0, my = 0, rx = 0, ry = 0;
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
@@ -508,17 +498,6 @@ function bindRevealTargets(root = document) {
 }
 
 bindRevealTargets();
-
-/* ── SKILL BARS ── */
-const sobs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.sk-bar').forEach(b => b.style.width = b.dataset.w + '%');
-      sobs.unobserve(e.target);
-    }
-  });
-}, { threshold: .3 });
-document.querySelectorAll('.skills-card').forEach(el => sobs.observe(el));
 
 /* ── WAVEFORMS ── */
 const patterns = [
@@ -589,11 +568,17 @@ function startSimulation(id, dur, btn) {
 /* ── AUDIO SOURCES ── */
 (function () {
   var voices = 'assets/voices/';
-  var map = {
-    0: voices + encodeURIComponent('رتب أمورك تنظيف بيوت مكاتب شركات.wav'),
-    2: voices + encodeURIComponent('رتب أمورك - المسجد.wav'),
-    4: voices + encodeURIComponent('رتب أمورك - لأن النظافة.wav')
+  var files = {
+    cleaning: voices + encodeURIComponent('رتب أمورك تنظيف بيوت مكاتب شركات.wav'),
+    mosque: voices + encodeURIComponent('رتب أمورك - المسجد.wav'),
+    faith: voices + encodeURIComponent('رتب أمورك - لأن النظافة.wav'),
+    family: voices + encodeURIComponent('العيلة.wav'),
+    companion: voices + encodeURIComponent('رفيق دربك نحو القمة.wav')
   };
+  var page = document.body.dataset.page;
+  var map = page === 'samples'
+    ? { 0: files.cleaning, 1: files.mosque, 2: files.faith, 3: files.family, 4: files.companion }
+    : { 0: files.cleaning, 1: files.companion };
   Object.keys(map).forEach(function (id) {
     var el = document.getElementById('audio' + id);
     if (el) el.setAttribute('src', map[id]);

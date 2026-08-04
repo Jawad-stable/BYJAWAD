@@ -12,7 +12,13 @@
       document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
     })();
   </script>
-  <title>Jawad Khmaysa — Voice Artist &amp; Graphic Designer</title>
+  <title>Jawad Khamaysa — Voice-Over Artist &amp; Graphic Designer</title>
+  <meta name="description" content="Jawad Khamaysa — Graphic designer and voice-over artist based in Palestine. Brand identity, multimedia production, and Arabic/English voice-over." />
+  <meta property="og:title" content="Jawad Khamaysa — Voice-Over Artist &amp; Graphic Designer" />
+  <meta property="og:description" content="Graphic design, multimedia production, and Arabic/English voice-over. Based in Palestine, working everywhere." />
+  <meta property="og:image" content="assets/images/Main%20Photo2.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="assets/logo/Yellow%20single.png" />
   <link rel="apple-touch-icon" href="assets/logo/Yellow%20single.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,14 +34,16 @@
 </head>
 
 <body data-page="home">
-  <div id="cur"></div>
-  <div id="cur2"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div id="cur" aria-hidden="true"></div>
+  <div id="cur2" aria-hidden="true"></div>
 
   <!-- ════ NAV ════ -->
   <nav id="nav">
     <div class="np">
-      <a class="nl" href="#hero" aria-label="Jawad Khmaysa">
-        <img class="nav-logo" src="assets/logo/Yellow%20single.png" alt="Jawad Khmaysa logo" width="120"
+      <a class="nl" href="#hero" aria-label="Jawad Khamaysa">
+        <img class="nav-logo" src="assets/logo/Yellow%20single.png" alt="Jawad Khamaysa logo" width="120"
           height="120" />
       </a>
       <ul class="nlinks">
@@ -54,6 +62,8 @@
     </div>
   </nav>
 
+  <main id="main-content" tabindex="-1">
+
   <!-- ════ HERO ════ -->
   <section id="hero">
     <div class="hero-bg"></div>
@@ -62,9 +72,12 @@
       <div class="hero-layout">
         <div class="hero-right-col">
           <div class="hero-photo-wrap">
-            <img class="hero-photo" src="assets/images/Main%20Photo2.png"
-              alt="Jawad Khmaysa, voice artist and graphic designer" width="1536" height="2752" decoding="async"
-              fetchpriority="high" />
+            <picture>
+              <source srcset="assets/images/Main%20Photo2.webp" type="image/webp" />
+              <img class="hero-photo" src="assets/images/Main%20Photo2.png"
+                alt="Jawad Khamaysa, voice-over artist and graphic designer" width="842" height="1264" decoding="async"
+                fetchpriority="high" />
+            </picture>
           </div>
         </div>
         <div class="hero-left-col">
@@ -75,9 +88,9 @@
                 <path d="M20 10c0 7-8 13-8 13S4 17 4 10a8 8 0 1 1 16 0z" />
                 <circle cx="12" cy="10" r="3" fill="currentColor" stroke="none" />
               </svg></div>
-            <h1 class="hero-h r d2">مرحباً، أنا</h1>
-            <div class="r d1"><span class="hero-name">جــــــــــــــــــــــــــــواد خـــــمايـــــــــــسة</span></div>
-            <span class="hero-name-sub">Voice &amp; Visual Direction</span>
+            <h1 class="hero-h r d2">Hi, I'm</h1>
+            <div class="r d1"><span class="hero-name">Jawad Khamaysa</span></div>
+            <span class="hero-name-sub">Voice-Over Artist &amp; Graphic Designer</span>
             <div class="hero-btns r d3">
               <a href="#voice" class="btn-gold">Hear Samples ↓</a>
               <a href="#contact" class="btn-ghost">Book a Session</a>
@@ -124,36 +137,20 @@
             by one principle: that form and meaning should always arrive together.</p>
         </div>
         <div class="about-right">
-          <div class="card skills-card r d1">
+          <div class="card skills-card nolift r d1">
             <div class="chip">Skills</div>
-            <div class="skill-row"><span class="sk-name">Voice Performance</span>
-              <div class="sk-track">
-                <div class="sk-bar" data-w="93"></div>
-              </div>
-            </div>
-            <div class="skill-row"><span class="sk-name">Graphic Design</span>
-              <div class="sk-track">
-                <div class="sk-bar" data-w="91"></div>
-              </div>
-            </div>
-            <div class="skill-row"><span class="sk-name">Brand Direction</span>
-              <div class="sk-track">
-                <div class="sk-bar" data-w="88"></div>
-              </div>
-            </div>
-            <div class="skill-row"><span class="sk-name">Videography</span>
-              <div class="sk-track">
-                <div class="sk-bar" data-w="82"></div>
-              </div>
-            </div>
+            <div class="skill-row"><span class="sk-name">Voice Performance</span><span class="sk-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+            <div class="skill-row"><span class="sk-name">Graphic Design</span><span class="sk-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+            <div class="skill-row"><span class="sk-name">Brand Direction</span><span class="sk-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+            <div class="skill-row"><span class="sk-name">Videography</span><span class="sk-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></div>
           </div>
           <div class="products-row">
-            <div class="card prod-card cg r d2">
+            <div class="card prod-card nolift cg r d2">
               <div class="prod-chip prod-chip-gold"><span>Active</span></div>
               <div class="prod-t">Grafly</div>
               <div class="prod-s">Arabic-first design education app</div>
             </div>
-            <div class="card prod-card cm r d3">
+            <div class="card prod-card nolift cm r d3">
               <div class="prod-chip prod-chip-w"><span>Brand</span></div>
               <div class="prod-t">Ratteb Omorak</div>
               <div class="prod-s">Cleaning services brand</div>
@@ -176,7 +173,7 @@
       </div>
 
       <div class="bento voice-info-row">
-        <div class="card lang-card r d1">
+        <div class="card lang-card nolift r d1">
           <span class="lc-flag"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
@@ -187,7 +184,7 @@
           <div class="lc-name">Levantine</div>
           <div class="lc-level">Arabic Dialect</div>
         </div>
-        <div class="card lang-card cg r d2">
+        <div class="card lang-card nolift cg r d2">
           <span class="lc-flag"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
@@ -198,15 +195,15 @@
           <div class="lc-name">MSA</div>
           <div class="lc-level">Formal Arabic</div>
         </div>
-        <div class="card lang-card cm r d3">
+        <div class="card lang-card nolift cm r d3">
           <span class="lc-flag"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
             </svg></span>
-          <div class="lc-name">Egyptian</div>
-          <div class="lc-level">Arabic Dialect</div>
+          <div class="lc-name">Arabic Dialects</div>
+          <div class="lc-level">Regional Variations</div>
         </div>
-        <div class="card format-card r d4">
+        <div class="card format-card nolift r d4">
           <div class="fc-title">Formats</div>
           <div class="fc-list">
             <div class="fc-item"><span class="fc-name">Commercial</span><span class="fc-tag">Radio · TV</span></div>
@@ -223,19 +220,36 @@
         <div class="pc pc-light r d1">
           <div class="pc-decor"></div>
           <div class="pc-label">Sample 01 · Arabic Commercial</div>
-          <div class="pc-title">رتب أمورك</div>
-          <div class="pc-sub">Radio Spot · 30s · Levantine Arabic</div>
+          <div class="pc-title">Ratteb Omorak</div>
+          <div class="pc-sub">Radio Spot · Levantine Arabic</div>
           <div class="wf" id="wf0"></div>
           <div class="prow">
             <span class="ptime" id="pt0">0:00</span>
-            <button class="pbtn" data-idx="0" data-dur="30" aria-label="Play sample">
+            <button class="pbtn" data-idx="0" data-dur="62" aria-label="Play sample">
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </button>
-            <span class="pdur">0:30</span>
+            <span class="pdur">1:02</span>
           </div>
           <audio id="audio0" preload="none"></audio>
+        </div>
+        <div class="pc pc-mid r d2">
+          <div class="pc-decor"></div>
+          <div class="pc-label">Sample 02 · Arabic Narration</div>
+          <div class="pc-title">Companion to the Top</div>
+          <div class="pc-sub">Motivational narration · Levantine Arabic</div>
+          <div class="wf" id="wf1"></div>
+          <div class="prow">
+            <span class="ptime" id="pt1">0:00</span>
+            <button class="pbtn" data-idx="1" data-dur="51" aria-label="Play sample">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+            <span class="pdur">0:51</span>
+          </div>
+          <audio id="audio1" preload="none"></audio>
         </div>
       </div>
 
@@ -250,7 +264,7 @@
           <div class="inline-actions"><a href="samples.html" class="btn-gold">More Samples</a><a href="#contact"
               class="btn-ghost">Get a Quote</a></div>
         </div>
-        <div class="card vstudio-card r d2">
+        <div class="card vstudio-card nolift r d2">
           <div class="vstudio-t">Studio Setup</div>
           <div class="vstudio-items">
             <div class="vstudio-i"><span class="vstudio-dot"></span>Home studio · Pro-grade mic</div>
@@ -259,7 +273,7 @@
             <div class="vstudio-i"><span class="vstudio-dot"></span>Revisions included</div>
           </div>
         </div>
-        <div class="card vstat-card r d3">
+        <div class="card vstat-card nolift r d3">
           <div class="vstat-n">AR/EN</div>
           <div class="vstat-l">Bilingual Performance</div>
         </div>
@@ -284,11 +298,10 @@
           <div class="warrow">↗</div>
           <div class="wn">01 — Featured Product</div>
           <div class="wt"><span class="hw">Grafly</span></div>
-          <div class="wd">A gamified Arabic-first design education platform. Duolingo-style learning for designers,
-            built in React Native with Supabase.</div>
+          <div class="wd">A gamified Arabic-first design education platform. Duolingo-style learning for designers.
+          </div>
           <div class="wtags">
             <span class="wtag wtag-w">Product</span>
-            <span class="wtag wtag-w">React Native</span>
             <span class="wtag wtag-w">Arabic-First</span>
             <span class="wtag wtag-w">Education</span>
           </div>
@@ -296,40 +309,14 @@
         <div class="wf-right">
           <a href="projects.html#ratteb-omorak" class="card cm wcard-sm r d2">
             <div class="warrow">↗</div>
-            <div class="wn">02</div>
+            <div class="wn">02 — Brand Identity</div>
             <div class="wt">Ratteb Omorak</div>
-            <div class="wtags"><span class="wtag wtag-w">Brand</span><span class="wtag wtag-w">Copy</span></div>
-          </a>
-          <a href="projects.html#critiqa" class="card cg wcard-sm r d3">
-            <div class="warrow">↗</div>
-            <div class="wn">03</div>
-            <div class="wt">Critiqa</div>
-            <div class="wtags"><span class="wtag wtag-g">AI Tool</span><span class="wtag wtag-g">Design</span></div>
+            <div class="wd">"We care about what you can't see." Full brand system for a cleaning-services company —
+              logo, color, and guidelines.</div>
+            <div class="wtags"><span class="wtag wtag-w">Identity</span><span class="wtag wtag-w">Guidelines</span>
+            </div>
           </a>
         </div>
-      </div>
-
-      <div class="gap"></div>
-
-      <div class="bento work-row">
-        <a href="projects.html" class="card wcard-list r d1">
-          <div class="warrow">↗</div>
-          <div class="wn">04</div>
-          <div class="wt">PPU Incubator Podcast</div>
-          <div class="wtags"><span class="wtag wtag-m">Content</span><span class="wtag wtag-m">Strategy</span></div>
-        </a>
-        <a href="projects.html" class="card cm wcard-list r d2">
-          <div class="warrow">↗</div>
-          <div class="wn">05</div>
-          <div class="wt">Dark Cinema Portfolio</div>
-          <div class="wtags"><span class="wtag wtag-w">Web</span><span class="wtag wtag-w">Motion</span></div>
-        </a>
-        <a href="index.html#contact" class="card cc wcard-list r d3">
-          <div class="warrow">↗</div>
-          <div class="wn">06</div>
-          <div class="wt">Request Portfolio ↗</div>
-          <div class="wtags"><span class="wtag wtag-m">+12 Projects</span></div>
-        </a>
       </div>
     </div>
   </section>
@@ -356,7 +343,7 @@
             </svg></div>
           <div>
             <div class="social-kicker">YouTube</div>
-            <div class="social-name">Jawad Khmaysa</div>
+            <div class="social-name">Jawad Khamaysa</div>
             <div class="social-desc">Voice reels, project breakdowns, and longer creative videos.</div>
           </div>
           <span class="social-arr">Open</span>
@@ -417,7 +404,7 @@
           <a href="https://www.youtube.com/@jawad_khamaysa" target="_blank" rel="noopener noreferrer" class="clink">
             <div>
               <div class="cl-label">YouTube</div>
-              <div class="cv">Jawad Khmaysa</div>
+              <div class="cv">Jawad Khamaysa</div>
             </div>
             <span class="ca">↗</span>
           </a>
@@ -434,8 +421,8 @@
       <div class="gap"></div>
 
       <div class="bento contact-bottom">
-        <div class="card cd cb-card r d1">
-          <div class="cb-label">Based In</div>
+        <div class="card cd cb-card nolift r d1">
+          <div class="cb-label">Location</div>
           <div class="cb-val"><svg style="display:inline-block;vertical-align:-2px;margin-right:5px;flex-shrink:0"
               width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -443,22 +430,24 @@
               <circle cx="12" cy="10" r="3" fill="currentColor" stroke="none" />
             </svg>Palestine</div>
         </div>
-        <div class="card cg cb-card r d2">
+        <div class="card cg cb-card nolift r d2">
           <div class="cb-label">Status</div>
-          <div class="cb-val">Open to Work</div>
+          <div class="cb-val">Available for Collaboration</div>
         </div>
-        <div class="card cb-card r d3">
-          <div class="cb-label">Creative Technologist</div>
+        <div class="card cb-card nolift r d3">
+          <div class="cb-label">Specialty</div>
           <div class="cb-val">Voice · Design · Product</div>
         </div>
       </div>
     </div>
   </section>
 
+  </main>
+
   <!-- ════ FOOTER ════ -->
   <footer class="r">
-    <a href="#hero" class="footer-brand" aria-label="Jawad Khmaysa — back to top">
-      <img class="footer-logo" src="assets/logo/white.png" alt="Jawad Khmaysa" width="140" height="125" />
+    <a href="#hero" class="footer-brand" aria-label="Jawad Khamaysa — back to top">
+      <img class="footer-logo" src="assets/logo/white.png" alt="Jawad Khamaysa" width="140" height="125" />
     </a>
     <span class="fc">© 2026 · Voice · Design · Palestine</span>
   </footer>
