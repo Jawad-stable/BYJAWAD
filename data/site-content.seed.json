@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-04T13:35:00.000Z",
+  "updatedAt": "2026-08-04T21:43:26.877Z",
   "projectsComingSoon": false,
   "items": [
     {
@@ -314,7 +314,8 @@
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/grafly/grafly-promo.mp4",
       "objectKey": "uploads/video/grafly/grafly-promo.mp4",
       "width": 3840,
-      "height": 2160
+      "height": 2160,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/grafly/1785879801781-grafly-promo-poster.jpg"
     },
     {
       "id": "video-food-reel-1",
@@ -338,7 +339,8 @@
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/collective-king.mp4",
       "objectKey": "uploads/video/food-videography/collective-king.mp4",
       "width": 1080,
-      "height": 1920
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/1785879804231-collective-king-poster.jpg"
     },
     {
       "id": "video-food-reel-2",
@@ -362,7 +364,8 @@
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/sega-collection.mp4",
       "objectKey": "uploads/video/food-videography/sega-collection.mp4",
       "width": 1080,
-      "height": 1920
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/1785879804955-sega-collection-poster.jpg"
     },
     {
       "id": "video-furniture-reel",
@@ -386,7 +389,270 @@
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/furniture-videography/othmani-reel.mp4",
       "objectKey": "uploads/video/furniture-videography/othmani-reel.mp4",
       "width": 1080,
-      "height": 1920
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/furniture-videography/1785879805912-othmani-reel-poster.jpg"
+    },
+    {
+      "id": "voice-abu-rabie-pan-to-plate",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "title": {
+        "en": "Abu Rabie — From Pan to Plate",
+        "ar": "أبو ربيع — من الطنجرة للصحن"
+      },
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "sub": {
+        "en": "Radio Spot · Levantine Arabic",
+        "ar": "إعلان إذاعي · لهجة شامية"
+      },
+      "duration": 25,
+      "order": 6,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/true-agency/abu-rabie-pan-to-plate.wav",
+      "objectKey": "uploads/voice/true-agency/abu-rabie-pan-to-plate.wav"
+    },
+    {
+      "id": "voice-the-ottoman-grip",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "title": {
+        "en": "The Ottoman Grip",
+        "ar": "القبضة العثمانية"
+      },
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "sub": {
+        "en": "Brand Campaign · Levantine Arabic",
+        "ar": "حملة علامة تجارية · لهجة شامية"
+      },
+      "duration": 38,
+      "order": 7,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/yessound/the-ottoman-grip.wav",
+      "objectKey": "uploads/voice/yessound/the-ottoman-grip.wav"
+    },
+    {
+      "id": "voice-levantine-sweets",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "title": {
+        "en": "Levantine Sweets",
+        "ar": "الحلويات الشامية"
+      },
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "sub": {
+        "en": "Radio Spot · Levantine Arabic",
+        "ar": "إعلان إذاعي · لهجة شامية"
+      },
+      "duration": 73,
+      "order": 8,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/panda/levantine-sweets.wav",
+      "objectKey": "uploads/voice/panda/levantine-sweets.wav"
+    },
+    {
+      "id": "voice-every-moment-has-its-rose",
+      "type": "voice",
+      "category": "Arabic Narration",
+      "title": {
+        "en": "Every Moment Has Its Rose",
+        "ar": "لكل لحظة وردتها"
+      },
+      "label": {
+        "en": "Arabic Narration",
+        "ar": "سرد عربي"
+      },
+      "sub": {
+        "en": "Lifestyle Read · Levantine Arabic",
+        "ar": "قراءة أسلوب حياة · لهجة شامية"
+      },
+      "duration": 22,
+      "order": 9,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ward/every-moment-has-its-rose.wav",
+      "objectKey": "uploads/voice/ward/every-moment-has-its-rose.wav"
+    },
+    {
+      "id": "visual-id-alba",
+      "type": "visual-id",
+      "anchor": "alba",
+      "category": "Brand / Fashion",
+      "title": {
+        "en": "Alba Aura",
+        "ar": "ألبا أورا"
+      },
+      "meta": {
+        "en": "Brand / Fashion",
+        "ar": "هوية / أزياء"
+      },
+      "description": {
+        "en": "\"Your elegance, your softness.\" A complete brand identity for a women's fashion label — logo system, slogan, color palette, and Arabic/English typography built around grace and individuality.",
+        "ar": "\"أناقتك، نعومتك.\" هوية بصرية كاملة لعلامة أزياء نسائية — نظام الشعار، الشعار النصي، لوحة الألوان، والخطوط العربية والإنجليزية المبنية على الرقي والتفرد."
+      },
+      "tags": [
+        "Logo",
+        "Fashion",
+        "Arabic"
+      ],
+      "color": "gold",
+      "order": 7,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf",
+      "objectKey": "uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf"
+    },
+    {
+      "id": "visual-id-indimaj",
+      "type": "visual-id",
+      "anchor": "indimaj",
+      "category": "Brand / Social Impact",
+      "title": {
+        "en": "Indimaj",
+        "ar": "اندماج"
+      },
+      "meta": {
+        "en": "Brand / Social Impact",
+        "ar": "هوية / أثر مجتمعي"
+      },
+      "description": {
+        "en": "A logo and identity for an initiative helping autistic children integrate with their community — a mark of a teacher embracing a child, built on warmth and belonging.",
+        "ar": "شعار وهوية لمبادرة تدعم اندماج أطفال التوحد مع مجتمعهم — رمز يجسّد معلمًا يحتضن طفلًا، مبني على الدفء والانتماء."
+      },
+      "tags": [
+        "Logo",
+        "Identity",
+        "Social Impact"
+      ],
+      "color": "steel",
+      "order": 8,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf",
+      "objectKey": "uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf"
+    },
+    {
+      "id": "visual-id-pmo",
+      "type": "visual-id",
+      "anchor": "pmo",
+      "category": "Brand / Education",
+      "title": {
+        "en": "Palestine Mathematical Olympiad",
+        "ar": "أولمبياد فلسطين للرياضيات"
+      },
+      "meta": {
+        "en": "Brand / Education",
+        "ar": "هوية / تعليم"
+      },
+      "description": {
+        "en": "Logo identity for the Palestine Mathematical Olympiad — a golden-ratio construction, directional variations, and a clean academic color system.",
+        "ar": "هوية شعار لأولمبياد فلسطين للرياضيات — بناء بالنسبة الذهبية، اتجاهات واستخدامات متعددة، ونظام ألوان أكاديمي واضح."
+      },
+      "tags": [
+        "Logo",
+        "Identity",
+        "Education"
+      ],
+      "color": "maroon",
+      "order": 9,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf",
+      "objectKey": "uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf"
+    },
+    {
+      "id": "visual-id-fax",
+      "type": "visual-id",
+      "anchor": "fax",
+      "category": "Brand / Retail",
+      "title": {
+        "en": "Fax",
+        "ar": "فاكس"
+      },
+      "meta": {
+        "en": "Brand / Retail",
+        "ar": "هوية / تجزئة"
+      },
+      "description": {
+        "en": "Logo identity and social media system for an accessories store — wordmark, monochrome variation, backgrounds, and a warm color palette.",
+        "ar": "هوية شعار ونظام تواصل اجتماعي لمتجر إكسسوارات — الشعار النصي، نسخة أحادية اللون، خلفيات، ولوحة ألوان دافئة."
+      },
+      "tags": [
+        "Logo",
+        "Identity",
+        "Retail"
+      ],
+      "color": "copper",
+      "order": 10,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf",
+      "objectKey": "uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf"
+    },
+    {
+      "id": "visual-id-ratteb-omorak-rollup",
+      "type": "visual-id",
+      "anchor": "ratteb-omorak-rollup",
+      "category": "Print / Signage",
+      "title": {
+        "en": "Ratteb Omorak — Roll-Up Banner",
+        "ar": "رتّب أمورك — رول أب"
+      },
+      "meta": {
+        "en": "Print / Signage",
+        "ar": "طباعة / لافتات"
+      },
+      "description": {
+        "en": "A roll-up banner for Ratteb Omorak's on-site presence — brand mark, QR code, and contact details, extending the cleaning-service identity into physical signage.",
+        "ar": "رول أب لتواجد رتّب أمورك الميداني — الشعار، رمز الاستجابة السريعة، وبيانات التواصل، امتدادًا للهوية البصرية إلى التوقيع المطبوع."
+      },
+      "tags": [
+        "Print",
+        "Signage",
+        "Roll-Up"
+      ],
+      "color": "dark",
+      "order": 11,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/1785879769682-ratteb-omorak-rollup.jpg",
+      "objectKey": "uploads/visual-id/ratteb-omorak/1785879769682-ratteb-omorak-rollup.jpg"
+    },
+    {
+      "id": "video-nerd-promo",
+      "type": "video",
+      "category": "Product / Promo",
+      "title": {
+        "en": "Nerd — App Promo",
+        "ar": "إعلان تطبيق Nerd الترويجي"
+      },
+      "meta": {
+        "en": "Product / Promo",
+        "ar": "منتج / إعلان"
+      },
+      "tags": [
+        "Product",
+        "Motion"
+      ],
+      "order": 5,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/nerd/1785879798676-nerd-app-promo.mp4",
+      "objectKey": "uploads/video/nerd/1785879798676-nerd-app-promo.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/nerd/1785879800685-nerd-app-promo-poster.jpg"
     }
   ]
 }

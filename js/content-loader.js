@@ -342,9 +342,7 @@
       return `
       <div class="video-card r d${(index % 3) + 1}">
         <div class="video-thumb"${ratioStyle}>
-          <video class="video-el" preload="metadata" playsinline${posterAttr}>
-            <source src="${escapeHtml(fileUrl)}" type="${escapeHtml(videoMimeFor(fileUrl))}">
-          </video>
+          <video class="video-el" preload="none" playsinline data-src="${escapeHtml(fileUrl)}" data-type="${escapeHtml(videoMimeFor(fileUrl))}"${posterAttr}></video>
           <div class="video-controls">
             <button type="button" class="video-ctrl" data-video-action="play" aria-label="Play video: ${escapeHtml(titleText)}">${videoIcons.play}</button>
             <button type="button" class="video-ctrl" data-video-action="mute" aria-label="Mute">${videoIcons.volume}</button>
@@ -370,6 +368,34 @@
     return `<div class="video-card r d${(index % 3) + 1}" aria-label="${escapeHtml(titleText)}">${inner}</div>`;
   }
 
+  // Lazy-load video sources only as cards approach the viewport, so a page with
+  // dozens of videos doesn't fire dozens of simultaneous metadata requests at once.
+  let _videoLazyObserver = null;
+  function ensureVideoSource(video) {
+    if (video.dataset.srcLoaded === 'true') return;
+    const src = video.dataset.src;
+    if (!src) return;
+    video.dataset.srcLoaded = 'true';
+    video.preload = 'metadata';
+    const source = document.createElement('source');
+    source.src = src;
+    source.type = video.dataset.type || '';
+    video.appendChild(source);
+    video.load();
+  }
+  function getVideoLazyObserver() {
+    if (_videoLazyObserver) return _videoLazyObserver;
+    if (!('IntersectionObserver' in window)) return null;
+    _videoLazyObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        ensureVideoSource(entry.target);
+        _videoLazyObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '600px 0px' });
+    return _videoLazyObserver;
+  }
+
   function bindVideoControls(root = document) {
     root.querySelectorAll('.video-card .video-el').forEach(video => {
       if (video.dataset.videoBound === 'true') return;
@@ -379,11 +405,16 @@
       const muteBtn = card.querySelector('[data-video-action="mute"]');
       const fsBtn = card.querySelector('[data-video-action="fullscreen"]');
 
+      const observer = getVideoLazyObserver();
+      if (observer) observer.observe(video);
+      else ensureVideoSource(video); // no IntersectionObserver support: load immediately
+
       const syncPlayIcon = () => { playBtn.innerHTML = video.paused ? videoIcons.play : videoIcons.pause; playBtn.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video'); };
       const syncMuteIcon = () => { muteBtn.innerHTML = video.muted ? videoIcons.muted : videoIcons.volume; muteBtn.setAttribute('aria-label', video.muted ? 'Unmute' : 'Mute'); };
 
       playBtn.addEventListener('click', () => {
         if (video.paused) {
+          ensureVideoSource(video);
           document.querySelectorAll('.video-card .video-el').forEach(other => { if (other !== video && !other.paused) other.pause(); });
           video.play().catch(() => {});
         } else {

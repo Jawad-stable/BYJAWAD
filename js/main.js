@@ -114,7 +114,11 @@ const resources = {
           { label: 'Arabic Commercial', title: 'Ratteb Omorak — Mosque', sub: 'Radio spot · Levantine Arabic' },
           { label: 'Arabic Commercial', title: 'Ratteb Omorak — Faith & Cleanliness', sub: 'Radio spot · Levantine Arabic' },
           { label: 'Arabic Narration', title: 'The Family', sub: 'Narration · Levantine Arabic' },
-          { label: 'Arabic Narration', title: 'Companion to the Top', sub: 'Motivational narration · Levantine Arabic' }
+          { label: 'Arabic Narration', title: 'Companion to the Top', sub: 'Motivational narration · Levantine Arabic' },
+          { label: 'Arabic Commercial', title: 'Abu Rabie — From Pan to Plate', sub: 'Radio spot · Levantine Arabic' },
+          { label: 'Arabic Commercial', title: 'The Ottoman Grip', sub: 'Brand campaign · Levantine Arabic' },
+          { label: 'Arabic Commercial', title: 'Levantine Sweets', sub: 'Radio spot · Levantine Arabic' },
+          { label: 'Arabic Narration', title: 'Every Moment Has Its Rose', sub: 'Lifestyle read · Levantine Arabic' }
         ]
       }
     }
@@ -231,7 +235,11 @@ const resources = {
           { label: 'إعلان عربي', title: 'رتّب أمورك — المسجد', sub: 'إعلان إذاعي · لهجة شامية' },
           { label: 'إعلان عربي', title: 'رتّب أمورك — لأن النظافة', sub: 'إعلان إذاعي · لهجة شامية' },
           { label: 'سرد عربي', title: 'العيلة', sub: 'سرد صوتي · لهجة شامية' },
-          { label: 'سرد عربي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · لهجة شامية' }
+          { label: 'سرد عربي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · لهجة شامية' },
+          { label: 'إعلان عربي', title: 'أبو ربيع — من الطنجرة للصحن', sub: 'إعلان إذاعي · لهجة شامية' },
+          { label: 'إعلان عربي', title: 'القبضة العثمانية', sub: 'حملة علامة تجارية · لهجة شامية' },
+          { label: 'إعلان عربي', title: 'الحلويات الشامية', sub: 'إعلان إذاعي · لهجة شامية' },
+          { label: 'سرد عربي', title: 'لكل لحظة وردتها', sub: 'قراءة أسلوب حياة · لهجة شامية' }
         ]
       }
     }
@@ -573,11 +581,15 @@ function startSimulation(id, dur, btn) {
     mosque: voices + encodeURIComponent('رتب أمورك - المسجد.wav'),
     faith: voices + encodeURIComponent('رتب أمورك - لأن النظافة.wav'),
     family: voices + encodeURIComponent('العيلة.wav'),
-    companion: voices + encodeURIComponent('رفيق دربك نحو القمة.wav')
+    companion: voices + encodeURIComponent('رفيق دربك نحو القمة.wav'),
+    abuRabie: voices + encodeURIComponent('Abu Rabie - From Pan to Plate.wav'),
+    ottomanGrip: voices + encodeURIComponent('The Ottoman Grip.wav'),
+    sweets: voices + encodeURIComponent('Levantine Sweets.wav'),
+    rose: voices + encodeURIComponent('Every Moment Has Its Rose.wav')
   };
   var page = document.body.dataset.page;
   var map = page === 'samples'
-    ? { 0: files.cleaning, 1: files.mosque, 2: files.faith, 3: files.family, 4: files.companion }
+    ? { 0: files.cleaning, 1: files.mosque, 2: files.faith, 3: files.family, 4: files.companion, 5: files.abuRabie, 6: files.ottomanGrip, 7: files.sweets, 8: files.rose }
     : { 0: files.cleaning, 1: files.companion };
   Object.keys(map).forEach(function (id) {
     var el = document.getElementById('audio' + id);
