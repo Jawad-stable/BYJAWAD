@@ -3143,8 +3143,33 @@ button.project-card:hover {
    font-size: .95rem
 }
 
-/* Documents render as a scrollable stack of WEBP page images — no PDF plugin,
-   no download, and only the pages in view are fetched. */
+/* Documents render as WEBP page images in a snapping carousel — no PDF plugin, no
+   download, one page at a time, and every page scaled to fit whatever screen it
+   lands on. Swipe drives it on touch; the arrow buttons and arrow keys elsewhere. */
+.popup-box.has-pages {
+   /* The popup takes the shape of the document — a wide slide deck gets a short
+      box, an A4 booklet a narrow tall one — so a page never floats in a half-empty
+      frame, on a phone or on a 27" screen. --doc-ratio is the first page's
+      width/height, set in JS when the popup opens; the width is whichever comes
+      first of the screen or the width that page needs at full height, and the
+      height follows from it. A definite height is also what lets each page size
+      itself to the screen. */
+   --deck-pad-x: clamp(52px, 7vw, 86px);
+   --deck-chrome: 172px;
+   /* The 320px floor keeps the header readable when a very tall page on a very
+      short screen would otherwise squeeze the box into a column. */
+   --deck-w: max(min(320px, 96vw), min(
+      1120px,
+      96vw,
+      calc((92vh - var(--deck-chrome)) * var(--doc-ratio, 1.4) + 2 * var(--deck-pad-x))
+   ));
+   width: var(--deck-w);
+   height: clamp(
+      46vh,
+      calc((var(--deck-w) - 2 * var(--deck-pad-x)) / var(--doc-ratio, 1.4) + var(--deck-chrome)),
+      92vh
+   )
+}
 .popup-body.is-pages,
 .popup-body.is-doc {
    display: flex;
@@ -3153,30 +3178,132 @@ button.project-card:hover {
    min-height: unset
 }
 .popup-body.is-pages {
+   flex: 1 1 auto;
+   min-height: 0;
    background: rgba(11,25,44,.045)
 }
-.popup-pages {
-   flex: 1;
+.popup-deck {
+   position: relative;
+   flex: 1 1 auto;
    min-height: 0;
-   overflow-y: auto;
+   display: flex
+}
+.popup-pages {
+   /* Page order runs left to right in both locales, so the scroll maths and the
+      arrow positions mean the same thing on the Arabic site. */
+   direction: ltr;
+   flex: 1;
+   min-width: 0;
+   display: flex;
+   overflow-x: auto;
+   overflow-y: hidden;
+   scroll-snap-type: x mandatory;
+   scroll-behavior: smooth;
    overscroll-behavior: contain;
    -webkit-overflow-scrolling: touch;
+   scrollbar-width: none
+}
+.popup-pages::-webkit-scrollbar {
+   display: none
+}
+.popup-pages:focus-visible {
+   outline: 2px solid var(--gold);
+   outline-offset: -2px
+}
+.popup-slide {
+   position: relative;
+   flex: 0 0 100%;
+   height: 100%;
+   scroll-snap-align: center;
+   scroll-snap-stop: always;
    display: flex;
-   flex-direction: column;
    align-items: center;
-   gap: 16px;
-   padding: 22px clamp(14px, 3vw, 28px)
+   justify-content: center;
+   padding: 18px clamp(52px, 7vw, 86px)
 }
 .popup-page {
-   display: block;
    width: 100%;
-   max-width: 920px;
-   height: auto;
-   border-radius: 10px;
-   /* Sits behind each page until its image arrives, so the stack reads as
-      placeholders rather than blank gaps. */
-   background: rgba(11,25,44,.06);
-   box-shadow: 0 10px 30px rgba(11,25,44,.12)
+   height: 100%;
+   object-fit: contain;
+   opacity: 1;
+   transition: opacity .25s ease;
+   /* drop-shadow follows the page itself rather than the letterboxed box. */
+   filter: drop-shadow(0 10px 26px rgba(11,25,44,.22))
+}
+.popup-slide:not(.is-ready) .popup-page {
+   opacity: 0
+}
+.popup-slide:not(.is-ready)::after {
+   content: '';
+   position: absolute;
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   border: 3px solid rgba(11,25,44,.14);
+   border-top-color: var(--gold);
+   animation: popupSpin .8s linear infinite
+}
+@keyframes popupSpin {
+   to { transform: rotate(360deg) }
+}
+.popup-nav {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 2;
+   width: 44px;
+   height: 44px;
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: rgba(255,255,255,.94);
+   color: var(--m);
+   box-shadow: 0 6px 20px rgba(11,25,44,.18);
+   transition: background .2s, color .2s, opacity .2s
+}
+.popup-nav.prev { left: clamp(6px, 1.4vw, 16px) }
+.popup-nav.next { right: clamp(6px, 1.4vw, 16px) }
+.popup-nav:hover:not(:disabled) {
+   background: var(--m);
+   color: #F8F9FA
+}
+.popup-nav:disabled {
+   opacity: .3;
+   cursor: default
+}
+.popup-nav:focus-visible {
+   outline: 2px solid var(--gold);
+   outline-offset: 2px
+}
+.popup-counter {
+   /* "1 / 24" is a page position, not a phrase — bidi must not reorder it. */
+   direction: ltr;
+   unicode-bidi: isolate;
+   font-variant-numeric: tabular-nums
+}
+/* Short viewports — a phone turned sideways, a small laptop — need the chrome and
+   the arrow gutters to give their space back to the page. */
+@media (max-height: 620px) {
+   .popup-box.has-pages {
+      --deck-pad-x: 10px;
+      --deck-chrome: 132px
+   }
+   .popup-slide { padding: 8px }
+   .popup-nav {
+      width: 34px;
+      height: 34px;
+      background: rgba(255,255,255,.84);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px)
+   }
+   .popup-nav svg { width: 16px; height: 16px }
+}
+@media (prefers-reduced-motion: reduce) {
+   .popup-pages { scroll-behavior: auto }
+   .popup-slide:not(.is-ready)::after { animation: none }
 }
 
 .popup-body.is-doc iframe {
@@ -3312,13 +3439,33 @@ html[dir='rtl'] .coming-soon-card .page-actions {
    .popup-body { min-height: 50vh }
    .popup-body.is-pages,
    .popup-body.is-doc { min-height: unset }
-   .popup-pages { gap: 10px; padding: 14px 10px }
-   .popup-page { border-radius: 6px }
+   /* Full-bleed sheet on a phone; the height still follows the document. */
+   .popup-box.has-pages {
+      --deck-pad-x: 8px;
+      --deck-chrome: 152px;
+      --deck-w: 100vw;
+      max-height: 94vh;
+      height: clamp(
+         40vh,
+         calc((var(--deck-w) - 2 * var(--deck-pad-x)) / var(--doc-ratio, 1.4) + var(--deck-chrome)),
+         94vh
+      )
+   }
+   /* On a phone the page needs the full width, so the arrows float over it
+      instead of reserving space beside it. */
+   .popup-slide { padding: 8px }
+   .popup-nav {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px)
+   }
+   .popup-nav svg { width: 17px; height: 17px }
    .popup-doc-bar {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-      border-radius: 0
+      gap: 10px;
+      border-radius: 0;
+      font-size: 11px
    }
 }
 @media(min-width:761px) and (max-width:1024px) {

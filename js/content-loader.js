@@ -94,8 +94,8 @@
 
   // Documents are stored as WEBP page images (see tools/pdf-to-webp.py) because a
   // PDF in an iframe either downloads or stalls on mobile. `pages` accepts plain
-  // URLs or { url, w, h } entries — the dimensions keep the gallery from jumping
-  // around while the images stream in.
+  // URLs or { url, w, h } entries — the dimensions shape the viewer to the
+  // document, so pages are given as much of the screen as their proportions allow.
   function pageList(item) {
     if (!item || !Array.isArray(item.pages)) return [];
     return item.pages
@@ -132,6 +132,140 @@
 
   // ── POPUP / LIGHTBOX ─────────────────────────────────
   let _popupTrigger = null;
+  let _deckCleanup = null;
+
+  const deckIcons = {
+    prev: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
+    next: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
+  };
+
+  // One page at a time: a snapping horizontal track, so a swipe on a phone and the
+  // arrow buttons on a desktop drive the same thing, and every page is sized to fit
+  // whatever screen it lands on.
+  function renderPageDeck(body, pages, options) {
+    const { titleText, pdfUrl, pdfSize, locale } = options;
+    const arabic = locale === 'ar';
+    const total = pages.length;
+
+    // The popup box is shaped from the document's own proportions (see --doc-ratio
+    // in the stylesheet) so a page fills it on any screen.
+    const box = body.closest('.popup-box');
+    const first = pages[0];
+    const ratio = first.w && first.h ? Number(first.w) / Number(first.h) : 0;
+    box?.classList.add('has-pages');
+    if (ratio) box?.style.setProperty('--doc-ratio', ratio.toFixed(3));
+
+    const slides = pages.map((page, index) => {
+      const label = arabic ? `صفحة ${index + 1} من ${total}` : `Page ${index + 1} of ${total}`;
+      // Pages fit their slide with object-fit, so no per-page sizing is needed here.
+      const loading = index < 2 ? 'eager' : 'lazy';
+      return `
+        <div class="popup-slide" role="group" aria-roledescription="slide" aria-label="${escapeHtml(label)}">
+          <img class="popup-page" src="${escapeHtml(page.url)}" alt="${titleText} — ${escapeHtml(label)}" loading="${loading}" decoding="async">
+        </div>`;
+    }).join('');
+
+    const downloadLabel = arabic ? 'تحميل ملف PDF' : 'Download the PDF';
+    const download = pdfUrl
+      ? `<a class="popup-doc-link" href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener noreferrer">${downloadLabel}${formatBytes(pdfSize)} ↗</a>`
+      : '';
+    const nav = total > 1
+      ? `<button type="button" class="popup-nav prev" aria-label="${arabic ? 'الصفحة السابقة' : 'Previous page'}">${deckIcons.prev}</button>
+         <button type="button" class="popup-nav next" aria-label="${arabic ? 'الصفحة التالية' : 'Next page'}">${deckIcons.next}</button>`
+      : '';
+
+    body.innerHTML = `
+      <div class="popup-deck">
+        <div class="popup-pages" role="group" aria-roledescription="carousel" aria-label="${arabic ? 'صفحات المستند' : 'Document pages'}" tabindex="0">${slides}</div>
+        ${nav}
+      </div>
+      <div class="popup-doc-bar">
+        <span class="popup-counter" aria-live="polite">${total > 1 ? `1 / ${total}` : pageCountLabel(total, locale)}</span>
+        ${download}
+      </div>`;
+  }
+
+  function bindPageDeck(body, total) {
+    const track = body.querySelector('.popup-pages');
+    const slides = Array.from(body.querySelectorAll('.popup-slide'));
+    const images = Array.from(body.querySelectorAll('.popup-page'));
+    const counter = body.querySelector('.popup-counter');
+    const prev = body.querySelector('.popup-nav.prev');
+    const next = body.querySelector('.popup-nav.next');
+    let index = 0;
+    let width = track.clientWidth || 1;
+
+    // A page fades in once decoded, so a slow page reads as loading rather than broken.
+    images.forEach((image, position) => {
+      const slide = slides[position];
+      if (image.complete && image.naturalWidth) slide.classList.add('is-ready');
+      else image.addEventListener('load', () => slide.classList.add('is-ready'), { once: true });
+    });
+
+    // Nudge the neighbours out of lazy mode so the next swipe has its page ready.
+    function warmNeighbours(current) {
+      [current - 1, current + 1, current + 2].forEach(position => {
+        const image = images[position];
+        if (image && image.loading === 'lazy') image.loading = 'eager';
+      });
+    }
+
+    function clamp(value) {
+      return Math.min(total - 1, Math.max(0, value));
+    }
+
+    // Runs straight off the scroll event: it reads a value the scroll already
+    // computed and only touches the DOM when the page actually changes.
+    function sync(force) {
+      const current = clamp(Math.round(track.scrollLeft / width));
+      if (current === index && !force) return;
+      index = current;
+      if (counter && total > 1) counter.textContent = `${index + 1} / ${total}`;
+      if (prev) prev.disabled = index === 0;
+      if (next) next.disabled = index === total - 1;
+      warmNeighbours(index);
+    }
+
+    function goTo(target) {
+      const clamped = clamp(target);
+      warmNeighbours(clamped);
+      track.scrollTo({ left: clamped * width, behavior: 'smooth' });
+    }
+
+    function onScroll() {
+      sync(false);
+    }
+
+    function onKeydown(event) {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      const target = event.target;
+      // Don't hijack arrow keys away from a field or a link the reader is on.
+      if (target && (target.closest('input, textarea, select') || target.closest('a'))) return;
+      event.preventDefault();
+      goTo(index + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+
+    // The reader keeps their page through a rotation or a window resize.
+    function onResize() {
+      width = track.clientWidth || 1;
+      track.scrollTo({ left: index * width, behavior: 'instant' });
+    }
+
+    track.addEventListener('scroll', onScroll, { passive: true });
+    prev?.addEventListener('click', () => goTo(index - 1));
+    next?.addEventListener('click', () => goTo(index + 1));
+    document.addEventListener('keydown', onKeydown);
+    window.addEventListener('resize', onResize);
+
+    sync(true);
+
+    _deckCleanup = () => {
+      track.removeEventListener('scroll', onScroll);
+      document.removeEventListener('keydown', onKeydown);
+      window.removeEventListener('resize', onResize);
+      _deckCleanup = null;
+    };
+  }
 
   function openPopup(item, locale) {
     const popup = document.getElementById('work-popup');
@@ -171,24 +305,7 @@
       body.innerHTML = '<p class="popup-no-media">No video attached yet. Add an embed URL or upload a file in the admin panel.</p>';
     } else if (pages.length) {
       body.classList.add('is-pages');
-      const slides = pages.map((page, index) => {
-        // The ratio holds each slot at its final height before the image lands, so
-        // the stack never jumps while scrolling. The first two pages load up front;
-        // the rest only when the reader gets near them.
-        const ratio = page.w && page.h ? ` style="aspect-ratio:${Number(page.w)}/${Number(page.h)}"` : '';
-        const loading = index < 2 ? 'eager' : 'lazy';
-        return `<img class="popup-page" src="${escapeHtml(page.url)}" alt="${titleText} — page ${index + 1} of ${pages.length}"${ratio} loading="${loading}" decoding="async">`;
-      }).join('');
-      const downloadLabel = locale === 'ar' ? 'تحميل ملف PDF' : 'Download the PDF';
-      const download = pdfUrl
-        ? `<a class="popup-doc-link" href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener noreferrer">${downloadLabel}${formatBytes(item.pdfSize)} ↗</a>`
-        : '';
-      body.innerHTML = `
-        <div class="popup-pages">${slides}</div>
-        <div class="popup-doc-bar">
-          <span>${pageCountLabel(pages.length, locale)}</span>
-          ${download}
-        </div>`;
+      renderPageDeck(body, pages, { titleText, pdfUrl, pdfSize: item.pdfSize, locale });
     } else if (isImageUrl) {
       body.classList.add('is-image');
       body.innerHTML = `<img src="${escapeHtml(fileUrl)}" alt="${titleText}">`;
@@ -208,6 +325,8 @@
 
     popup.hidden = false;
     document.body.style.overflow = 'hidden';
+    // Bound only once the popup is on screen: a hidden track measures zero wide.
+    if (pages.length) bindPageDeck(body, pages.length);
     setTimeout(() => document.getElementById('popup-close')?.focus(), 60);
   }
 
@@ -215,6 +334,10 @@
     const popup = document.getElementById('work-popup');
     if (!popup || popup.hidden) return;
     const body = document.getElementById('popup-body');
+    _deckCleanup?.();
+    const box = popup.querySelector('.popup-box');
+    box?.classList.remove('has-pages');
+    box?.style.removeProperty('--doc-ratio');
     if (body) body.innerHTML = '';
     popup.hidden = true;
     document.body.style.overflow = '';
