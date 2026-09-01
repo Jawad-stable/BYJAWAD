@@ -92,6 +92,33 @@
     return /^(https?:\/\/|\/|\.\/|\.\.\/|#)/i.test(trimmed);
   }
 
+  // Documents are stored as WEBP page images (see tools/pdf-to-webp.py) because a
+  // PDF in an iframe either downloads or stalls on mobile. `pages` accepts plain
+  // URLs or { url, w, h } entries — the dimensions keep the gallery from jumping
+  // around while the images stream in.
+  function pageList(item) {
+    if (!item || !Array.isArray(item.pages)) return [];
+    return item.pages
+      .map(page => (typeof page === 'string' ? { url: page } : page || {}))
+      .filter(page => isSafeUrl(page.url));
+  }
+
+  function pageCountLabel(count, locale) {
+    if (locale !== 'ar') return `${count} page${count === 1 ? '' : 's'}`;
+    if (count === 1) return 'صفحة واحدة';
+    if (count === 2) return 'صفحتان';
+    if (count <= 10) return `${count} صفحات`;
+    return `${count} صفحة`;
+  }
+
+  function formatBytes(bytes) {
+    const size = Number(bytes || 0);
+    if (!size) return '';
+    if (size >= 1e9) return ` (${(size / 1e9).toFixed(1)} GB)`;
+    if (size >= 1e6) return ` (${Math.round(size / 1e6)} MB)`;
+    return ` (${Math.max(1, Math.round(size / 1e3))} KB)`;
+  }
+
   function toEmbedUrl(url) {
     if (!url) return '';
     if (!isSafeUrl(url)) return '';
@@ -127,6 +154,9 @@
     const isVideoFile = fileUrl && /\.(mp4|webm|ogv|mov)([?#]|$)/i.test(fileUrl);
     const titleText = escapeHtml(localize(item.title, locale) || '');
 
+    const pages = pageList(item);
+    const rawPdfUrl = item.pdfUrl || (fileUrl && /\.pdf([?#]|$)/i.test(fileUrl) ? fileUrl : '');
+    const pdfUrl = isSafeUrl(rawPdfUrl) ? rawPdfUrl : '';
     const showAsVideo = embedUrl || isVideoFile || (item.type === 'video' && !isImageUrl && fileUrl);
 
     if (showAsVideo) {
@@ -139,11 +169,39 @@
       }
     } else if (item.type === 'video' && !fileUrl) {
       body.innerHTML = '<p class="popup-no-media">No video attached yet. Add an embed URL or upload a file in the admin panel.</p>';
+    } else if (pages.length) {
+      body.classList.add('is-pages');
+      const slides = pages.map((page, index) => {
+        // The ratio holds each slot at its final height before the image lands, so
+        // the stack never jumps while scrolling. The first two pages load up front;
+        // the rest only when the reader gets near them.
+        const ratio = page.w && page.h ? ` style="aspect-ratio:${Number(page.w)}/${Number(page.h)}"` : '';
+        const loading = index < 2 ? 'eager' : 'lazy';
+        return `<img class="popup-page" src="${escapeHtml(page.url)}" alt="${titleText} — page ${index + 1} of ${pages.length}"${ratio} loading="${loading}" decoding="async">`;
+      }).join('');
+      const downloadLabel = locale === 'ar' ? 'تحميل ملف PDF' : 'Download the PDF';
+      const download = pdfUrl
+        ? `<a class="popup-doc-link" href="${escapeHtml(pdfUrl)}" target="_blank" rel="noopener noreferrer">${downloadLabel}${formatBytes(item.pdfSize)} ↗</a>`
+        : '';
+      body.innerHTML = `
+        <div class="popup-pages">${slides}</div>
+        <div class="popup-doc-bar">
+          <span>${pageCountLabel(pages.length, locale)}</span>
+          ${download}
+        </div>`;
     } else if (isImageUrl) {
       body.classList.add('is-image');
       body.innerHTML = `<img src="${escapeHtml(fileUrl)}" alt="${titleText}">`;
     } else if (fileUrl) {
-      body.innerHTML = `<iframe src="${escapeHtml(fileUrl)}" title="${titleText || 'Document'}"></iframe>`;
+      body.classList.add('is-doc');
+      const hint = locale === 'ar' ? 'لا يظهر الملف؟ افتحه مباشرة.' : 'Not showing? Open the file directly.';
+      const open = locale === 'ar' ? 'فتح في تبويب جديد ↗' : 'Open in a new tab ↗';
+      body.innerHTML = `
+        <iframe src="${escapeHtml(fileUrl)}" title="${titleText || 'Document'}"></iframe>
+        <div class="popup-doc-bar">
+          <span>${hint}</span>
+          <a class="popup-doc-link" href="${escapeHtml(fileUrl)}" target="_blank" rel="noopener noreferrer">${open}</a>
+        </div>`;
     } else {
       body.innerHTML = '<p class="popup-no-media">No file attached yet. Upload a file in the admin panel.</p>';
     }
@@ -228,14 +286,16 @@
     const tone = tagClass(item, colorClass);
     const rawUrl = item.link || item.fileUrl || '';
     const safeUrl = isSafeUrl(rawUrl) ? rawUrl : '';
+    const pages = pageList(item);
     const hasFile = !!(safeUrl && !safeUrl.includes('#contact') && !safeUrl.includes('index.html'));
     const id = item.anchor || slug(localize(item.title, 'en') || localize(item.title, locale));
-    const fileType = item.fileUrl ? item.fileUrl.split('?')[0].split('.').pop().toUpperCase().slice(0, 4) : '';
-    const fileBadge = (hasFile && fileType) ? `<span class="file-badge">${escapeHtml(fileType)}</span>` : '';
-    const ctaLabel = escapeHtml(localize(item.cta, locale) || (hasFile ? 'Open' : 'Inquire'));
+    const fileBadge = fileBadgeFor(item, pages, hasFile, locale);
+    const ctaLabel = escapeHtml(localize(item.cta, locale) || (hasFile || pages.length ? 'Open' : 'Inquire'));
     const ctaHref = hasFile ? safeUrl : 'index.html#contact';
     const ctaAttrs = hasFile ? ' target="_blank" rel="noopener noreferrer"' : '';
-    const ctaHtml = `<a href="${escapeHtml(ctaHref)}" class="btn-outline"${ctaAttrs}>${ctaLabel}</a>`;
+    const ctaHtml = pages.length
+      ? `<button type="button" class="btn-outline popup-trigger" data-item-id="${escapeHtml(item.id)}">${ctaLabel}</button>`
+      : `<a href="${escapeHtml(ctaHref)}" class="btn-outline"${ctaAttrs}>${ctaLabel}</a>`;
     return `
       <div id="${escapeHtml(id)}" class="card ${colorClass} project-card r d${(index % 3) + 1}">
         <div>
@@ -248,15 +308,23 @@
       </div>`;
   }
 
+  function fileBadgeFor(item, pages, hasFile, locale) {
+    if (pages.length) {
+      return `<span class="file-badge">${escapeHtml(pageCountLabel(pages.length, locale))}</span>`;
+    }
+    const fileType = item.fileUrl ? item.fileUrl.split('?')[0].split('.').pop().toUpperCase().slice(0, 4) : '';
+    return (hasFile && fileType) ? `<span class="file-badge">${escapeHtml(fileType)}</span>` : '';
+  }
+
   function visualIdCard(item, index, locale) {
     const colorClass = cardClass(item, index);
     const tone = tagClass(item, colorClass);
     const rawUrl = item.fileUrl || (item.link && item.link.startsWith('http') ? item.link : '');
     const fileUrl = isSafeUrl(rawUrl) ? rawUrl : '';
-    const hasFile = !!fileUrl;
+    const pages = pageList(item);
+    const hasFile = !!fileUrl || pages.length > 0;
     const id = item.anchor || slug(localize(item.title, 'en') || localize(item.title, locale));
-    const fileType = item.fileUrl ? item.fileUrl.split('?')[0].split('.').pop().toUpperCase().slice(0, 4) : '';
-    const fileBadge = (hasFile && fileType) ? `<span class="file-badge">${escapeHtml(fileType)}</span>` : '';
+    const fileBadge = fileBadgeFor(item, pages, hasFile, locale);
     const titleText = escapeHtml(localize(item.title, locale) || '');
 
     if (hasFile) {

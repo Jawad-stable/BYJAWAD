@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-04T21:43:26.877Z",
+  "updatedAt": "2026-09-01T07:59:06.829316Z",
   "projectsComingSoon": false,
   "items": [
     {
@@ -30,7 +30,131 @@
       "published": true,
       "featured": true,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/grafly-brand-book.pdf",
-      "objectKey": "uploads/visual-id/grafly/grafly-brand-book.pdf"
+      "objectKey": "uploads/visual-id/grafly/grafly-brand-book.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-01.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-02.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-03.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-04.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-05.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-06.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-07.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-08.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-09.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-10.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-11.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-12.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-13.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-14.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-15.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-16.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-17.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-18.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-19.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-20.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-21.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-22.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-23.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/pages/page-24.webp",
+          "w": 1600,
+          "h": 900
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/grafly-brand-book.pdf",
+      "pdfSize": 46191920
     },
     {
       "id": "visual-id-ratteb-omorak",
@@ -59,7 +183,131 @@
       "published": true,
       "featured": true,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/ratteb-omorak-brand-guidelines.pdf",
-      "objectKey": "uploads/visual-id/ratteb-omorak/ratteb-omorak-brand-guidelines.pdf"
+      "objectKey": "uploads/visual-id/ratteb-omorak/ratteb-omorak-brand-guidelines.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-01.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-02.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-03.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-04.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-05.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-06.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-07.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-08.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-09.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-10.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-11.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-12.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-13.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-14.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-15.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-16.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-17.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-18.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-19.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-20.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-21.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-22.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-23.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/pages/page-24.webp",
+          "w": 1600,
+          "h": 1132
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/ratteb-omorak-brand-guidelines.pdf",
+      "pdfSize": 2005149
     },
     {
       "id": "visual-id-uni-led-booklet",
@@ -88,7 +336,131 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet.pdf",
-      "objectKey": "uploads/visual-id/uni-led/uni-led-program-booklet.pdf"
+      "objectKey": "uploads/visual-id/uni-led/uni-led-program-booklet.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-01.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-02.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-03.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-04.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-05.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-06.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-07.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-08.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-09.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-10.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-11.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-12.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-13.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-14.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-15.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-16.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-17.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-18.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-19.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-20.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-21.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-22.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-23.webp",
+          "w": 1556,
+          "h": 2200
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-24.webp",
+          "w": 1556,
+          "h": 2200
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet.pdf",
+      "pdfSize": 291030854
     },
     {
       "id": "visual-id-mana-pharmacy",
@@ -117,7 +489,41 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/mana-pharmacy-brand-id.pdf",
-      "objectKey": "uploads/visual-id/mana-pharmacy/mana-pharmacy-brand-id.pdf"
+      "objectKey": "uploads/visual-id/mana-pharmacy/mana-pharmacy-brand-id.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/pages/page-01.webp",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/pages/page-02.webp",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/pages/page-03.webp",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/pages/page-04.webp",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/pages/page-05.webp",
+          "w": 1600,
+          "h": 1600
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/pages/page-06.webp",
+          "w": 1600,
+          "h": 1600
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/mana-pharmacy-brand-id.pdf",
+      "pdfSize": 423878
     },
     {
       "id": "visual-id-nadeem-perfume",
@@ -146,7 +552,16 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/nadeem-perfume/nadeem-perfume-logo.pdf",
-      "objectKey": "uploads/visual-id/nadeem-perfume/nadeem-perfume-logo.pdf"
+      "objectKey": "uploads/visual-id/nadeem-perfume/nadeem-perfume-logo.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/nadeem-perfume/pages/page-01.webp",
+          "w": 1600,
+          "h": 1600
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/nadeem-perfume/nadeem-perfume-logo.pdf",
+      "pdfSize": 377756
     },
     {
       "id": "visual-id-robin-hood-insurance",
@@ -175,7 +590,36 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/robin-hood-insurance-logo.pdf",
-      "objectKey": "uploads/visual-id/robin-hood-insurance/robin-hood-insurance-logo.pdf"
+      "objectKey": "uploads/visual-id/robin-hood-insurance/robin-hood-insurance-logo.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/pages/page-01.webp",
+          "w": 1600,
+          "h": 1237
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/pages/page-02.webp",
+          "w": 1600,
+          "h": 1237
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/pages/page-03.webp",
+          "w": 1600,
+          "h": 1237
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/pages/page-04.webp",
+          "w": 1600,
+          "h": 1237
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/pages/page-05.webp",
+          "w": 1600,
+          "h": 1237
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/robin-hood-insurance-logo.pdf",
+      "pdfSize": 149750
     },
     {
       "id": "voice-ratteb-offices-homes",
@@ -511,7 +955,141 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf",
-      "objectKey": "uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf"
+      "objectKey": "uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-01.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-02.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-03.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-04.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-05.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-06.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-07.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-08.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-09.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-10.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-11.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-12.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-13.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-14.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-15.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-16.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-17.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-18.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-19.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-20.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-21.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-22.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-23.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-24.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-25.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/pages/page-26.webp",
+          "w": 1600,
+          "h": 900
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf",
+      "pdfSize": 60370100
     },
     {
       "id": "visual-id-indimaj",
@@ -540,7 +1118,36 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf",
-      "objectKey": "uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf"
+      "objectKey": "uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/pages/page-01.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/pages/page-02.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/pages/page-03.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/pages/page-04.webp",
+          "w": 1600,
+          "h": 1132
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/pages/page-05.webp",
+          "w": 1600,
+          "h": 1132
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf",
+      "pdfSize": 4431749
     },
     {
       "id": "visual-id-pmo",
@@ -569,7 +1176,41 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf",
-      "objectKey": "uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf"
+      "objectKey": "uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/pages/page-01.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/pages/page-02.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/pages/page-03.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/pages/page-04.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/pages/page-05.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/pages/page-06.webp",
+          "w": 1600,
+          "h": 900
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf",
+      "pdfSize": 1148174
     },
     {
       "id": "visual-id-fax",
@@ -598,7 +1239,41 @@
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf",
-      "objectKey": "uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf"
+      "objectKey": "uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/pages/page-01.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/pages/page-02.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/pages/page-03.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/pages/page-04.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/pages/page-05.webp",
+          "w": 1600,
+          "h": 900
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/pages/page-06.webp",
+          "w": 1600,
+          "h": 900
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf",
+      "pdfSize": 6864456
     },
     {
       "id": "visual-id-ratteb-omorak-rollup",

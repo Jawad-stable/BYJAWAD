@@ -2,8 +2,19 @@
   const config = window.SITE_CONFIG || {};
   const state = {
     content: { version: 1, updatedAt: null, items: [] },
-    editingId: null
+    editingId: null,
+    pages: [],
+    pdfMeta: null
   };
+
+  // A PDF in a browser tab is a download prompt on most phones, so every uploaded
+  // PDF is also rendered to WEBP page images here and the item carries both: the
+  // page images the site shows, and the original PDF as a download link.
+  const PDF_LIB_URL = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs';
+  const PDF_WORKER_URL = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs';
+  const PAGE_MAX_WIDTH = 1600;
+  const PAGE_MAX_HEIGHT = 2200;
+  const PAGE_QUALITY = 0.8;
 
   const els = {};
   const fields = [
@@ -110,6 +121,81 @@
     return 'project';
   }
 
+  function isPdfFile(file) {
+    return !!file && (file.type === 'application/pdf' || /\.pdf$/i.test(file.name || ''));
+  }
+
+  function slugify(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/\.[^.]+$/, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '') || 'document';
+  }
+
+  let pdfLibPromise = null;
+  function loadPdfLib() {
+    if (!pdfLibPromise) {
+      pdfLibPromise = (async () => {
+        const lib = await import(PDF_LIB_URL);
+        // A Worker script has to be same-origin no matter what CORS says, so the
+        // worker comes across as a blob rather than straight from the CDN.
+        const source = await fetch(PDF_WORKER_URL);
+        if (!source.ok) throw new Error(`Could not load the PDF worker (${source.status})`);
+        lib.GlobalWorkerOptions.workerSrc = URL.createObjectURL(await source.blob());
+        return lib;
+      })();
+    }
+    return pdfLibPromise;
+  }
+
+  function encodeCanvas(canvas) {
+    // Safari only learned to encode WEBP recently; JPEG keeps older browsers working.
+    return new Promise(resolve => canvas.toBlob(blob => resolve(blob), 'image/webp', PAGE_QUALITY))
+      .then(blob => (blob && blob.type === 'image/webp')
+        ? { blob, ext: 'webp' }
+        : new Promise(resolve => canvas.toBlob(jpeg => resolve({ blob: jpeg, ext: 'jpg' }), 'image/jpeg', 0.85)));
+  }
+
+  async function renderPdfPages(file, onProgress) {
+    const lib = await loadPdfLib();
+    const document_ = await lib.getDocument({ data: new Uint8Array(await file.arrayBuffer()) }).promise;
+    const pages = [];
+    for (let number = 1; number <= document_.numPages; number += 1) {
+      const page = await document_.getPage(number);
+      const unscaled = page.getViewport({ scale: 1 });
+      const scale = Math.min(PAGE_MAX_WIDTH / unscaled.width, PAGE_MAX_HEIGHT / unscaled.height, 4);
+      const viewport = page.getViewport({ scale });
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(viewport.width);
+      canvas.height = Math.round(viewport.height);
+      const context = canvas.getContext('2d');
+      context.fillStyle = '#ffffff'; // pages with no background would otherwise go transparent
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      await page.render({ canvasContext: context, viewport }).promise;
+      const encoded = await encodeCanvas(canvas);
+      pages.push({ blob: encoded.blob, ext: encoded.ext, number, w: canvas.width, h: canvas.height });
+      onProgress?.(number, document_.numPages);
+    }
+    return pages;
+  }
+
+  async function uploadPdfPages(file, images) {
+    const folder = `${slugify(els.titleEn.value || file.name)}-pages`;
+    const uploaded = [];
+    for (const image of images) {
+      const name = `page-${String(image.number).padStart(2, '0')}.${image.ext}`;
+      const form = new FormData();
+      form.append('file', new File([image.blob], name, { type: image.blob.type }));
+      form.append('type', els.type.value || 'visual-id');
+      form.append('category', folder);
+      const result = await api('/api/admin/upload', { method: 'POST', headers: authHeaders(), body: form });
+      uploaded.push({ url: result.fileUrl, w: image.w, h: image.h });
+      setStatus(`Uploading page images ${uploaded.length}/${images.length}...`);
+    }
+    return uploaded;
+  }
+
   function detectAudioDuration(file) {
     return new Promise(resolve => {
       if (!file || !file.type.startsWith('audio/')) {
@@ -135,7 +221,11 @@
     const type = els.type.value;
     const id = els.itemId.value || `${type}-${Date.now()}`;
     const labelKey = labelFieldForType(type);
+    // Start from the stored item so fields this form does not expose — page
+    // images, pdfUrl, video dimensions — survive an edit.
+    const existing = state.content.items.find(entry => entry.id === id) || {};
     const item = {
+      ...existing,
       id,
       type,
       category: els.category.value.trim(),
@@ -155,6 +245,13 @@
       embedUrl: els.embedUrl.value.trim()
     };
     item[labelKey] = localValue(els.labelEn.value, els.labelAr.value);
+    if (state.pages.length) {
+      item.pages = state.pages;
+      if (state.pdfMeta) {
+        item.pdfUrl = state.pdfMeta.pdfUrl;
+        item.pdfSize = state.pdfMeta.pdfSize;
+      }
+    }
     Object.keys(item).forEach(key => {
       if (item[key] === '' || item[key] === 0 && key === 'duration') delete item[key];
     });
@@ -172,7 +269,7 @@
       if (item.type === 'video' && !item.fileUrl && !item.embedUrl) {
         throw new Error('Published videos need a file upload or an embed URL.');
       }
-      if ((item.type === 'social-post' || item.type === 'visual-id') && !item.fileUrl) {
+      if ((item.type === 'social-post' || item.type === 'visual-id') && !item.fileUrl && !item.pages?.length) {
         throw new Error(`Published ${item.type} items need an uploaded file.`);
       }
     }
@@ -203,6 +300,8 @@
     els.embedUrl.value = item.embedUrl || '';
     els.formTitle.textContent = 'Edit item';
     state.editingId = item.id;
+    state.pages = [];
+    state.pdfMeta = null;
   }
 
   function resetForm() {
@@ -214,6 +313,8 @@
     els.order.value = state.content.items.length + 1;
     els.formTitle.textContent = 'Add item';
     state.editingId = null;
+    state.pages = [];
+    state.pdfMeta = null;
   }
 
   function itemTitle(item) {
@@ -305,6 +406,23 @@
     els.fileUrl.value = result.fileUrl;
     els.objectKey.value = result.objectKey || '';
     if (state.editingId) els.itemId.value = state.editingId;
+    state.pages = [];
+    state.pdfMeta = null;
+
+    if (isPdfFile(file)) {
+      try {
+        setStatus('Rendering PDF pages...');
+        const images = await renderPdfPages(file, (number, total) => setStatus(`Rendering page ${number}/${total}...`));
+        state.pages = await uploadPdfPages(file, images);
+        state.pdfMeta = { pdfUrl: result.fileUrl, pdfSize: file.size };
+        setStatus(`Uploaded — ${state.pages.length} page images ready`);
+      } catch (error) {
+        // The PDF itself is already safe in R2; the item just falls back to a link.
+        setStatus(`Uploaded the PDF, but the page images failed: ${error.message}`);
+      }
+      return result;
+    }
+
     setStatus('Uploaded');
     return result;
   }
