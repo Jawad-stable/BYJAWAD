@@ -44,6 +44,10 @@ export default {
       if (url.pathname === '/api/admin/object' && request.method === 'DELETE') {
         const key = url.searchParams.get('key');
         if (!key) return json({ error: 'Missing object key' }, { status: 400, headers: cors });
+        // Only uploaded assets are deletable — never the content JSON itself.
+        if (!key.startsWith('uploads/') || key.includes('..')) {
+          return json({ error: 'Only uploads/* objects can be deleted' }, { status: 403, headers: cors });
+        }
         await env.CONTENT_BUCKET.delete(key);
         return json({ ok: true }, { headers: cors });
       }
@@ -96,7 +100,7 @@ async function uploadFile(request, env) {
 
   await env.CONTENT_BUCKET.put(objectKey, file.stream(), {
     httpMetadata: {
-      contentType: file.type || 'application/octet-stream'
+      contentType: safeContentType(file.type)
     },
     customMetadata: {
       originalName: file.name || filename,
@@ -113,6 +117,16 @@ async function uploadFile(request, env) {
   };
 }
 
+// Anything the public asset host would execute or render as a document is stored
+// as a plain download instead, so an upload can never become a page on that origin.
+const UNSAFE_CONTENT_TYPES = /^(text\/html|text\/xml|application\/xhtml|application\/xml|image\/svg|text\/javascript|application\/javascript|application\/x-httpd)/i;
+
+function safeContentType(value) {
+  const type = String(value || '').split(';')[0].trim().toLowerCase();
+  if (!type || UNSAFE_CONTENT_TYPES.test(type)) return 'application/octet-stream';
+  return type;
+}
+
 function publicUrl(env, objectKey) {
   const base = String(env.PUBLIC_ASSET_BASE_URL || '').replace(/\/+$/, '');
   if (!base) return '';
@@ -123,7 +137,19 @@ function requireAdmin(request, env) {
   if (!env.ADMIN_TOKEN) throw httpError(500, 'ADMIN_TOKEN is not configured');
   const header = request.headers.get('Authorization') || '';
   const token = header.startsWith('Bearer ') ? header.slice(7) : '';
-  if (token !== env.ADMIN_TOKEN) throw httpError(401, 'Unauthorized');
+  if (!timingSafeEqual(token, env.ADMIN_TOKEN)) throw httpError(401, 'Unauthorized');
+}
+
+// A plain `!==` returns as soon as two tokens differ, which times out the secret
+// one character at a time. Compare every byte either way.
+function timingSafeEqual(a, b) {
+  const left = new TextEncoder().encode(String(a));
+  const right = new TextEncoder().encode(String(b));
+  let diff = left.length ^ right.length;
+  for (let i = 0; i < Math.max(left.length, right.length); i += 1) {
+    diff |= (left[i] || 0) ^ (right[i] || 0);
+  }
+  return diff === 0;
 }
 
 function corsHeaders(request, env) {

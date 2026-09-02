@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-01T07:59:06.829316Z",
+  "updatedAt": "2026-09-02T06:28:24.090770Z",
   "projectsComingSoon": false,
   "items": [
     {
@@ -310,21 +310,194 @@
       "pdfSize": 2005149
     },
     {
-      "id": "visual-id-uni-led-booklet",
+      "id": "visual-id-uni-led-booklet-2025",
       "type": "visual-id",
-      "anchor": "uni-led-booklet",
+      "anchor": "uni-led-booklet-2025",
       "category": "Print / Education",
       "title": {
-        "en": "UNI-Led Program Booklet",
-        "ar": "كتيب برنامج UNI-Led"
+        "en": "UNI-Led Program Booklet 2025",
+        "ar": "كتيب برنامج UNI-Led 2025"
       },
       "meta": {
         "en": "Print / Education",
         "ar": "طباعة / تعليم"
       },
       "description": {
-        "en": "Official project booklets for the University-Led Innovation and Entrepreneurship Program (UNI-Led) — a partnership between Palestine Polytechnic University, UNDP, and the Swiss Cooperation Office, designed for two consecutive editions.",
-        "ar": "الكتيبات الرسمية لبرنامج UNI-Led للريادة والابتكار الجامعي، بالشراكة بين جامعة بوليتكنك فلسطين وبرنامج الأمم المتحدة الإنمائي والتعاون السويسري، صُممت لدورتين متتاليتين."
+        "en": "The 2025 edition — success stories from the PPU Business Incubator, covering sixteen startups incubated through the UNI-Led and Riyada programs, with the impact figures, business sectors, and validation stages behind them.",
+        "ar": "نسخة 2025 — قصص نجاح حاضنة أعمال جامعة بوليتكنك فلسطين، تضم ستة عشر مشروعاً ناشئاً من برنامجي UNI-Led وريادة، مع أرقام أثر البرنامج والقطاعات ومراحل التحقق من صحة المنتج."
+      },
+      "tags": [
+        "Booklet",
+        "Print",
+        "Education"
+      ],
+      "color": "maroon",
+      "order": 3,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet-2025.pdf",
+      "objectKey": "uploads/visual-id/uni-led/uni-led-program-booklet-2025.pdf",
+      "pages": [
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-01.webp",
+          "w": 1263,
+          "h": 1786
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-02.webp",
+          "w": 1264,
+          "h": 1786
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-03.webp",
+          "w": 1264,
+          "h": 1786
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-04.webp",
+          "w": 1264,
+          "h": 1786
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-05.webp",
+          "w": 1264,
+          "h": 1786
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-06.webp",
+          "w": 1264,
+          "h": 1786
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-07.webp",
+          "w": 1263,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-08.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-09.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-10.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-11.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-12.webp",
+          "w": 1263,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-13.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-14.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-15.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-16.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-17.webp",
+          "w": 1263,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-18.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-19.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-20.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-21.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-22.webp",
+          "w": 1263,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-23.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-24.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-25.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-26.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-27.webp",
+          "w": 1264,
+          "h": 1787
+        },
+        {
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led-2025/pages/page-28.webp",
+          "w": 1263,
+          "h": 1787
+        }
+      ],
+      "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet-2025.pdf",
+      "pdfSize": 6789525
+    },
+    {
+      "id": "visual-id-uni-led-booklet",
+      "type": "visual-id",
+      "anchor": "uni-led-booklet",
+      "category": "Print / Education",
+      "title": {
+        "en": "UNI-Led Program Booklet 2024",
+        "ar": "كتيب برنامج UNI-Led 2024"
+      },
+      "meta": {
+        "en": "Print / Education",
+        "ar": "طباعة / تعليم"
+      },
+      "description": {
+        "en": "Official project booklet for the University-Led Innovation and Entrepreneurship Program (UNI-Led) — a partnership between Palestine Polytechnic University, UNDP, and the Swiss Cooperation Office. The 2024 edition profiles sixteen incubated projects, their business sectors, and the stage each one reached.",
+        "ar": "الكتيب الرسمي لبرنامج UNI-Led للريادة والابتكار الجامعي، بالشراكة بين جامعة بوليتكنك فلسطين وبرنامج الأمم المتحدة الإنمائي والتعاون السويسري. نسخة 2024 تعرض ستة عشر مشروعاً محتضناً وقطاعاتها والمرحلة التي وصل إليها كل مشروع."
       },
       "tags": [
         "Booklet",
@@ -332,131 +505,126 @@
         "Education"
       ],
       "color": "steel",
-      "order": 3,
+      "order": 4,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet.pdf",
       "objectKey": "uploads/visual-id/uni-led/uni-led-program-booklet.pdf",
       "pages": [
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-01.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-01.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-02.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-02.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-03.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-03.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-04.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-04.webp",
+          "w": 2383,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-05.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-05.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-06.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-06.webp",
+          "w": 2383,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-07.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-07.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-08.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-08.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-09.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-09.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-10.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-10.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-11.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-11.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-12.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-12.webp",
+          "w": 2382,
+          "h": 3368
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-13.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-13.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-14.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-14.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-15.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-15.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-16.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-16.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-17.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-17.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-18.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-18.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-19.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-19.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-20.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-20.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-21.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-21.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-22.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-22.webp",
+          "w": 2382,
+          "h": 3369
         },
         {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-23.webp",
-          "w": 1556,
-          "h": 2200
-        },
-        {
-          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages/page-24.webp",
-          "w": 1556,
-          "h": 2200
+          "url": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/pages-v2/page-23.webp",
+          "w": 2382,
+          "h": 3369
         }
       ],
       "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet.pdf",
@@ -485,7 +653,7 @@
         "Healthcare"
       ],
       "color": "gold",
-      "order": 4,
+      "order": 5,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/mana-pharmacy-brand-id.pdf",
@@ -548,7 +716,7 @@
         "Fragrance"
       ],
       "color": "copper",
-      "order": 5,
+      "order": 6,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/nadeem-perfume/nadeem-perfume-logo.pdf",
@@ -586,7 +754,7 @@
         "International Client"
       ],
       "color": "dark",
-      "order": 6,
+      "order": 7,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/robin-hood-insurance-logo.pdf",
@@ -951,7 +1119,7 @@
         "Arabic"
       ],
       "color": "gold",
-      "order": 7,
+      "order": 8,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf",
@@ -1114,7 +1282,7 @@
         "Social Impact"
       ],
       "color": "steel",
-      "order": 8,
+      "order": 9,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf",
@@ -1172,7 +1340,7 @@
         "Education"
       ],
       "color": "maroon",
-      "order": 9,
+      "order": 10,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf",
@@ -1235,7 +1403,7 @@
         "Retail"
       ],
       "color": "copper",
-      "order": 10,
+      "order": 11,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf",
@@ -1298,7 +1466,7 @@
         "Roll-Up"
       ],
       "color": "dark",
-      "order": 11,
+      "order": 12,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/1785879769682-ratteb-omorak-rollup.jpg",

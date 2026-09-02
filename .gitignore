@@ -2,3 +2,8 @@
 node_modules/
 *.env
 .env*
+build/
+
+# Source page exports for the booklets — uploaded to R2, not tracked here.
+assets/Picflow Images Sep 1/
+assets/WebP second PDF/

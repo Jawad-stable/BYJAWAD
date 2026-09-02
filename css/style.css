@@ -45,7 +45,7 @@
    --md: #2C3E50;
    --ml: #C88568;
    --gold: #D4AF37;
-   --gd: #C88568;
+   --gd: #8A6A17;
    --ink: #0B192C;
    --muted: #2C3E50;
    --card: #F8F9FA;
@@ -571,11 +571,6 @@ section:first-child {
    z-index: 0
 }
 
-.hero-inner {
-   position: relative;
-   z-index: 1
-}
-
 .hero-top {
    margin-bottom: 22px
 }
@@ -759,7 +754,7 @@ section:first-child {
    font-family: var(--d);
    font-size: 13px;
    font-weight: 500;
-   color: rgba(248, 249, 250, .38);
+   color: rgba(248, 249, 250, .6);
    letter-spacing: .02em
 }
 
@@ -885,8 +880,8 @@ section:first-child {
 }
 
 .prod-chip-gold {
-   background: rgba(212, 175, 55, .18);
-   color: var(--gd)
+   background: rgba(11, 25, 44, .14);
+   color: var(--m)
 }
 
 .prod-chip-w {
@@ -915,7 +910,7 @@ section:first-child {
 }
 
 .cm .prod-s {
-   color: rgba(255, 255, 255, .45)
+   color: rgba(255, 255, 255, .5)
 }
 
 /* ═══════════════════════════════
@@ -997,7 +992,7 @@ section:first-child {
 }
 
 .cg .lc-level {
-   color: var(--ml)
+   color: var(--md)
 }
 
 .cm .lc-name {
@@ -1307,7 +1302,7 @@ section:first-child {
 
 .vcta-s {
    font-size: 12px;
-   color: rgba(255, 255, 255, .45);
+   color: rgba(255, 255, 255, .5);
    line-height: 1.7;
    margin-bottom: 28px
 }
@@ -1378,7 +1373,7 @@ section:first-child {
    font-weight: 700;
    letter-spacing: .12em;
    text-transform: uppercase;
-   color: var(--ml);
+   color: var(--md);
    margin-top: 8px
 }
 
@@ -1451,6 +1446,14 @@ section:first-child {
   border-radius: 4px;
   vertical-align: middle;
   text-transform: uppercase;
+}
+
+/* The badge tint is ink at 12%, which on a dark card is the card itself — the
+   pill and its text both vanish. Dark cards get the same pill in white. */
+.cm .file-badge,
+.cd .file-badge {
+  background: rgba(255, 255, 255, .18);
+  color: #F8F9FA;
 }
 
 /* featured work */
@@ -1526,8 +1529,8 @@ section:first-child {
 }
 
 .wtag-g {
-   background: rgba(212, 175, 55, .18);
-   color: var(--gd)
+   background: rgba(11, 25, 44, .14);
+   color: var(--m)
 }
 
 .wtag-s {
@@ -1536,8 +1539,8 @@ section:first-child {
 }
 
 .wtag-c {
-   background: rgba(200, 133, 104, .2);
-   color: var(--ml)
+   background: rgba(11, 25, 44, .16);
+   color: var(--m)
 }
 
 .warrow {
@@ -1805,7 +1808,7 @@ html[dir='rtl'] .wcard-list:hover .warrow {
    font-weight: 700;
    letter-spacing: .15em;
    text-transform: uppercase;
-   color: rgba(255, 255, 255, .42);
+   color: rgba(255, 255, 255, .58);
    margin-bottom: 8px
 }
 
@@ -1930,7 +1933,7 @@ html[dir='rtl'] .wcard-list:hover .warrow {
 
 .cm .project-meta,
 .cd .project-meta {
-   color: rgba(255, 255, 255, .42)
+   color: rgba(255, 255, 255, .56)
 }
 
 .project-desc {
@@ -2015,7 +2018,7 @@ html[dir='rtl'] .wcard-list:hover .warrow {
 
 .cbig-s {
    font-size: 13px;
-   color: rgba(255, 255, 255, .45);
+   color: rgba(255, 255, 255, .5);
    line-height: 1.8;
    margin-bottom: 32px;
    max-width: 380px
@@ -2116,7 +2119,7 @@ html[dir='rtl'] .wcard-list:hover .warrow {
 }
 
 .cg .cb-label {
-   color: var(--ml)
+   color: var(--md)
 }
 
 .cg .cb-val {
@@ -2166,7 +2169,7 @@ footer {
 
 .fc {
    font-size: 11px;
-   color: rgba(255, 255, 255, .3);
+   color: rgba(255, 255, 255, .58);
    letter-spacing: .04em
 }
 
@@ -2750,7 +2753,7 @@ html[lang='ar'] .wf-big .wt {
    font-weight: 800;
    letter-spacing: .18em;
    text-transform: uppercase;
-   color: var(--gold);
+   color: var(--gd);
    margin-bottom: 14px
 }
 .section-h {

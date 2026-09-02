@@ -89,6 +89,26 @@ const resources = {
         marquee: ['Commercial', 'Documentary', 'E-Learning', 'Radio Spots', 'Product Demo', 'Brand Film', 'Narration', 'Arabic · العربية']
       },
       projects: {
+        tabs: ['Visual IDs & Prints', 'Social Media', 'Video'],
+        sections: [
+          {
+            eyebrow: '01 / Identity & Print',
+            title: 'Visual IDs & Prints',
+            sub: 'Complete brand identity systems and print collateral — logo marks, type scales, colour systems, booklets, and usage guides. Click any card to open the full document.'
+          },
+          {
+            eyebrow: '02 / Social',
+            title: 'Social Media',
+            sub: 'Campaign visuals, branded post series, and content-system design for social platforms. Click any post to view it full size.',
+            empty: 'New social campaigns coming soon.'
+          },
+          {
+            eyebrow: '03 / Motion',
+            title: 'Video',
+            sub: 'Cinematography, motion content, and branded video production for commercial and social use.',
+            empty: 'New motion work coming soon.'
+          }
+        ],
         hero: {
           eyebrow: 'Portfolio',
           title: 'Brand, social<br>&amp; motion work.',
@@ -210,6 +230,26 @@ const resources = {
         marquee: ['إعلانات', 'وثائقيات', 'تعليم إلكتروني', 'إعلانات إذاعية', 'عروض منتجات', 'أفلام علامة', 'سرد', 'العربية']
       },
       projects: {
+        tabs: ['الهويات البصرية والمطبوعات', 'السوشال ميديا', 'الفيديو'],
+        sections: [
+          {
+            eyebrow: '01 / هوية ومطبوعات',
+            title: 'الهويات البصرية والمطبوعات',
+            sub: 'أنظمة هوية بصرية متكاملة ومطبوعات — شعارات، وسلالم خطوط، وأنظمة ألوان، وكتيبات، وأدلة استخدام. اضغط على أي بطاقة لفتح المستند كاملاً.'
+          },
+          {
+            eyebrow: '02 / سوشال',
+            title: 'السوشال ميديا',
+            sub: 'تصاميم حملات، وسلاسل منشورات بهوية العلامة، وأنظمة محتوى لمنصات التواصل. اضغط على أي منشور لعرضه بالحجم الكامل.',
+            empty: 'حملات سوشال ميديا جديدة قريبًا.'
+          },
+          {
+            eyebrow: '03 / موشن',
+            title: 'الفيديو',
+            sub: 'تصوير سينمائي، ومحتوى موشن، وإنتاج فيديو بهوية العلامة للاستخدام التجاري ولمنصات التواصل.',
+            empty: 'أعمال موشن جديدة قريبًا.'
+          }
+        ],
         hero: {
           eyebrow: 'الأعمال',
           title: 'هويات وسوشال<br>وأعمال الفيديو.',
@@ -355,6 +395,17 @@ function updateHome() {
 function updateProjects() {
   const p = i18next.t('projects', { returnObjects: true });
   setText('.page-eyebrow', p.hero.eyebrow);
+  if (p.tabs) setList('.cat-tab', p.tabs);
+  // Scoped per section rather than by index: the CMS replaces a grid's contents
+  // outright, so an empty-state div is there for one section and gone for another.
+  ['#visual-ids', '#social-media', '#video'].forEach((scope, index) => {
+    const section = (p.sections || [])[index];
+    if (!section) return;
+    setText(`${scope} .section-eyebrow`, section.eyebrow);
+    setText(`${scope} .section-h`, section.title);
+    setText(`${scope} .section-sub`, section.sub);
+    if (section.empty) setText(`${scope} .posts-empty`, section.empty);
+  });
   if (p.hero.title) setHTML('.page-title', p.hero.title);
   if (p.hero.sub) setText('.page-sub', p.hero.sub);
   setText('.page-actions .btn-gold', p.hero.primary);
