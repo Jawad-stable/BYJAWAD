@@ -4,7 +4,10 @@
     content: { version: 1, updatedAt: null, items: [] },
     editingId: null,
     pages: [],
-    pdfMeta: null
+    pdfMeta: null,
+    // True once a file is uploaded in this edit: the stored page images and PDF
+    // link belong to the old file and must not ride along on the new one.
+    fileReplaced: false
   };
 
   // A PDF in a browser tab is a download prompt on most phones, so every uploaded
@@ -245,6 +248,11 @@
       embedUrl: els.embedUrl.value.trim()
     };
     item[labelKey] = localValue(els.labelEn.value, els.labelAr.value);
+    if (state.fileReplaced) {
+      delete item.pages;
+      delete item.pdfUrl;
+      delete item.pdfSize;
+    }
     if (state.pages.length) {
       item.pages = state.pages;
       if (state.pdfMeta) {
@@ -302,6 +310,7 @@
     state.editingId = item.id;
     state.pages = [];
     state.pdfMeta = null;
+    state.fileReplaced = false;
   }
 
   function resetForm() {
@@ -315,6 +324,7 @@
     state.editingId = null;
     state.pages = [];
     state.pdfMeta = null;
+    state.fileReplaced = false;
   }
 
   function itemTitle(item) {
@@ -408,6 +418,7 @@
     if (state.editingId) els.itemId.value = state.editingId;
     state.pages = [];
     state.pdfMeta = null;
+    state.fileReplaced = true;
 
     if (isPdfFile(file)) {
       try {

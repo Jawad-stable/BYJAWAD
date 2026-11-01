@@ -7,3 +7,11 @@ build/
 # Source page exports for the booklets — uploaded to R2, not tracked here.
 assets/Picflow Images Sep 1/
 assets/WebP second PDF/
+
+# Next.js app (web/): build output and caches
+web/.next/
+web/out/
+
+# Local tooling
+tools/__pycache__/
+.claude/

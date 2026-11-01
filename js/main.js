@@ -1,6 +1,16 @@
 /* ── LOCALE ── */
 const LOCALE_KEY = 'siteLocale';
-const initialLocale = localStorage.getItem(LOCALE_KEY) || ((navigator.language || '').slice(0, 2).toLowerCase() === 'ar' ? 'ar' : 'en');
+
+// Storage throws outright when a browser blocks site data, and an uncaught throw
+// here would stop the reveal observer, leaving every .r section invisible.
+function readStorage(key) {
+  try { return localStorage.getItem(key); } catch (error) { return null; }
+}
+function writeStorage(key, value) {
+  try { localStorage.setItem(key, value); } catch (error) { /* preference just isn't remembered */ }
+}
+
+const initialLocale = readStorage(LOCALE_KEY) || ((navigator.language || '').slice(0, 2).toLowerCase() === 'ar' ? 'ar' : 'en');
 
 const resources = {
   en: {
@@ -146,140 +156,140 @@ const resources = {
   ar: {
     translation: {
       meta: {
-        home: { title: 'جواد خمايسة — صوت وتصميم' },
+        home: { title: 'جواد خمايسة — معلّق صوتي ومصمم جرافيك' },
         projects: { title: 'المشاريع — جواد خمايسة' },
-        samples: { title: 'نماذج صوتية — جواد خمايسة' }
+        samples: { title: 'النماذج الصوتية — جواد خمايسة' }
       },
-      nav: ['نبذة', 'المشاريع', 'النماذج', 'القنوات', 'تواصل'],
+      nav: ['من أنا', 'المشاريع', 'النماذج', 'تابعني', 'تواصل'],
       toggle: 'EN', book: 'احجز جلسة',
       home: {
         hero: {
-          availability: 'متاح لمشاريع مختارة · من فلسطين وإلى أي مكان',
+          availability: 'أستقبل مشاريع مختارة · من فلسطين إلى العالم <svg class="chip-pin" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 13-8 13S4 17 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3" fill="currentColor" stroke="none"/></svg>',
           name: 'جــــــــــــــــــــــــــــواد خـــــمايـــــــــــسة',
-          role: 'معلق صوتي ومصمم جرافيكي',
+          role: 'معلّق صوتي ومصمم جرافيك',
           headline: 'مرحباً، أنا',
-          samples: 'اسمع النماذج ↓', book: 'احجز جلسة'
+          samples: 'استمع إلى النماذج ↓', book: 'احجز جلسة'
         },
         about: {
-          chip: 'نبذة',
-          title: 'مصمم ومعلّق صوتي <br/>أبني <span class="hg">تــجــارب</span> واضــحة<br/>بصوت وشكــل متقن.',
-          p1: 'أعمل بين التعليق الصوتي، الهوية البصرية، وتصميم المنتجات الرقمية. هدفي: أن تصل الفكرة بسرعة وبأسلوب مهني.',
-          p2: 'أتعامل مع كل مشروع كحكاية تحتاج صوتاً مناسباً، صورة قوية، وتنفيذاً مرتباً يخدم الهدف بدون تعقيد.',
-          skills: ['الأداء الصوتي', 'التصميم الجرافيكي', 'توجيه الهوية', 'التصوير'],
+          chip: 'من أنا',
+          title: 'مصمم ومعلّق صوتي،<br/>أصنع <span class="hg">تجارب</span> واضحة<br/>بالصوت والصورة.',
+          p1: 'أعمل في التعليق الصوتي والهوية البصرية وتصميم المنتجات الرقمية، وغايتي في كل ذلك أن تصل الفكرة سريعًا وبصورة احترافية.',
+          p2: 'أرى كل مشروع حكايةً تحتاج إلى صوت يليق بها، وصورة تُقنع، وتنفيذ متقن يخدم الهدف دون تكلّف.',
+          skills: ['الأداء الصوتي', 'التصميم الجرافيكي', 'توجيه الهوية البصرية', 'تصوير الفيديو'],
           products: [
-            { status: 'نشط', title: 'Grafly', desc: 'منصة تعليم تصميم بالعربية أولاً' },
-            { status: 'علامة', title: 'رتّب أمورك', desc: 'هوية لخدمة تنظيف عملية وواضحة' }
+            { status: 'نشط', title: 'Grafly', desc: 'تطبيق لتعلّم التصميم بالعربية' },
+            { status: 'هوية', title: 'رتّب أمورك', desc: 'هوية بصرية لشركة خدمات تنظيف' }
           ]
         },
         voice: {
           chip: 'الصوت',
-          title: 'اسمع، ثم <span class="hw">قرّر.</span>',
-          sub: 'نماذجان قويان يكفيان للانطباع الأول. أما المكتبة الكاملة فموجودة في صفحة النماذج.',
-          langs: ['لهجة شامية', 'فصحى', 'لهجات عربية'],
-          levels: ['لهجة عربية', 'فصحى رسمية', 'لهجات متعددة'],
-          formats: [['إعلانات', 'إذاعة · تلفاز'], ['وثائقيات', 'أفلام'], ['تعليم إلكتروني', 'تعليمي'], ['منتجات', 'تطبيقات · SaaS']],
+          title: 'استمع، ثم <span class="hw">قرّر.</span>',
+          sub: 'نموذجان يكفيان لانطباع أول، وإن أردت المزيد فالمكتبة الكاملة في صفحة النماذج.',
+          langs: ['الشامية', 'الفصحى', 'لهجات عربية'],
+          levels: ['لهجة محكية', 'العربية الرسمية', 'تنوّع إقليمي'],
+          formats: [['إعلانات', 'إذاعة · تلفزيون'], ['وثائقيات', 'أفلام'], ['تعليم إلكتروني', 'محتوى تعليمي'], ['عروض منتجات', 'تطبيقات · منصات رقمية']],
           samples: [
-            { label: 'النموذج 01 · إعلان عربي', title: 'رتّب أمورك', sub: 'إعلان إذاعي · لهجة شامية' },
-            { label: 'النموذج 02 · سرد عربي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · لهجة شامية' }
+            { label: 'نموذج 01 · إعلان تجاري', title: 'رتّب أمورك', sub: 'إعلان إذاعي · باللهجة الشامية' },
+            { label: 'نموذج 02 · سرد صوتي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · باللهجة الشامية' }
           ],
           cta: {
-            title: 'تحتاج <span class="hw">صوتًا</span><br/>لمشروعك؟',
-            sub: 'إعلانات · وثائقيات · تعليم · عروض منتجات بالعربية والإنجليزية.',
-            button: 'مزيد من النماذج', secondary: 'احصل على عرض'
+            title: 'هل يحتاج مشروعك<br/>إلى <span class="hw">صوت</span>؟',
+            sub: 'إعلانات، ووثائقيات، ومحتوى تعليمي، وعروض منتجات — بالعربية والإنجليزية.',
+            button: 'المزيد من النماذج', secondary: 'اطلب عرض سعر'
           },
           studio: {
             title: 'الاستوديو',
-            items: ['استوديو منزلي · مايك احترافي', 'تسجيل نظيف ومعالَج', 'تسليم سريع', 'تعديلات متضمنة']
+            items: ['استوديو منزلي بميكروفون احترافي', 'تسجيل نقي في غرفة معالجة صوتيًا', 'تسليم سريع', 'تعديلات مشمولة']
           },
-          stat: 'ثنائية اللغة',
-          formatsTitle: 'أنواع الأعمال'
+          stat: 'أداء بلغتين',
+          formatsTitle: 'مجالات العمل'
         },
         work: {
-          chip: 'مختارات',
+          chip: 'أعمال مختارة',
           title: 'أبعد من <span class="hm">المايك.</span>',
-          all: 'كل المشاريع',
+          all: 'جميع المشاريع',
           featured: [
-            { meta: '01 — منتج رئيسي', title: '<span class="hw">Grafly</span>', desc: 'منصة لتعلّم التصميم بالعربية أولاً، مبنية كمسار عملي وممتع في الوقت نفسه.', tags: ['منتج', 'عربي أولاً', 'تعليم'] },
-            { meta: '02 — هوية بصرية', title: 'رتّب أمورك', desc: '"نهتم بما لا تراه." هوية بصرية كاملة لشركة خدمات تنظيف — شعار، ألوان، ودليل استخدام.', tags: ['هوية', 'دليل استخدام'] }
+            { meta: '01 — منتج مميّز', title: '<span class="hw">Grafly</span>', desc: 'منصة عربية لتعلّم التصميم، صُمّمت لتكون رحلة عملية وممتعة في آنٍ واحد.', tags: ['منتج', 'بالعربية أولًا', 'تعليم'] },
+            { meta: '02 — هوية بصرية', title: 'رتّب أمورك', desc: '«نهتم بما لا تراه.» هوية بصرية متكاملة لشركة خدمات تنظيف: الشعار والألوان ودليل الاستخدام.', tags: ['هوية بصرية', 'دليل العلامة'] }
           ]
         },
         socials: {
-          chip: 'القنوات',
-          title: 'شاهد العمل.<br/><span class="hm">وتابع الطريقة.</span>',
-          sub: 'مقاطع صوتية، ملاحظات عمل، وتحديثات قصيرة من الاستوديو والحياة اليومية.',
+          chip: 'تابعني',
+          title: 'شاهد الأعمال.<br/><span class="hm">وتابع كواليسها.</span>',
+          sub: 'مقاطع صوتية، وملاحظات من العمل، وتحديثات سريعة من الاستوديو ومن يومياتي.',
           cards: [
-            { kicker: 'YouTube', name: 'Jawad Khamaysa', desc: 'نماذج أطول، تفكيك للمشاريع، ولحظات من خلف الكواليس.', arr: 'افتح' },
-            { kicker: 'Instagram', name: '@jawad.khamaysa', desc: 'نماذج قصيرة، أعمال بصرية، ومشاهد من الاستوديو وتحديثات سريعة.', arr: 'افتح' }
+            { kicker: 'YouTube', name: 'Jawad Khamaysa', desc: 'نماذج أطول، وشرح لكيفية بناء المشاريع، ولقطات من خلف الكواليس.', arr: 'زيارة' },
+            { kicker: 'Instagram', name: '@jawad.khamaysa', desc: 'مقاطع قصيرة، وأعمال بصرية، ولحظات من الاستوديو، وتحديثات أولًا بأول.', arr: 'زيارة' }
           ]
         },
         contact: {
           chip: 'تواصل',
-          title: 'خلّينا نخلي الفكرة <span class="hw">تنسمع.</span>',
-          sub: 'احجز جلسة، اطلب قراءة خاصة، أو افتح الباب على مشروع جديد.',
-          findMe: 'تواصل معي',
+          title: 'لنجعل فكرتك <span class="hw">مسموعة.</span>',
+          sub: 'احجز جلسة تسجيل، أو اطلب نموذجًا مخصصًا، أو حدّثني عن مشروعك القادم.',
+          findMe: 'تجدني هنا',
           cta: {
-            title: 'جاهز<br/><span class="hw">لما تكون.</span>',
-            sub: 'تنفيذ سريع، تسليم نظيف، وتعديلات محسوبة. نخلي القراءة توصل للمكان الصحيح.',
+            title: 'جاهز<br/><span class="hw">متى كنت جاهزًا.</span>',
+            sub: 'تنفيذ سريع، وتسليم نظيف، وتعديلات مشمولة، لتصل القراءة تمامًا كما تريدها.',
             button: 'أرسل رسالة ↗'
           },
-          labels: ['البريد', 'إنستغرام', 'يوتيوب', 'واتساب'],
+          labels: ['البريد الإلكتروني', 'إنستغرام', 'يوتيوب', 'واتساب'],
           values: ['jawad.kh.vo@gmail.com', '@jawad.khamaysa', 'Jawad Khamaysa', '+972 595 540 726'],
-          bottom: [['المكان', '<svg style="display:inline-block;vertical-align:-2px;margin-right:5px;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 13-8 13S4 17 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3" fill="currentColor" stroke="none"/></svg>فلسطين'], ['الحالة', 'متاح للتعاون'], ['التخصص', 'صوت · تصميم · منتج']]
+          bottom: [['الموقع', '<svg style="display:inline-block;vertical-align:-2px;margin-left:5px;flex-shrink:0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 7-8 13-8 13S4 17 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3" fill="currentColor" stroke="none"/></svg>فلسطين'], ['الحالة', 'متاح للتعاون'], ['التخصص', 'صوت · تصميم · منتجات رقمية']]
         },
         footer: '© 2026 · صوت · تصميم · فلسطين',
-        marquee: ['إعلانات', 'وثائقيات', 'تعليم إلكتروني', 'إعلانات إذاعية', 'عروض منتجات', 'أفلام علامة', 'سرد', 'العربية']
+        marquee: ['إعلانات تجارية', 'وثائقيات', 'تعليم إلكتروني', 'إعلانات إذاعية', 'عروض منتجات', 'أفلام ترويجية', 'تعليق صوتي', 'العربية · English']
       },
       projects: {
-        tabs: ['الهويات البصرية والمطبوعات', 'السوشال ميديا', 'الفيديو'],
+        tabs: ['الهويات البصرية والمطبوعات', 'منصات التواصل', 'الفيديو'],
         sections: [
           {
             eyebrow: '01 / هوية ومطبوعات',
             title: 'الهويات البصرية والمطبوعات',
-            sub: 'أنظمة هوية بصرية متكاملة ومطبوعات — شعارات، وسلالم خطوط، وأنظمة ألوان، وكتيبات، وأدلة استخدام. اضغط على أي بطاقة لفتح المستند كاملاً.'
+            sub: 'أنظمة هوية بصرية متكاملة ومطبوعات: شعارات، وأنظمة خطوط وألوان، وكتيّبات، وأدلة استخدام. اضغط على أي بطاقة لتصفّح المستند كاملًا.'
           },
           {
-            eyebrow: '02 / سوشال',
-            title: 'السوشال ميديا',
-            sub: 'تصاميم حملات، وسلاسل منشورات بهوية العلامة، وأنظمة محتوى لمنصات التواصل. اضغط على أي منشور لعرضه بالحجم الكامل.',
-            empty: 'حملات سوشال ميديا جديدة قريبًا.'
+            eyebrow: '02 / منصات التواصل',
+            title: 'منصات التواصل',
+            sub: 'تصاميم حملات، وسلاسل منشورات تحمل هوية العلامة، وأنظمة محتوى لمنصات التواصل الاجتماعي. اضغط على أي منشور لعرضه بحجمه الكامل.',
+            empty: 'حملات جديدة قريبًا.'
           },
           {
-            eyebrow: '03 / موشن',
+            eyebrow: '03 / فيديو وموشن',
             title: 'الفيديو',
-            sub: 'تصوير سينمائي، ومحتوى موشن، وإنتاج فيديو بهوية العلامة للاستخدام التجاري ولمنصات التواصل.',
-            empty: 'أعمال موشن جديدة قريبًا.'
+            sub: 'تصوير سينمائي، وموشن جرافيك، وإنتاج فيديو يحمل هوية العلامة، للإعلانات ومنصات التواصل.',
+            empty: 'أعمال فيديو جديدة قريبًا.'
           }
         ],
         hero: {
           eyebrow: 'الأعمال',
-          title: 'هويات وسوشال<br>وأعمال الفيديو.',
-          sub: 'هويات بصرية، حملات سوشال ميديا، وإنتاج فيديو — مصمَّمة بوضوح وأثر يدوم.',
-          primary: 'استمع للنماذج', secondary: 'ابدأ مشروعًا'
+          title: 'هويات بصرية،<br>ومحتوى، وفيديو.',
+          sub: 'هويات بصرية، وحملات على منصات التواصل، وإنتاج فيديو — بتصميم واضح وأثر يدوم.',
+          primary: 'استمع إلى النماذج', secondary: 'ابدأ مشروعك'
         },
         comingSoon: {
-          badge: 'جارٍ العمل عليه',
+          badge: 'قيد الإعداد',
           title: 'قريبًا',
-          sub: 'يجري حاليًا إعداد أعمال جديدة في الهوية البصرية والسوشال ميديا والفيديو. في هذه الأثناء، استمع إلى النماذج الصوتية أو ابدأ محادثة.',
-          primary: 'استمع للنماذج', secondary: 'ابدأ مشروعًا'
+          sub: 'أعمل حاليًا على تجهيز أعمال جديدة في الهوية البصرية ومنصات التواصل والفيديو. وإلى ذلك الحين، استمع إلى النماذج الصوتية أو تواصل معي.',
+          primary: 'استمع إلى النماذج', secondary: 'ابدأ مشروعك'
         }
       },
       samples: {
         hero: {
           eyebrow: 'مكتبة النماذج الصوتية',
-          title: 'نطاق أوسع للعملاء الجادين.',
-          sub: 'صفحة استماع مخصصة للعملاء الذين يحتاجون أكثر من نموذجين قبل الحجز.',
-          primary: 'طلب ديمو مخصص', secondary: 'عرض المشاريع'
+          title: 'تنوّع أكبر لتجد الصوت المناسب.',
+          sub: 'إن لم يكفِك نموذجان في الصفحة الرئيسية، فهنا المكتبة كاملة لتستمع إليها قبل أن تحجز.',
+          primary: 'اطلب نموذجًا مخصصًا', secondary: 'تصفّح المشاريع'
         },
         cards: [
-          { label: 'إعلان عربي', title: 'رتّب أمورك — بيوت ومكاتب', sub: 'إعلان إذاعي · لهجة شامية' },
-          { label: 'إعلان عربي', title: 'رتّب أمورك — المسجد', sub: 'إعلان إذاعي · لهجة شامية' },
-          { label: 'إعلان عربي', title: 'رتّب أمورك — لأن النظافة', sub: 'إعلان إذاعي · لهجة شامية' },
-          { label: 'سرد عربي', title: 'العيلة', sub: 'سرد صوتي · لهجة شامية' },
-          { label: 'سرد عربي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · لهجة شامية' },
-          { label: 'إعلان عربي', title: 'أبو ربيع — من الطنجرة للصحن', sub: 'إعلان إذاعي · لهجة شامية' },
-          { label: 'إعلان عربي', title: 'القبضة العثمانية', sub: 'حملة علامة تجارية · لهجة شامية' },
-          { label: 'إعلان عربي', title: 'الحلويات الشامية', sub: 'إعلان إذاعي · لهجة شامية' },
-          { label: 'سرد عربي', title: 'لكل لحظة وردتها', sub: 'قراءة أسلوب حياة · لهجة شامية' }
+          { label: 'إعلان تجاري', title: 'رتّب أمورك — بيوت ومكاتب', sub: 'إعلان إذاعي · باللهجة الشامية' },
+          { label: 'إعلان تجاري', title: 'رتّب أمورك — المسجد', sub: 'إعلان إذاعي · باللهجة الشامية' },
+          { label: 'إعلان تجاري', title: 'رتّب أمورك — لأن النظافة', sub: 'إعلان إذاعي · باللهجة الشامية' },
+          { label: 'سرد صوتي', title: 'العيلة', sub: 'سرد · باللهجة الشامية' },
+          { label: 'سرد صوتي', title: 'رفيق دربك نحو القمة', sub: 'سرد تحفيزي · باللهجة الشامية' },
+          { label: 'إعلان تجاري', title: 'أبو ربيع — من الطنجرة للصحن', sub: 'إعلان إذاعي · باللهجة الشامية' },
+          { label: 'إعلان تجاري', title: 'القبضة العثمانية', sub: 'حملة إعلانية · باللهجة الشامية' },
+          { label: 'إعلان تجاري', title: 'الحلويات الشامية', sub: 'إعلان إذاعي · باللهجة الشامية' },
+          { label: 'سرد صوتي', title: 'لكل لحظة وردتها', sub: 'قراءة بطابع حياتي · باللهجة الشامية' }
         ]
       }
     }
@@ -321,6 +331,7 @@ function updateHome() {
   setHTML('.hero-h', hero.headline);
   setText('.hero-btns .btn-gold', hero.samples);
   setText('.hero-btns .btn-ghost', hero.book);
+  document.querySelector('.hero-scroll')?.setAttribute('aria-label', i18next.language === 'ar' ? 'انتقل إلى قسم من أنا' : 'Scroll to About');
 
   const marqueeItems = i18next.t('home.marquee', { returnObjects: true });
   const doubled = [...marqueeItems, ...marqueeItems].slice(0, 16);
@@ -438,7 +449,7 @@ function applyLocale(locale) {
   document.documentElement.lang = locale;
   document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
   document.body.setAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
-  localStorage.setItem(LOCALE_KEY, locale);
+  writeStorage(LOCALE_KEY, locale);
   updateCommon();
   const page = document.body.dataset.page || 'home';
   if (page === 'home') updateHome();
@@ -455,7 +466,17 @@ if (window.i18next) {
     document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
       btn.addEventListener('click', () => {
         closeNavMenu();
-        applyLocale(i18next.language === 'ar' ? 'en' : 'ar');
+        const next = i18next.language === 'ar' ? 'en' : 'ar';
+        // Where the browser can, cross-fade the whole page between languages
+        // instead of swapping every string in place in one hard cut.
+        if (!document.startViewTransition || prefersReducedMotion) {
+          applyLocale(next);
+          return;
+        }
+        const root = document.documentElement;
+        root.classList.add('vt-locale');
+        document.startViewTransition(() => applyLocale(next)).finished
+          .finally(() => root.classList.remove('vt-locale'));
       });
     });
   });
@@ -510,44 +531,217 @@ if (navEl && menuToggle) {
   });
 }
 
-/* ── CURSOR ── */
+/* ── MOTION ── */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const isRTL = () => document.documentElement.dir === 'rtl';
+
+// What the cursor ring treats as clickable. Static cards are left out on
+// purpose, so the ring only ever swells over something that responds.
+const CLICKABLE = 'a, button, .wf, [role="button"]';
+// Controls that lean toward the pointer.
+const MAGNETIC = '.btn-gold, .btn-ghost, .btn-outline, .ncta, .lang-toggle, .pbtn';
+
+const hero = document.getElementById('hero');
+const heroPhoto = hero?.querySelector('.hero-photo');
+const heroCopy = hero?.querySelector('.hero-left-col');
+
+/* Cursor: the dot sits exactly on the pointer, the ring trails behind it, and
+   the trailing loop sleeps once the ring has caught up. */
 const cur = document.getElementById('cur');
 const cur2 = document.getElementById('cur2');
-if (cur && cur2 && !prefersReducedMotion) {
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
+if (cur && cur2 && finePointer && !prefersReducedMotion) {
+  let mx = 0, my = 0, rx = 0, ry = 0, ringFrame = 0;
+  const place = (el, x, y) => { el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`; };
+  const trail = () => {
+    rx += (mx - rx) * .2; ry += (my - ry) * .2;
+    place(cur2, rx, ry);
+    ringFrame = Math.abs(mx - rx) + Math.abs(my - ry) > .1 ? requestAnimationFrame(trail) : 0;
+  };
+  document.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
     mx = e.clientX; my = e.clientY;
-    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
-  });
-  (function loop() {
-    rx += (mx - rx) * .1; ry += (my - ry) * .1;
-    cur2.style.left = rx + 'px'; cur2.style.top = ry + 'px';
-    requestAnimationFrame(loop);
-  })();
+    if (!document.body.classList.contains('cursor-on')) {
+      rx = mx; ry = my;
+      document.body.classList.add('cursor-on');
+    }
+    place(cur, mx, my);
+    if (!ringFrame) ringFrame = requestAnimationFrame(trail);
+  }, { passive: true });
+  document.addEventListener('pointerover', e => {
+    document.body.classList.toggle('ch', !!e.target.closest?.(CLICKABLE));
+  }, { passive: true });
+  document.addEventListener('pointerdown', () => document.body.classList.add('cursor-down'));
+  document.addEventListener('pointerup', () => document.body.classList.remove('cursor-down'));
+  document.documentElement.addEventListener('mouseleave', () => document.body.classList.remove('cursor-on'));
 }
 
-function bindHoverTargets(root = document) {
-  root.querySelectorAll('a,button,.card,.pc').forEach(el => {
-    if (el.dataset.hoverBound === 'true') return;
-    el.dataset.hoverBound = 'true';
-    el.addEventListener('mouseenter', () => document.body.classList.add('ch'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('ch'));
-  });
+/* Pointer-driven details, batched into one frame per pointer move: buttons
+   lean toward the cursor, cards pool a soft light under it, and the hero
+   carries a gold key light that follows it. */
+if (finePointer && !prefersReducedMotion) {
+  let lastEvent = null, frame = 0, magnet = null;
+  const onFrame = () => {
+    frame = 0;
+    const e = lastEvent;
+    const target = e.target instanceof Element ? e.target : null;
+
+    const pull = target?.closest(MAGNETIC) || null;
+    if (pull !== magnet) {
+      if (magnet) magnet.style.translate = '';
+      magnet = pull;
+    }
+    if (pull) {
+      const r = pull.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pull.style.translate = `${(dx * .22).toFixed(1)}px ${(dy * .3).toFixed(1)}px`;
+    }
+
+    const card = target?.closest('.card, .pc');
+    if (card) {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${Math.round(e.clientX - r.left)}px`);
+      card.style.setProperty('--my', `${Math.round(e.clientY - r.top)}px`);
+    }
+
+    if (hero) {
+      const inHero = !!target?.closest('#hero');
+      hero.classList.toggle('is-lit', inHero);
+      if (inHero) {
+        const r = hero.getBoundingClientRect();
+        hero.style.setProperty('--hx', `${(((e.clientX - r.left) / r.width) * 100).toFixed(1)}%`);
+        hero.style.setProperty('--hy', `${(((e.clientY - r.top) / r.height) * 100).toFixed(1)}%`);
+      }
+    }
+  };
+  document.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    lastEvent = e;
+    if (!frame) frame = requestAnimationFrame(onFrame);
+  }, { passive: true });
 }
 
-bindHoverTargets();
+/* Nav pill: one soft capsule that glides between links on hover and comes to
+   rest on the current page or section. */
+function initNavPill() {
+  const bar = navEl?.querySelector('.np');
+  const list = navEl?.querySelector('.nlinks');
+  if (!bar || !list) return () => {};
+  const pill = document.createElement('span');
+  pill.className = 'nav-pill';
+  pill.setAttribute('aria-hidden', 'true');
+  bar.prepend(pill);
+  navEl.classList.add('has-pill');
 
-/* ── NAV SCROLL ── */
+  let hovered = null;
+  const rest = () => {
+    const link = hovered || list.querySelector('a.is-active');
+    if (!link || getComputedStyle(pill).display === 'none') {
+      pill.classList.remove('is-on');
+      return;
+    }
+    const a = link.getBoundingClientRect();
+    const b = bar.getBoundingClientRect();
+    // Appearing from nothing it should fade in where it is, not slide in
+    // from wherever it last was.
+    const appearing = !pill.classList.contains('is-on');
+    if (appearing) pill.style.transition = 'opacity .35s var(--ease)';
+    pill.style.width = `${a.width}px`;
+    pill.style.height = `${a.height}px`;
+    pill.style.transform = `translate3d(${a.left - b.left}px, ${a.top - b.top}px, 0)`;
+    pill.classList.add('is-on');
+    if (appearing) requestAnimationFrame(() => { pill.style.transition = ''; });
+  };
+
+  list.addEventListener('pointerover', e => {
+    const link = e.target.closest('a');
+    if (link) { hovered = link; rest(); }
+  });
+  list.addEventListener('pointerleave', () => { hovered = null; rest(); });
+  list.addEventListener('focusin', e => { hovered = e.target.closest('a'); rest(); });
+  list.addEventListener('focusout', () => { hovered = null; rest(); });
+  // Link widths change when the language switches, so follow the list's size.
+  if ('ResizeObserver' in window) new ResizeObserver(rest).observe(list);
+  window.addEventListener('resize', rest);
+  return rest;
+}
+
+/* Marks the link whose section sits across the middle of the screen. Links to
+   other pages are ignored; they're marked by aria-current instead. */
+function initScrollSpy(selector, activeClass, onChange) {
+  const links = Array.from(document.querySelectorAll(selector));
+  const targets = new Map();
+  links.forEach(link => {
+    const url = new URL(link.getAttribute('href') || '', location.href);
+    if (url.pathname !== location.pathname || !url.hash) return;
+    const section = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+    if (section) targets.set(section, link);
+  });
+  if (!targets.size || !('IntersectionObserver' in window)) return;
+  const inView = new Set();
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.isIntersecting ? inView.add(entry.target) : inView.delete(entry.target));
+    let current = null;
+    targets.forEach((link, section) => { if (inView.has(section)) current = link; });
+    links.forEach(link => link.classList.toggle(activeClass, link === current));
+    onChange?.();
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  targets.forEach((link, section) => spy.observe(section));
+}
+
+if (navEl) {
+  navEl.querySelectorAll('.nlinks a[aria-current="page"]').forEach(link => link.classList.add('is-active'));
+  const restNavPill = initNavPill();
+  initScrollSpy('.nlinks a', 'is-active', restNavPill);
+  restNavPill();
+
+  const progress = document.createElement('span');
+  progress.className = 'nav-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  navEl.querySelector('.np')?.appendChild(progress);
+  // Anyone tabbing into a tucked-away nav gets it back.
+  navEl.addEventListener('focusin', () => navEl.classList.remove('nav-hide'));
+}
+initScrollSpy('.cat-tab', 'active');
+
+/* Scroll: one frame per scroll for the nav state, reading progress and the
+   hero's parallax (the photo drifts slower than the page, the copy lifts and
+   fades as it leaves). */
+let lastScrollY = scrollY;
+let scrollFrame = 0;
+function onScrollFrame() {
+  scrollFrame = 0;
+  const y = Math.max(0, scrollY);
+  if (navEl) {
+    navEl.classList.toggle('sc', y > 50);
+    const delta = y - lastScrollY;
+    if (Math.abs(delta) > 6) {
+      const keep = navEl.classList.contains('open') || navEl.contains(document.activeElement);
+      navEl.classList.toggle('nav-hide', delta > 0 && y > 240 && !keep);
+      lastScrollY = y;
+    }
+    if (y < 240) navEl.classList.remove('nav-hide');
+    const max = document.documentElement.scrollHeight - innerHeight;
+    navEl.style.setProperty('--progress', max > 0 ? Math.min(1, y / max).toFixed(4) : '0');
+  }
+  if (heroPhoto && !prefersReducedMotion && y < innerHeight * 1.2) {
+    heroPhoto.style.translate = `0 ${(y * .14).toFixed(1)}px`;
+    if (heroCopy) {
+      heroCopy.style.translate = `0 ${(y * -.08).toFixed(1)}px`;
+      heroCopy.style.opacity = Math.max(0, 1 - y / (innerHeight * .75)).toFixed(3);
+    }
+  }
+}
 window.addEventListener('scroll', () => {
-  const nav = document.getElementById('nav');
-  if (nav) nav.classList.toggle('sc', scrollY > 50);
+  if (!scrollFrame) scrollFrame = requestAnimationFrame(onScrollFrame);
 }, { passive: true });
+onScrollFrame();
 
 /* ── REVEAL ── */
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); obs.unobserve(e.target); } });
-}, { threshold: 0.08 });
+}, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
 function bindRevealTargets(root = document) {
   root.querySelectorAll('.r').forEach(el => {
     if (el.dataset.revealBound === 'true') return;
@@ -574,13 +768,28 @@ function buildWaveforms(root = document) {
   el.dataset.waveformReady = 'true';
   const id = parseInt((el.id || '').replace('wf', ''));
   const pts = patterns[Number.isFinite(id) ? id % patterns.length : order % patterns.length];
-  pts.forEach(h => {
+  pts.forEach((h, i) => {
     const b = document.createElement('div');
     b.className = 'wb';
     b.style.height = h + '%';
+    b.style.setProperty('--i', i);
     el.appendChild(b);
   });
+  // Hovering previews where a click would seek to.
+  const bars = Array.from(el.children);
+  el.addEventListener('pointermove', e => {
+    const reach = Math.round(waveformFraction(el, e.clientX) * bars.length);
+    bars.forEach((b, i) => b.classList.toggle('pv', i < reach));
   });
+  el.addEventListener('pointerleave', () => bars.forEach(b => b.classList.remove('pv')));
+  });
+}
+
+// The bars run right-to-left on the Arabic site, so measure from that edge.
+function waveformFraction(wf, clientX) {
+  const r = wf.getBoundingClientRect();
+  const x = isRTL() ? r.right - clientX : clientX - r.left;
+  return Math.min(1, Math.max(0, x / r.width));
 }
 
 buildWaveforms();
@@ -590,6 +799,13 @@ const TICK = 80;
 const playIcon = '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
 const pauseIcon = '<svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
 const state = { playing: {}, progress: {}, interval: {} };
+
+function setPlayingUI(btn, playing) {
+  if (!btn) return;
+  btn.innerHTML = playing ? pauseIcon : playIcon;
+  btn.setAttribute('aria-label', playing ? 'Pause sample' : 'Play sample');
+  btn.closest('.pc')?.classList.toggle('is-playing', playing);
+}
 
 function syncWaveform(id, pct) {
   const wf = document.getElementById('wf' + id);
@@ -614,7 +830,7 @@ function startSimulation(id, dur, btn) {
       state.progress[id] = 0;
       state.playing[id] = false;
       clearInterval(state.interval[id]);
-      btn.innerHTML = playIcon;
+      setPlayingUI(btn, false);
       syncWaveform(id, 0);
       updateTime(id, 0);
       return;
@@ -664,7 +880,7 @@ document.querySelectorAll('audio[id^="audio"]').forEach(audio => {
     syncWaveform(id, 0);
     updateTime(id, 0);
     const btn = document.querySelector(`.pbtn[data-idx="${id}"]`);
-    if (btn) btn.innerHTML = playIcon;
+    setPlayingUI(btn, false);
   });
 });
 
@@ -685,13 +901,13 @@ document.addEventListener('click', e => {
     if (state.interval[j]) clearInterval(state.interval[j]);
     const oa = document.getElementById('audio' + j);
     if (oa) oa.pause();
-    other.innerHTML = playIcon;
+    setPlayingUI(other, false);
     syncWaveform(j, 0);
     updateTime(j, 0);
   });
 
   state.playing[id] = !state.playing[id];
-  btn.innerHTML = state.playing[id] ? pauseIcon : playIcon;
+  setPlayingUI(btn, state.playing[id]);
 
   if (state.playing[id]) {
     const audio = document.getElementById('audio' + id);
@@ -705,6 +921,33 @@ document.addEventListener('click', e => {
     const audio = document.getElementById('audio' + id);
     if (audio) audio.pause();
   }
+});
+
+/* Clicking the waveform seeks there, starting the sample if it was idle. */
+function seekSample(id, fraction) {
+  const btn = document.querySelector(`.pbtn[data-idx="${id}"]`);
+  if (!btn) return;
+  const dur = parseInt(btn.dataset.dur, 10) || 30;
+  if (!state.playing[id]) btn.click();
+  const audio = document.getElementById('audio' + id);
+  const apply = () => {
+    if (audio && audio.duration) audio.currentTime = fraction * audio.duration;
+    state.progress[id] = Math.floor(fraction * dur * (1000 / TICK));
+  };
+  apply();
+  // A sample that hasn't loaded yet has no duration to seek within until it does.
+  if (audio && audio.getAttribute('src') && !audio.duration) {
+    audio.addEventListener('loadedmetadata', apply, { once: true });
+  }
+  syncWaveform(id, fraction);
+  updateTime(id, fraction * dur);
+}
+
+document.addEventListener('click', e => {
+  const wf = e.target.closest('.wf');
+  if (!wf) return;
+  const id = parseInt((wf.id || '').replace('wf', ''), 10);
+  if (Number.isFinite(id)) seekSample(id, waveformFraction(wf, e.clientX));
 });
 
 function bindDynamicAudio(root = document) {
@@ -725,24 +968,28 @@ function bindDynamicAudio(root = document) {
       syncWaveform(id, 0);
       updateTime(id, 0);
       const btn = document.querySelector(`.pbtn[data-idx="${id}"]`);
-      if (btn) btn.innerHTML = playIcon;
+      setPlayingUI(btn, false);
     });
   });
 }
 
+// Called before the CMS re-renders the cards. A real <audio> that was playing
+// never gets an interval, so walk the playing flags too, or the new button would
+// think it is still playing and swallow the first click.
 function resetAllAudioState() {
-  Object.keys(state.interval).forEach(id => {
+  const ids = new Set([...Object.keys(state.playing), ...Object.keys(state.interval)]);
+  ids.forEach(id => {
     if (state.interval[id]) clearInterval(state.interval[id]);
     state.interval[id] = null;
     state.playing[id] = false;
     state.progress[id] = 0;
+    document.getElementById('audio' + id)?.pause();
   });
 }
 
 window.resetAudioPlayers = resetAllAudioState;
 
 window.refreshInteractiveElements = function refreshInteractiveElements(root = document) {
-  bindHoverTargets(root);
   bindRevealTargets(root);
   buildWaveforms(root);
   bindDynamicAudio(root);

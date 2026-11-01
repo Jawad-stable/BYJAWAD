@@ -12,7 +12,11 @@ export default {
     try {
       if (url.pathname === '/api/content' && request.method === 'GET') {
         const content = await readContent(env);
-        return json(content, { headers: cors });
+        // Hidden items are drafts: only the admin endpoint below may see them.
+        const items = Array.isArray(content.items) ? content.items.filter(item => item && item.published !== false) : [];
+        // A short browser cache spares R2 a read on every page view; edits still
+        // reach visitors within a minute.
+        return json({ ...content, items }, { headers: { ...cors, 'Cache-Control': 'public, max-age=60' } });
       }
 
       if (!url.pathname.startsWith('/api/admin/')) {
@@ -23,7 +27,7 @@ export default {
 
       if (url.pathname === '/api/admin/content' && request.method === 'GET') {
         const content = await readContent(env);
-        return json(content, { headers: cors });
+        return json(content, { headers: { ...cors, 'Cache-Control': 'no-store' } });
       }
 
       if (url.pathname === '/api/admin/content' && request.method === 'PUT') {

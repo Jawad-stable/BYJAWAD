@@ -3,7 +3,9 @@
   let content = null;
 
   function apiBase() {
-    return String(config.apiBaseUrl || localStorage.getItem('siteApiBaseUrl') || '').replace(/\/+$/, '');
+    let saved = '';
+    try { saved = localStorage.getItem('siteApiBaseUrl') || ''; } catch (error) { /* storage blocked */ }
+    return String(config.apiBaseUrl || saved).replace(/\/+$/, '');
   }
 
   function localize(value, locale) {
@@ -735,7 +737,7 @@
     const base = apiBase();
     if (!base) return null;
     try {
-      const response = await fetch(`${base}/api/content`, { cache: 'no-store' });
+      const response = await fetch(`${base}/api/content`);
       if (!response.ok) throw new Error(`Content API returned ${response.status}`);
       content = await response.json();
       render(document.documentElement.lang || 'en');
