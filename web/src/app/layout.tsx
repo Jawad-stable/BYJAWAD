@@ -24,13 +24,21 @@ export const metadata: Metadata = {
   title: { default: "Jawad Khamaysa · Voice & Design", template: "%s · Jawad Khamaysa" },
   description: "Arabic voice over, brand identity and video by Jawad Khamaysa, from Palestine.",
   icons: { icon: "/media/logo-gold.png", apple: "/media/logo-gold.png" },
+  // The card a shared link unfolds into (WhatsApp, X, LinkedIn, iMessage).
   openGraph: {
     title: "Jawad Khamaysa · Voice & Design",
     description: "Arabic voice over, brand identity and video, from Palestine.",
-    images: ["/media/og.jpg"],
+    url: "/",
+    siteName: "Jawad Khamaysa",
+    images: [{ url: "/media/share.jpg", width: 1200, height: 630, alt: "Jawad Khamaysa, voice-over artist and graphic designer" }],
     type: "website",
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jawad Khamaysa · Voice & Design",
+    description: "Arabic voice over, brand identity and video, from Palestine.",
+    images: ["/media/share.jpg"],
+  },
 };
 
 export const viewport: Viewport = {
