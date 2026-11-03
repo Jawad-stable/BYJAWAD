@@ -1,13 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { Dock } from "@/components/site/dock";
 import { Footer } from "@/components/site/footer";
 import { Providers } from "@/components/site/providers";
 import "./globals.css";
 
-// Latin: Geist 400/500/600 and Geist Mono 500/600. Arabic: Arad, limited to
-// Arabic code points so it never draws Latin while Geist loads.
+// Latin: Bricolage Grotesque 700/800 at its regular width for display, Geist
+// 400/500/600 for text, Geist Mono 500/600. Arabic: Arad, limited to Arabic
+// code points so it never draws Latin while the others load.
+const bricolage = Bricolage_Grotesque({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-bricolage", display: "swap" });
 const geist = Geist({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-geist", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-geist-mono", display: "swap" });
 const arad = localFont({
@@ -45,7 +47,7 @@ const localeScript = `(function(){try{var l=localStorage.getItem('siteLocale');i
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${arad.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${bricolage.variable} ${geist.variable} ${geistMono.variable} ${arad.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: localeScript }} />
       </head>

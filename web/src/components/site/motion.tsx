@@ -24,18 +24,39 @@ export function Reveal({ children, delay = 0, y = 28, className }: { children: R
   );
 }
 
+/** Splits a title into lines of words; *gold* words are flagged, \n breaks the line. */
+export function parseTitle(text: string) {
+  let gold = false;
+  return text.split("\n").map(line =>
+    line.split(" ").filter(Boolean).map(raw => {
+      let word = raw;
+      const opens = word.startsWith("*");
+      if (opens) word = word.slice(1);
+      const closes = word.endsWith("*");
+      if (closes) word = word.slice(0, -1);
+      if (opens) gold = true;
+      const hl = gold;
+      if (closes) gold = false;
+      return { word, hl };
+    }),
+  );
+}
+
 /**
  * Words rise out of a mask, line by line. Splits on words, never letters,
- * so Arabic keeps its joins. `mount` plays on load; otherwise on first view.
+ * so Arabic keeps its joins. Takes a title string (see parseTitle) or lines.
+ * `mount` plays on load; otherwise on first view.
  */
 export function MaskText({
   lines,
+  text,
   mount = false,
   delay = 0,
   stagger = 0.08,
   className,
 }: {
-  lines: string[];
+  lines?: string[];
+  text?: string;
   mount?: boolean;
   delay?: number;
   stagger?: number;
@@ -43,32 +64,34 @@ export function MaskText({
 }) {
   let n = 0;
   const play = { y: "0%" };
+  const source = text ?? (lines || []).join("\n");
+  const parsed = parseTitle(source);
   // Keyed by its text: a language switch remounts the reveal, so words that
   // are new to the line still get their entrance instead of staying masked.
   return (
     <motion.span
-      key={lines.join("|")}
+      key={source}
       className={cn("mask-text", className)}
       initial="hidden"
       {...(mount ? { animate: "shown" } : { whileInView: "shown", viewport: { once: true, margin: "0px 0px -10% 0px" } })}
     >
-      {lines.map((line, li) => (
+      {parsed.map((line, li) => (
         <span key={li} className="mask-line">
-          {line.split(" ").map((word, wi, words) => {
+          {line.map((w, wi) => {
             const i = n++;
             // The space sits between the masks: inside one it would collapse.
             return (
               <Fragment key={wi}>
                 <span className="mask-word">
                   <motion.span
-                    className="mask-inner"
+                    className={cn("mask-inner", w.hl && "hl")}
                     variants={{ hidden: { y: "110%" }, shown: play }}
                     transition={{ duration: 1.05, ease: EASE, delay: delay + i * stagger }}
                   >
-                    {word}
+                    {w.word}
                   </motion.span>
                 </span>
-                {wi < words.length - 1 ? " " : null}
+                {wi < line.length - 1 ? " " : null}
               </Fragment>
             );
           })}
@@ -113,16 +136,21 @@ export function BtnLabel({ text }: { text: string }) {
   );
 }
 
-/** Section eyebrow and headline, revealed together. */
-export function SectionHead({ eyebrow, title, as: Tag = "h2", className }: { eyebrow: string; title: string; as?: "h1" | "h2"; className?: string }) {
+/** Section eyebrow, headline and an optional line under it, revealed together. */
+export function SectionHead({ eyebrow, title, sub, as: Tag = "h2", className }: { eyebrow: string; title: string; sub?: string; as?: "h1" | "h2"; className?: string }) {
   return (
     <div className={cn("section-head", className)}>
       <Reveal y={12}>
         <p className="eyebrow">{eyebrow}</p>
       </Reveal>
       <Tag className="section-title">
-        <MaskText lines={[title]} mount={Tag === "h1"} delay={Tag === "h1" ? 0.1 : 0} />
+        <MaskText text={title} mount={Tag === "h1"} delay={Tag === "h1" ? 0.1 : 0} />
       </Tag>
+      {sub && (
+        <Reveal delay={0.2} y={16}>
+          <p className="section-sub">{sub}</p>
+        </Reveal>
+      )}
     </div>
   );
 }

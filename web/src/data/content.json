@@ -1,8 +1,59 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-02T06:28:24.090770Z",
+  "updatedAt": "2026-11-03T18:56:28.783Z",
   "projectsComingSoon": false,
   "items": [
+    {
+      "id": "voice-ratteb-faith-cleanliness",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "title": {
+        "en": "Ratteb Omorak - Faith & Cleanliness",
+        "ar": "رتّب أمورك - لأن النظافة"
+      },
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "sub": {
+        "en": "Radio Spot · Levantine Arabic",
+        "ar": "إعلان إذاعي · لهجة شامية"
+      },
+      "duration": 60,
+      "order": 1,
+      "published": true,
+      "featured": true,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ratteb-omorak/ratteb-omorak-faith-cleanliness.wav",
+      "objectKey": "uploads/voice/ratteb-omorak/ratteb-omorak-faith-cleanliness.wav",
+      "description": {
+        "en": "Radio Spot · Levantine Arabic",
+        "ar": "إعلان إذاعي · لهجة شامية"
+      },
+      "tags": []
+    },
+    {
+      "id": "voice-the-family",
+      "type": "voice",
+      "category": "Arabic Narration",
+      "title": {
+        "en": "The Family",
+        "ar": "العيلة"
+      },
+      "label": {
+        "en": "Arabic Narration",
+        "ar": "سرد عربي"
+      },
+      "sub": {
+        "en": "Narration · Levantine Arabic",
+        "ar": "سرد صوتي · لهجة شامية"
+      },
+      "duration": 56,
+      "order": 2,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/narration/the-family.wav",
+      "objectKey": "uploads/voice/narration/the-family.wav"
+    },
     {
       "id": "visual-id-grafly",
       "type": "visual-id",
@@ -26,7 +77,7 @@
         "Arabic"
       ],
       "color": "maroon",
-      "order": 1,
+      "order": 3,
       "published": true,
       "featured": true,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/grafly/grafly-brand-book.pdf",
@@ -157,6 +208,54 @@
       "pdfSize": 46191920
     },
     {
+      "id": "voice-ratteb-offices-homes",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "title": {
+        "en": "Ratteb Omorak — Offices & Homes",
+        "ar": "رتّب أمورك — بيوت ومكاتب"
+      },
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "sub": {
+        "en": "Radio Spot · Levantine Arabic",
+        "ar": "إعلان إذاعي · لهجة شامية"
+      },
+      "duration": 62,
+      "order": 4,
+      "published": true,
+      "featured": true,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ratteb-omorak/ratteb-omorak-offices-homes.wav",
+      "objectKey": "uploads/voice/ratteb-omorak/ratteb-omorak-offices-homes.wav"
+    },
+    {
+      "id": "video-grafly-promo",
+      "type": "video",
+      "category": "Product / Promo",
+      "title": {
+        "en": "Grafly — Product Promo",
+        "ar": "إعلان Grafly الترويجي"
+      },
+      "meta": {
+        "en": "Product / Promo",
+        "ar": "منتج / إعلان"
+      },
+      "tags": [
+        "Product",
+        "Motion"
+      ],
+      "order": 5,
+      "published": true,
+      "featured": true,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/grafly/grafly-promo.mp4",
+      "objectKey": "uploads/video/grafly/grafly-promo.mp4",
+      "width": 3840,
+      "height": 2160,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/grafly/1785879801781-grafly-promo-poster.jpg"
+    },
+    {
       "id": "visual-id-ratteb-omorak",
       "type": "visual-id",
       "anchor": "ratteb-omorak",
@@ -179,7 +278,7 @@
         "Guidelines"
       ],
       "color": "light",
-      "order": 2,
+      "order": 6,
       "published": true,
       "featured": true,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/ratteb-omorak-brand-guidelines.pdf",
@@ -310,6 +409,54 @@
       "pdfSize": 2005149
     },
     {
+      "id": "voice-ratteb-mosque",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "title": {
+        "en": "Ratteb Omorak — Mosque",
+        "ar": "رتّب أمورك — المسجد"
+      },
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "sub": {
+        "en": "Radio Spot · Levantine Arabic",
+        "ar": "إعلان إذاعي · لهجة شامية"
+      },
+      "duration": 55,
+      "order": 7,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ratteb-omorak/ratteb-omorak-mosque.wav",
+      "objectKey": "uploads/voice/ratteb-omorak/ratteb-omorak-mosque.wav"
+    },
+    {
+      "id": "video-food-reel-1",
+      "type": "video",
+      "category": "Commercial / Food & Beverage",
+      "title": {
+        "en": "Food & Beverage Videography — Reel 1",
+        "ar": "تصوير فيديو للأطعمة والمشروبات — ١"
+      },
+      "meta": {
+        "en": "Commercial / Food & Beverage",
+        "ar": "تجاري / أطعمة ومشروبات"
+      },
+      "tags": [
+        "Food",
+        "Commercial"
+      ],
+      "order": 8,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/collective-king.mp4",
+      "objectKey": "uploads/video/food-videography/collective-king.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/1785879804231-collective-king-poster.jpg"
+    },
+    {
       "id": "visual-id-uni-led-booklet-2025",
       "type": "visual-id",
       "anchor": "uni-led-booklet-2025",
@@ -332,7 +479,7 @@
         "Education"
       ],
       "color": "maroon",
-      "order": 3,
+      "order": 9,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet-2025.pdf",
@@ -483,6 +630,31 @@
       "pdfSize": 6789525
     },
     {
+      "id": "video-food-reel-2",
+      "type": "video",
+      "category": "Commercial / Food & Beverage",
+      "title": {
+        "en": "Food & Beverage Videography — Reel 2",
+        "ar": "تصوير فيديو للأطعمة والمشروبات — ٢"
+      },
+      "meta": {
+        "en": "Commercial / Food & Beverage",
+        "ar": "تجاري / أطعمة ومشروبات"
+      },
+      "tags": [
+        "Food",
+        "Commercial"
+      ],
+      "order": 10,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/sega-collection.mp4",
+      "objectKey": "uploads/video/food-videography/sega-collection.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/1785879804955-sega-collection-poster.jpg"
+    },
+    {
       "id": "visual-id-uni-led-booklet",
       "type": "visual-id",
       "anchor": "uni-led-booklet",
@@ -505,7 +677,7 @@
         "Education"
       ],
       "color": "steel",
-      "order": 4,
+      "order": 11,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/uni-led/uni-led-program-booklet.pdf",
@@ -631,6 +803,31 @@
       "pdfSize": 291030854
     },
     {
+      "id": "video-furniture-reel",
+      "type": "video",
+      "category": "Commercial / Interior & Furniture",
+      "title": {
+        "en": "Furniture & Interior Videography",
+        "ar": "تصوير فيديو للأثاث والديكور"
+      },
+      "meta": {
+        "en": "Commercial / Interior & Furniture",
+        "ar": "تجاري / أثاث وديكور"
+      },
+      "tags": [
+        "Interior",
+        "Commercial"
+      ],
+      "order": 12,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/furniture-videography/othmani-reel.mp4",
+      "objectKey": "uploads/video/furniture-videography/othmani-reel.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/furniture-videography/1785879805912-othmani-reel-poster.jpg"
+    },
+    {
       "id": "visual-id-mana-pharmacy",
       "type": "visual-id",
       "anchor": "mana-pharmacy",
@@ -653,7 +850,7 @@
         "Healthcare"
       ],
       "color": "gold",
-      "order": 5,
+      "order": 13,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/mana-pharmacy/mana-pharmacy-brand-id.pdf",
@@ -694,6 +891,54 @@
       "pdfSize": 423878
     },
     {
+      "id": "voice-companion-to-the-top",
+      "type": "voice",
+      "category": "Arabic Narration",
+      "title": {
+        "en": "Companion to the Top",
+        "ar": "رفيق دربك نحو القمة"
+      },
+      "label": {
+        "en": "Arabic Narration",
+        "ar": "سرد عربي"
+      },
+      "sub": {
+        "en": "Motivational Narration · Levantine Arabic",
+        "ar": "سرد تحفيزي · لهجة شامية"
+      },
+      "duration": 51,
+      "order": 14,
+      "published": true,
+      "featured": true,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/narration/companion-to-the-top.wav",
+      "objectKey": "uploads/voice/narration/companion-to-the-top.wav"
+    },
+    {
+      "id": "video-nerd-promo",
+      "type": "video",
+      "category": "Product / Promo",
+      "title": {
+        "en": "Nerd — App Promo",
+        "ar": "إعلان تطبيق Nerd الترويجي"
+      },
+      "meta": {
+        "en": "Product / Promo",
+        "ar": "منتج / إعلان"
+      },
+      "tags": [
+        "Product",
+        "Motion"
+      ],
+      "order": 15,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/nerd/1785879798676-nerd-app-promo.mp4",
+      "objectKey": "uploads/video/nerd/1785879798676-nerd-app-promo.mp4",
+      "width": 1080,
+      "height": 1920,
+      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/nerd/1785879800685-nerd-app-promo-poster.jpg"
+    },
+    {
       "id": "visual-id-nadeem-perfume",
       "type": "visual-id",
       "anchor": "nadeem-perfume",
@@ -716,7 +961,7 @@
         "Fragrance"
       ],
       "color": "copper",
-      "order": 6,
+      "order": 16,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/nadeem-perfume/nadeem-perfume-logo.pdf",
@@ -730,6 +975,29 @@
       ],
       "pdfUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/nadeem-perfume/nadeem-perfume-logo.pdf",
       "pdfSize": 377756
+    },
+    {
+      "id": "voice-abu-rabie-pan-to-plate",
+      "type": "voice",
+      "category": "Arabic Commercial",
+      "title": {
+        "en": "Abu Rabie — From Pan to Plate",
+        "ar": "أبو ربيع — من الطنجرة للصحن"
+      },
+      "label": {
+        "en": "Arabic Commercial",
+        "ar": "إعلان عربي"
+      },
+      "sub": {
+        "en": "Radio Spot · Levantine Arabic",
+        "ar": "إعلان إذاعي · لهجة شامية"
+      },
+      "duration": 25,
+      "order": 17,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/true-agency/abu-rabie-pan-to-plate.wav",
+      "objectKey": "uploads/voice/true-agency/abu-rabie-pan-to-plate.wav"
     },
     {
       "id": "visual-id-robin-hood-insurance",
@@ -754,7 +1022,7 @@
         "International Client"
       ],
       "color": "dark",
-      "order": 7,
+      "order": 18,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/robin-hood-insurance/robin-hood-insurance-logo.pdf",
@@ -790,244 +1058,6 @@
       "pdfSize": 149750
     },
     {
-      "id": "voice-ratteb-offices-homes",
-      "type": "voice",
-      "category": "Arabic Commercial",
-      "title": {
-        "en": "Ratteb Omorak — Offices & Homes",
-        "ar": "رتّب أمورك — بيوت ومكاتب"
-      },
-      "label": {
-        "en": "Arabic Commercial",
-        "ar": "إعلان عربي"
-      },
-      "sub": {
-        "en": "Radio Spot · Levantine Arabic",
-        "ar": "إعلان إذاعي · لهجة شامية"
-      },
-      "duration": 62,
-      "order": 1,
-      "published": true,
-      "featured": true,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ratteb-omorak/ratteb-omorak-offices-homes.wav",
-      "objectKey": "uploads/voice/ratteb-omorak/ratteb-omorak-offices-homes.wav"
-    },
-    {
-      "id": "voice-ratteb-mosque",
-      "type": "voice",
-      "category": "Arabic Commercial",
-      "title": {
-        "en": "Ratteb Omorak — Mosque",
-        "ar": "رتّب أمورك — المسجد"
-      },
-      "label": {
-        "en": "Arabic Commercial",
-        "ar": "إعلان عربي"
-      },
-      "sub": {
-        "en": "Radio Spot · Levantine Arabic",
-        "ar": "إعلان إذاعي · لهجة شامية"
-      },
-      "duration": 55,
-      "order": 2,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ratteb-omorak/ratteb-omorak-mosque.wav",
-      "objectKey": "uploads/voice/ratteb-omorak/ratteb-omorak-mosque.wav"
-    },
-    {
-      "id": "voice-ratteb-faith-cleanliness",
-      "type": "voice",
-      "category": "Arabic Commercial",
-      "title": {
-        "en": "Ratteb Omorak — Faith & Cleanliness",
-        "ar": "رتّب أمورك — لأن النظافة"
-      },
-      "label": {
-        "en": "Arabic Commercial",
-        "ar": "إعلان عربي"
-      },
-      "sub": {
-        "en": "Radio Spot · Levantine Arabic",
-        "ar": "إعلان إذاعي · لهجة شامية"
-      },
-      "duration": 60,
-      "order": 3,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ratteb-omorak/ratteb-omorak-faith-cleanliness.wav",
-      "objectKey": "uploads/voice/ratteb-omorak/ratteb-omorak-faith-cleanliness.wav"
-    },
-    {
-      "id": "voice-the-family",
-      "type": "voice",
-      "category": "Arabic Narration",
-      "title": {
-        "en": "The Family",
-        "ar": "العيلة"
-      },
-      "label": {
-        "en": "Arabic Narration",
-        "ar": "سرد عربي"
-      },
-      "sub": {
-        "en": "Narration · Levantine Arabic",
-        "ar": "سرد صوتي · لهجة شامية"
-      },
-      "duration": 56,
-      "order": 4,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/narration/the-family.wav",
-      "objectKey": "uploads/voice/narration/the-family.wav"
-    },
-    {
-      "id": "voice-companion-to-the-top",
-      "type": "voice",
-      "category": "Arabic Narration",
-      "title": {
-        "en": "Companion to the Top",
-        "ar": "رفيق دربك نحو القمة"
-      },
-      "label": {
-        "en": "Arabic Narration",
-        "ar": "سرد عربي"
-      },
-      "sub": {
-        "en": "Motivational Narration · Levantine Arabic",
-        "ar": "سرد تحفيزي · لهجة شامية"
-      },
-      "duration": 51,
-      "order": 5,
-      "published": true,
-      "featured": true,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/narration/companion-to-the-top.wav",
-      "objectKey": "uploads/voice/narration/companion-to-the-top.wav"
-    },
-    {
-      "id": "video-grafly-promo",
-      "type": "video",
-      "category": "Product / Promo",
-      "title": {
-        "en": "Grafly — Product Promo",
-        "ar": "إعلان Grafly الترويجي"
-      },
-      "meta": {
-        "en": "Product / Promo",
-        "ar": "منتج / إعلان"
-      },
-      "tags": [
-        "Product",
-        "Motion"
-      ],
-      "order": 1,
-      "published": true,
-      "featured": true,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/grafly/grafly-promo.mp4",
-      "objectKey": "uploads/video/grafly/grafly-promo.mp4",
-      "width": 3840,
-      "height": 2160,
-      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/grafly/1785879801781-grafly-promo-poster.jpg"
-    },
-    {
-      "id": "video-food-reel-1",
-      "type": "video",
-      "category": "Commercial / Food & Beverage",
-      "title": {
-        "en": "Food & Beverage Videography — Reel 1",
-        "ar": "تصوير فيديو للأطعمة والمشروبات — ١"
-      },
-      "meta": {
-        "en": "Commercial / Food & Beverage",
-        "ar": "تجاري / أطعمة ومشروبات"
-      },
-      "tags": [
-        "Food",
-        "Commercial"
-      ],
-      "order": 2,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/collective-king.mp4",
-      "objectKey": "uploads/video/food-videography/collective-king.mp4",
-      "width": 1080,
-      "height": 1920,
-      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/1785879804231-collective-king-poster.jpg"
-    },
-    {
-      "id": "video-food-reel-2",
-      "type": "video",
-      "category": "Commercial / Food & Beverage",
-      "title": {
-        "en": "Food & Beverage Videography — Reel 2",
-        "ar": "تصوير فيديو للأطعمة والمشروبات — ٢"
-      },
-      "meta": {
-        "en": "Commercial / Food & Beverage",
-        "ar": "تجاري / أطعمة ومشروبات"
-      },
-      "tags": [
-        "Food",
-        "Commercial"
-      ],
-      "order": 3,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/sega-collection.mp4",
-      "objectKey": "uploads/video/food-videography/sega-collection.mp4",
-      "width": 1080,
-      "height": 1920,
-      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/food-videography/1785879804955-sega-collection-poster.jpg"
-    },
-    {
-      "id": "video-furniture-reel",
-      "type": "video",
-      "category": "Commercial / Interior & Furniture",
-      "title": {
-        "en": "Furniture & Interior Videography",
-        "ar": "تصوير فيديو للأثاث والديكور"
-      },
-      "meta": {
-        "en": "Commercial / Interior & Furniture",
-        "ar": "تجاري / أثاث وديكور"
-      },
-      "tags": [
-        "Interior",
-        "Commercial"
-      ],
-      "order": 4,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/furniture-videography/othmani-reel.mp4",
-      "objectKey": "uploads/video/furniture-videography/othmani-reel.mp4",
-      "width": 1080,
-      "height": 1920,
-      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/furniture-videography/1785879805912-othmani-reel-poster.jpg"
-    },
-    {
-      "id": "voice-abu-rabie-pan-to-plate",
-      "type": "voice",
-      "category": "Arabic Commercial",
-      "title": {
-        "en": "Abu Rabie — From Pan to Plate",
-        "ar": "أبو ربيع — من الطنجرة للصحن"
-      },
-      "label": {
-        "en": "Arabic Commercial",
-        "ar": "إعلان عربي"
-      },
-      "sub": {
-        "en": "Radio Spot · Levantine Arabic",
-        "ar": "إعلان إذاعي · لهجة شامية"
-      },
-      "duration": 25,
-      "order": 6,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/true-agency/abu-rabie-pan-to-plate.wav",
-      "objectKey": "uploads/voice/true-agency/abu-rabie-pan-to-plate.wav"
-    },
-    {
       "id": "voice-the-ottoman-grip",
       "type": "voice",
       "category": "Arabic Commercial",
@@ -1044,7 +1074,7 @@
         "ar": "حملة علامة تجارية · لهجة شامية"
       },
       "duration": 38,
-      "order": 7,
+      "order": 19,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/yessound/the-ottoman-grip.wav",
@@ -1067,34 +1097,11 @@
         "ar": "إعلان إذاعي · لهجة شامية"
       },
       "duration": 73,
-      "order": 8,
+      "order": 20,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/panda/levantine-sweets.wav",
       "objectKey": "uploads/voice/panda/levantine-sweets.wav"
-    },
-    {
-      "id": "voice-every-moment-has-its-rose",
-      "type": "voice",
-      "category": "Arabic Narration",
-      "title": {
-        "en": "Every Moment Has Its Rose",
-        "ar": "لكل لحظة وردتها"
-      },
-      "label": {
-        "en": "Arabic Narration",
-        "ar": "سرد عربي"
-      },
-      "sub": {
-        "en": "Lifestyle Read · Levantine Arabic",
-        "ar": "قراءة أسلوب حياة · لهجة شامية"
-      },
-      "duration": 22,
-      "order": 9,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ward/every-moment-has-its-rose.wav",
-      "objectKey": "uploads/voice/ward/every-moment-has-its-rose.wav"
     },
     {
       "id": "visual-id-alba",
@@ -1119,7 +1126,7 @@
         "Arabic"
       ],
       "color": "gold",
-      "order": 8,
+      "order": 21,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/alba/1785879756291-alba-brand-guidelines.pdf",
@@ -1260,6 +1267,29 @@
       "pdfSize": 60370100
     },
     {
+      "id": "voice-every-moment-has-its-rose",
+      "type": "voice",
+      "category": "Arabic Narration",
+      "title": {
+        "en": "Every Moment Has Its Rose",
+        "ar": "لكل لحظة وردتها"
+      },
+      "label": {
+        "en": "Arabic Narration",
+        "ar": "سرد عربي"
+      },
+      "sub": {
+        "en": "Lifestyle Read · Levantine Arabic",
+        "ar": "قراءة أسلوب حياة · لهجة شامية"
+      },
+      "duration": 22,
+      "order": 22,
+      "published": true,
+      "featured": false,
+      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/voice/ward/every-moment-has-its-rose.wav",
+      "objectKey": "uploads/voice/ward/every-moment-has-its-rose.wav"
+    },
+    {
       "id": "visual-id-indimaj",
       "type": "visual-id",
       "anchor": "indimaj",
@@ -1282,7 +1312,7 @@
         "Social Impact"
       ],
       "color": "steel",
-      "order": 9,
+      "order": 23,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/indimaj/1785879760575-indimaj-brand-identity.pdf",
@@ -1340,7 +1370,7 @@
         "Education"
       ],
       "color": "maroon",
-      "order": 10,
+      "order": 24,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/pmo/1785879763586-pmo-logo-presentation.pdf",
@@ -1403,7 +1433,7 @@
         "Retail"
       ],
       "color": "copper",
-      "order": 11,
+      "order": 25,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/fax/1785879768179-fax-logo-presentation.pdf",
@@ -1466,36 +1496,11 @@
         "Roll-Up"
       ],
       "color": "dark",
-      "order": 12,
+      "order": 26,
       "published": true,
       "featured": false,
       "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/visual-id/ratteb-omorak/1785879769682-ratteb-omorak-rollup.jpg",
       "objectKey": "uploads/visual-id/ratteb-omorak/1785879769682-ratteb-omorak-rollup.jpg"
-    },
-    {
-      "id": "video-nerd-promo",
-      "type": "video",
-      "category": "Product / Promo",
-      "title": {
-        "en": "Nerd — App Promo",
-        "ar": "إعلان تطبيق Nerd الترويجي"
-      },
-      "meta": {
-        "en": "Product / Promo",
-        "ar": "منتج / إعلان"
-      },
-      "tags": [
-        "Product",
-        "Motion"
-      ],
-      "order": 5,
-      "published": true,
-      "featured": false,
-      "fileUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/nerd/1785879798676-nerd-app-promo.mp4",
-      "objectKey": "uploads/video/nerd/1785879798676-nerd-app-promo.mp4",
-      "width": 1080,
-      "height": 1920,
-      "thumbnailUrl": "https://pub-68a63d92f34640a18579a875a0e19690.r2.dev/uploads/video/nerd/1785879800685-nerd-app-promo-poster.jpg"
     }
   ]
 }

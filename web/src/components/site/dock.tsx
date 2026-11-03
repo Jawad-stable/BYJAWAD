@@ -128,24 +128,25 @@ export function Dock() {
     t.finished.finally(() => root.classList.remove("vt-theme"));
   };
 
-  const tools = (
-    <>
-      <button type="button" className="dock-icon" aria-label={copy.theme.night} aria-pressed={night} onClick={switchTheme}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-          {night ? (
-            <>
-              <circle cx="12" cy="12" r="4.5" />
-              <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
-            </>
-          ) : (
-            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
-          )}
-        </svg>
-      </button>
-      <button type="button" className="dock-icon dock-lang" aria-label={copy.lang.label} lang={locale === "ar" ? "en" : "ar"} onClick={toggle}>
-        {locale === "ar" ? "EN" : "ع"}
-      </button>
-    </>
+  const lang = (className: string) => (
+    <button type="button" className={cn("dock-icon dock-lang", className)} aria-label={copy.lang.label} lang={locale === "ar" ? "en" : "ar"} onClick={toggle}>
+      {locale === "ar" ? "EN" : "ع"}
+    </button>
+  );
+
+  const theme = (
+    <button type="button" className="dock-icon" aria-label={copy.theme.night} aria-pressed={night} onClick={switchTheme}>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        {night ? (
+          <>
+            <circle cx="12" cy="12" r="4.5" />
+            <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+          </>
+        ) : (
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        )}
+      </svg>
+    </button>
   );
 
   return (
@@ -155,6 +156,7 @@ export function Dock() {
           <img src="/media/logo-gold.png" alt="" width={32} height={32} />
           <span>{locale === "ar" ? "جواد خمايسة" : "Jawad Khamaysa"}</span>
         </Link>
+        {lang("dock-lang-bar")}
         <nav aria-label="Main" className="dock-nav">
           <ul>
             {links.map(l => (
@@ -167,7 +169,10 @@ export function Dock() {
             ))}
           </ul>
         </nav>
-        <div className="dock-tools">{tools}</div>
+        <div className="dock-tools">
+          {theme}
+          {lang("")}
+        </div>
         <button
           ref={menu}
           type="button"
@@ -210,7 +215,7 @@ export function Dock() {
                 ))}
               </ul>
             </nav>
-            <div className="dock-sheet-tools">{tools}</div>
+            <div className="dock-sheet-tools">{theme}</div>
           </motion.div>
         )}
       </AnimatePresence>

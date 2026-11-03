@@ -10,11 +10,12 @@ import { tape } from "./tape";
 
    One fixed, click-through canvas covers the viewport. Each frame the model is
    placed over a page element:
-     [data-tape-hero]  where it floats on load (drag it to spin it)
+     [data-tape-hero]  beside the voice title, where it lands from deep in
+                       the page once in view (drag it to spin it)
      [data-tape-dock]  the deck's bay, where it lands and stays
    Between the two it flies an arc driven by the scroll. A new tape lifts out of
    the bay, turns over and drops back in. Reduced motion: no flight, no spin,
-   no swap; it rests in the hero and the deck keeps its flat cassette. */
+   no swap; it rests by the title and the deck keeps its flat cassette. */
 
 const W = 10.04;
 const H = 6.38;
@@ -503,7 +504,8 @@ export function mountCassette(canvasEl: HTMLCanvasElement): (() => void) | null 
   };
   const onUp = () => (spin.dragging = false);
   const bindHero = () => {
-    const el = document.querySelector<HTMLElement>("[data-tape-hero]");
+    // One anchor per layout; the one on screen is the one.
+    const el = [...document.querySelectorAll<HTMLElement>("[data-tape-hero]")].find(a => a.getClientRects().length) ?? null;
     if (el === heroEl) return;
     heroEl?.removeEventListener("pointerdown", onDown);
     heroEl = el;
@@ -531,6 +533,7 @@ export function mountCassette(canvasEl: HTMLCanvasElement): (() => void) | null 
   let raf = 0;
   let last = performance.now();
   let born = -1;
+  let seen = -1;
   let flight = -1;
   let swapAt = -1;
   let swapSeen = tape.get().swap;
@@ -553,17 +556,21 @@ export function mountCassette(canvasEl: HTMLCanvasElement): (() => void) | null 
       setMode();
     }
 
-    // Landing: the cassette arrives from deep in the stage, turning once.
-    const intro = reduced ? 1 : outQuart(clamp01((now - born - 250) / 1800));
+    // Landing: once its place scrolls into view, the cassette arrives from
+    // deep in the page, turning once. Nothing is drawn before that.
+    if (seen < 0) {
+      if (hero.top > vh * 0.9) return;
+      seen = now;
+    }
+    const intro = reduced ? 1 : outQuart(clamp01((now - seen - 100) / 1600));
 
-    // Flight: it follows the scroll from the first move until the bay sits
-    // just below mid-screen. The deck comes straight after the stage, so the
-    // cassette stays in view the whole way down and settles into the bay.
+    // Flight: it leaves its place once that rises past the upper third and
+    // follows the scroll down until the bay sits just below mid-screen.
     let target = 0;
     if (!heroEl) target = 1;
     else if (dockEl && !reduced) {
       const land = dock.top + window.scrollY + dock.height / 2 - vh * 0.55;
-      const start = vh * 0.02;
+      const start = hero.top + window.scrollY + hero.height / 2 - vh * 0.35;
       target = inOut(clamp01((window.scrollY - start) / Math.max(1, land - start)));
     }
     flight = flight < 0 ? target : lerp(flight, target, follow(9, dt));
@@ -626,12 +633,12 @@ export function mountCassette(canvasEl: HTMLCanvasElement): (() => void) | null 
     rig.scale.setScalar(s);
     rig.position.set((cx - vw / 2) * upp, -(cy - vh / 2) * upp, -FRONT * s - 70 * (1 - intro));
 
-    const heroX = 0.3 + Math.sin(t * 0.8) * 0.04 * live + pointer.y * 0.22;
-    const heroY = -0.4 + Math.sin(t * 0.55) * 0.12 * live + pointer.x * 0.38;
+    const heroX = 0.05 + Math.sin(t * 0.8) * 0.015 * live + pointer.y * 0.1;
+    const heroY = Math.sin(t * 0.55) * 0.05 * live + pointer.x * 0.18;
     rig.rotation.set(
       lerp(heroX, 0, e) + Math.sin(e * Math.PI) * 0.35 - (1 - intro) * 0.6 - lift * 0.35,
       lerp(heroY, 0, e) + spin.angle * free - (1 - intro) * Math.PI * 2 + inOut(swapT) * Math.PI * 2,
-      lerp(0.09, 0, e) - Math.sin(e * Math.PI) * 0.3 * side,
+      -Math.sin(e * Math.PI) * 0.3 * side,
     );
 
     // Reels: packs trade size; hubs turn at constant tape speed.

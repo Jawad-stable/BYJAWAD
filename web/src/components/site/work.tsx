@@ -58,9 +58,6 @@ export function Sleeve({ item, index, className }: { item: Item; index: number; 
       onPointerLeave={untilt}
     >
       <span className={cn("sleeve-bed", motionItem && "is-film")}>
-        <span className="tag" data-side={motionItem ? "m" : "b"}>
-          {copy.projects.filters[cat]}
-        </span>
         {cover && <img src={cover} alt="" loading="lazy" decoding="async" />}
         <span className="sleeve-open" aria-hidden>
           {copy.work.open}

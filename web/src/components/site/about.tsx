@@ -1,66 +1,45 @@
 "use client";
 
-import NumberFlow from "@number-flow/react";
-import { motion, useInView, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
-import { EASE, Reveal, ScrollWords, SectionHead } from "@/components/site/motion";
-import { selectContent, useContent } from "@/lib/content";
+import { Card, Check } from "@/components/site/home-sections";
+import { MaskText, Reveal } from "@/components/site/motion";
 import { useI18n } from "@/lib/i18n";
 
-/* The short brief: the portrait, a paragraph that lights up as it scrolls,
-   three facts and three counts. */
+/* About, as the original site's bento: the brief and the YAML credential
+   in a large card, the skills beside it. */
 export function About() {
   const { copy } = useI18n();
-  const { voices, design, videos } = selectContent(useContent());
-  const section = useRef<HTMLElement>(null);
-  const stats = useRef<HTMLDListElement>(null);
-  const counted = useInView(stats, { once: true, margin: "0px 0px -15% 0px" });
-  const { scrollYProgress } = useScroll({ target: section, offset: ["start end", "end start"] });
-  const lift = useTransform(scrollYProgress, [0, 1], ["10%", "-6%"]);
-
-  const numbers = [
-    { n: voices.length, label: copy.about.stats.reads },
-    { n: design.length, label: copy.about.stats.projects },
-    { n: videos.length, label: copy.about.stats.films },
-  ];
+  const a = copy.about;
 
   return (
-    <section id="about" ref={section} className="section about">
-      {/* Heading, portrait, then the rest: on phones the heading leads; on wide
-          screens the portrait takes the first column beside both. */}
-      <div className="wrap about-grid">
-        <SectionHead className="about-head" eyebrow={copy.about.label} title={copy.about.title} />
-        <Reveal className="about-figure" y={40}>
-          <motion.img src="/media/portrait.webp" alt={copy.hero.portrait} width={842} height={1264} loading="lazy" style={{ y: lift }} />
-        </Reveal>
+    <section id="about" className="section about">
+      <div className="wrap bento about-bento">
+        <Card className="about-main">
+          <Reveal y={12}>
+            <p className="eyebrow">{a.label}</p>
+          </Reveal>
+          <h2 className="about-title">
+            <MaskText text={a.title} stagger={0.05} />
+          </h2>
+          <div className="about-copy">
+            <p className="card-text">{a.p1}</p>
+            <p className="about-yaml">
+              <span className="card-kicker">{a.yaml.k}</span>
+              <bdi>{a.yaml.v}</bdi>
+            </p>
+          </div>
+        </Card>
 
-        <div className="about-body">
-          <ScrollWords text={copy.about.brief} className="about-brief" />
-          <dl className="about-facts">
-            {copy.about.facts.map((f, i) => (
-              <motion.div
-                key={f.k}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: EASE, delay: i * 0.08 }}
-              >
-                <dt>{f.k}</dt>
-                <dd>{f.v}</dd>
-              </motion.div>
+        <Card className="about-skills" i={1}>
+          <p className="card-kicker">{a.skillsTitle}</p>
+          <ul className="checks">
+            {a.skills.map(s => (
+              <li key={s}>
+                <Check />
+                {s}
+              </li>
             ))}
-          </dl>
-          <dl ref={stats} className="about-stats">
-            {numbers.map(s => (
-              <div key={s.label}>
-                <dt>{s.label}</dt>
-                <dd>
-                  <NumberFlow value={counted ? s.n : 0} format={{ minimumIntegerDigits: 2 }} />
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+          </ul>
+        </Card>
       </div>
     </section>
   );

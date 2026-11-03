@@ -2,7 +2,7 @@ import { About } from "@/components/site/about";
 import { Cassette3D } from "@/components/site/cassette-3d";
 import { Contact } from "@/components/site/contact";
 import { Hero } from "@/components/site/hero";
-import { VoiceSection } from "@/components/site/home-sections";
+import { Channels, VoiceSection } from "@/components/site/home-sections";
 import { Films, WorkGallery } from "@/components/site/work";
 
 export default function Home() {
@@ -13,6 +13,7 @@ export default function Home() {
       <About />
       <WorkGallery />
       <Films />
+      <Channels />
       <Contact />
       <Cassette3D />
     </main>
