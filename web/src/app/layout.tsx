@@ -20,7 +20,9 @@ const arad = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://byjawad.pages.dev"),
+  // Where this build is served, so share cards resolve. Staging until the
+  // redesign ships; switch to the main domain at launch.
+  metadataBase: new URL("https://new.byjawad.com"),
   title: { default: "Jawad Khamaysa · Voice & Design", template: "%s · Jawad Khamaysa" },
   description: "Arabic voice over, brand identity and video by Jawad Khamaysa, from Palestine.",
   icons: { icon: "/media/logo-gold.png", apple: "/media/logo-gold.png" },
